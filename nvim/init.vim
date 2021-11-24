@@ -58,9 +58,7 @@ set inccommand=split
 nnoremap <Esc><Esc> :nohlsearch<CR>
 
 " indent
-set tabstop=4
-set shiftwidth=4
-set softtabstop=0
+set tabstop=8
 
 set autoindent
 set smartindent
