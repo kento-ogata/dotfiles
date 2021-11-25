@@ -19,3 +19,6 @@ hook_add = ''' source ~\AppData\Local\nvim\plugin\treesitter.lua '''
 
 [[plugins]]
 repo = 'chriskempson/vim-tomorrow-theme'
+
+[[plugins]]
+repo = 'cocopon/iceberg.vim'

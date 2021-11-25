@@ -103,11 +103,11 @@ command! -nargs=* T split | wincmd j | terminal <args>
 
 set number
 
-nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-n> :NERDTreeToggle<CR>
 
 au ColorScheme * hi Normal ctermbg=none
 au ColorScheme * hi MatchParen cterm=bold ctermfg=214 ctermbg=black
 au ColorScheme * hi SpellBad ctermfg=23 cterm=none ctermbg=none
 
 set background=dark
-colorscheme Tomorrow-Night
+colorscheme iceberg
