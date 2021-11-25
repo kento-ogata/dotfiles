@@ -12,3 +12,10 @@ repo = 'cohama/lexima.vim'
 
 [[plugins]]
 repo = 'vim-airline/vim-airline'
+
+[[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter'
+hook_add = ''' source ~\AppData\Local\nvim\plugin\treesitter.lua '''
+
+[[plugins]]
+repo = 'chriskempson/vim-tomorrow-theme'
