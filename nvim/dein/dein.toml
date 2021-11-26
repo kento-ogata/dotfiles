@@ -25,3 +25,4 @@ repo = 'cocopon/iceberg.vim'
 
 [[plugins]]
 repo = 'dense-analysis/ale'
+hook_add = ''' source ~\AppData\Local\nvim\plugin\ale.vim '''
