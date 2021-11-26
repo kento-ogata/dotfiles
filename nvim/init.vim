@@ -1,12 +1,11 @@
 " dein setup
 if has('win64')
 	let s:cache_home = expand('~\AppData\Local\nvim-data')
-	let s:config_home = expand('~\AppData\Local\')
 else
 	let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
-	let s:config_home = empty($XDG_CONFIG_HOME) ? expand('~/.config/') : $XDG_CONFIG_HOME
 endif
-let s:config_dir = s:config_home . '/nvim'
+
+let g:config_dir = expand('<sfile>:p:h')
 
 let s:dein_dir = s:cache_home . '/dein'
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
@@ -26,7 +25,7 @@ endif
 if dein#load_state(s:dein_dir)
 	call dein#begin(s:dein_dir)
 
-	let g:rc_dir	= s:config_dir . '/dein'
+	let g:rc_dir	= g:config_dir . '/dein'
 	let s:toml	= g:rc_dir . '/dein.toml'
 	let s:lazy_toml	= g:rc_dir . '/dein_lazy.toml'
 

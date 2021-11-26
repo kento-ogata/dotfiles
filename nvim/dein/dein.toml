@@ -15,7 +15,7 @@ repo = 'vim-airline/vim-airline'
 
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
-hook_add = ''' source ~\AppData\Local\nvim\plugin\treesitter.lua '''
+hook_add = ''' execute 'source ' . g:config_dir . '/plugin/treesitter.lua' '''
 
 [[plugins]]
 repo = 'chriskempson/vim-tomorrow-theme'
@@ -25,4 +25,4 @@ repo = 'cocopon/iceberg.vim'
 
 [[plugins]]
 repo = 'dense-analysis/ale'
-hook_add = ''' source ~\AppData\Local\nvim\plugin\ale.vim '''
+hook_add = ''' execute 'source ' . g:config_dir . '/plugin/ale.vim' '''
