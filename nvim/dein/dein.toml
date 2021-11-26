@@ -22,3 +22,6 @@ repo = 'chriskempson/vim-tomorrow-theme'
 
 [[plugins]]
 repo = 'cocopon/iceberg.vim'
+
+[[plugins]]
+repo = 'dense-analysis/ale'
