@@ -43,10 +43,6 @@ if dein#check_install()
 	call dein#install()
 endif
 
-let mapleader="\<Space>"
-
-nnoremap <C-d> :q<CR>
-
 " search settings
 set ignorecase
 set smartcase
@@ -66,30 +62,11 @@ set smartindent
 set smarttab
 set shiftround
 
-" around clipboard
-vmap <Leader>y "+y
-nmap <Leader>p "+p
-nmap <Leader>P "+P
-vmap <Leader>p "+p
-vmap <Leader>P "+P
-
-" move windows
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
-nnoremap j gj
-nnoremap k gk
-nnoremap j gj
-nnoremap k gk
+execute 'source ' . g:config_dir . '/key-map.vim'
 
 " help split change
 cnoremap help vertical botright help
 cabbrev h vert bo h
-
-" escape from terminal insert mode
-tnoremap <silent><Esc> <C-\><C-n>
 
 set hidden
 
