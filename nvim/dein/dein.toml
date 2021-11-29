@@ -26,3 +26,10 @@ repo = 'cocopon/iceberg.vim'
 [[plugins]]
 repo = 'dense-analysis/ale'
 hook_add = ''' execute 'source ' . g:config_dir . '/plugin/ale.vim' '''
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'rhysd/committia.vim'
+hook_add = ''' execute 'source ' . g:config_dir . '/plugin/committia.vim' '''
