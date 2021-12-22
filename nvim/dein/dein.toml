@@ -33,3 +33,6 @@ repo = 'tpope/vim-fugitive'
 [[plugins]]
 repo = 'rhysd/committia.vim'
 hook_add = ''' execute 'source ' . g:config_dir . '/plugin/committia.vim' '''
+
+[[plugins]]
+repo = 'twitvim/twitvim'
