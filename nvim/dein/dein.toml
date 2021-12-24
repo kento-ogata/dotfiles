@@ -21,10 +21,6 @@ repo = 'chriskempson/vim-tomorrow-theme'
 repo = 'cocopon/iceberg.vim'
 
 [[plugins]]
-repo = 'dense-analysis/ale'
-hook_add = ''' execute 'source ' . g:config_dir . '/plugin/ale.vim' '''
-
-[[plugins]]
 repo = 'tpope/vim-fugitive'
 
 [[plugins]]
@@ -33,3 +29,6 @@ hook_add = ''' execute 'source ' . g:config_dir . '/plugin/committia.vim' '''
 
 [[plugins]]
 repo = 'twitvim/twitvim'
+
+[[plugins]]
+repo = 'neoclide/coc.nvim'
