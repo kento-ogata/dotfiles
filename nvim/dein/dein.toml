@@ -32,3 +32,6 @@ repo = 'twitvim/twitvim'
 
 [[plugins]]
 repo = 'neoclide/coc.nvim'
+
+[[plugins]]
+repo = 'ggandor/lightspeed.nvim'
