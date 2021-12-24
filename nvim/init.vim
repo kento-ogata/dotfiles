@@ -65,7 +65,7 @@ set shiftround
 execute 'source ' . g:config_dir . '/key-map.vim'
 
 " help split change
-cnoremap help vertical botright help
+cabbrev help vertical botright help
 cabbrev h vert bo h
 
 set hidden
