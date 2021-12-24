@@ -79,11 +79,15 @@ command! -nargs=* T split | wincmd j | terminal <args>
 
 set number
 
-nnoremap <C-n> :NERDTreeToggle<CR>
-
 au ColorScheme * hi Normal ctermbg=none
 au ColorScheme * hi MatchParen cterm=bold ctermfg=214 ctermbg=black
 au ColorScheme * hi SpellBad ctermfg=23 cterm=none ctermbg=none
 
 set background=dark
 colorscheme iceberg
+
+let g:netrw_liststyle=1
+let g:netrw_banner=0
+let g:netrw_sizestyle="H"
+let g:netrw_timefmt="%Y/%m/%d(%a) %H:%M:%S"
+let g:netrw_preview=1
