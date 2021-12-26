@@ -35,3 +35,6 @@ repo = 'neoclide/coc.nvim'
 
 [[plugins]]
 repo = 'ggandor/lightspeed.nvim'
+
+[[plugins]]
+repo = 'vim-jp/vimdoc-ja'

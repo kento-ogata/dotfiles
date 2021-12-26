@@ -62,6 +62,8 @@ set smartindent
 set smarttab
 set shiftround
 
+set helplang=ja,en
+
 execute 'source ' . g:config_dir . '/key-map.vim'
 
 " help split change
