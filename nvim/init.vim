@@ -86,10 +86,12 @@ au ColorScheme * hi MatchParen cterm=bold ctermfg=214 ctermbg=black
 au ColorScheme * hi SpellBad ctermfg=23 cterm=none ctermbg=none
 
 set background=dark
-colorscheme iceberg
+colorscheme hybrid
 
 let g:netrw_liststyle=1
 let g:netrw_banner=0
 let g:netrw_sizestyle="H"
 let g:netrw_timefmt="%Y/%m/%d(%a) %H:%M:%S"
 let g:netrw_preview=1
+
+autocmd FileType sql setlocal expandtab

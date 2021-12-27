@@ -38,3 +38,9 @@ repo = 'ggandor/lightspeed.nvim'
 
 [[plugins]]
 repo = 'vim-jp/vimdoc-ja'
+
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+
+[[plugins]]
+repo = 'w0ng/vim-hybrid'
