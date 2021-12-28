@@ -86,6 +86,8 @@ au ColorScheme * hi Normal ctermbg=none
 au ColorScheme * hi MatchParen cterm=bold ctermfg=214 ctermbg=black
 au ColorScheme * hi SpellBad ctermfg=23 cterm=none ctermbg=none
 
+set termguicolors
+
 set background=dark
 colorscheme hybrid
 
