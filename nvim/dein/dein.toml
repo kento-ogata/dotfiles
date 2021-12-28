@@ -8,9 +8,6 @@ repo = 'tpope/vim-surround'
 repo = 'cohama/lexima.vim'
 
 [[plugins]]
-repo = 'vim-airline/vim-airline'
-
-[[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
 hook_add = ''' execute 'source ' . g:config_dir . '/plugin/treesitter.lua' '''
 
@@ -18,8 +15,20 @@ hook_add = ''' execute 'source ' . g:config_dir . '/plugin/treesitter.lua' '''
 repo = 'chriskempson/vim-tomorrow-theme'
 
 [[plugins]]
+repo = 'w0ng/vim-hybrid'
+hook_add = '''
+	let g:hybrid_custom_term_colors = 1
+	let g:hybrid_reduced_contrast = 1
+'''
+
+[[plugins]]
 repo = 'cocopon/iceberg.vim'
-hook_add = '''AirlineTheme iceberg'''
+
+[[plugins]]
+repo = 'vim-airline/vim-airline'
+
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
@@ -42,13 +51,6 @@ repo = 'vim-jp/vimdoc-ja'
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
-
-[[plugins]]
-repo = 'w0ng/vim-hybrid'
-hook_add = '''
-	let g:hybrid_custom_term_colors = 1
-	let g:hybrid_reduced_contrast = 1
-'''
 
 [[plugins]]
 repo = 'nvim-lua/plenary.nvim'
