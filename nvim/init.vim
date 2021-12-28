@@ -80,6 +80,7 @@ endif
 command! -nargs=* T split | wincmd j | terminal <args>
 
 set number
+set cursorline
 
 au ColorScheme * hi Normal ctermbg=none
 au ColorScheme * hi MatchParen cterm=bold ctermfg=214 ctermbg=black
