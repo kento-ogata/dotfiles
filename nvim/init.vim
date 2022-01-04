@@ -56,6 +56,7 @@ nnoremap <Esc><Esc> :nohlsearch<CR>
 set tabstop=4
 set shiftwidth=4
 set softtabstop=0
+set expandtab
 
 set autoindent
 set smartindent
@@ -97,4 +98,3 @@ let g:netrw_sizestyle="H"
 let g:netrw_timefmt="%Y/%m/%d(%a) %H:%M:%S"
 let g:netrw_preview=1
 
-autocmd FileType sql setlocal expandtab
