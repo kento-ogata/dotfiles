@@ -45,6 +45,7 @@ repo = 'neoclide/coc.nvim'
 
 [[plugins]]
 repo = 'ggandor/lightspeed.nvim'
+hook_add = ''' execute 'source ' . g:config_dir . '/plugin/lightspeed.lua' '''
 
 [[plugins]]
 repo = 'vim-jp/vimdoc-ja'
