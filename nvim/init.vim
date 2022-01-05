@@ -1,8 +1,8 @@
 " dein setup
 if has('win64')
-	let s:cache_home = expand('~\AppData\Local\nvim-data')
+    let s:cache_home = expand('~\AppData\Local\nvim-data')
 else
-	let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
+    let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
 endif
 
 let g:config_dir = expand('<sfile>:p:h')
@@ -11,36 +11,36 @@ let s:dein_dir = s:cache_home . '/dein'
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
 if &compatible
-	set nocompatible
+    set nocompatible
 endif
 
 if &runtimepath !~# '/dein.vim'
-	if !isdirectory(s:dein_repo_dir)
-		execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
-	endif
+    if !isdirectory(s:dein_repo_dir)
+        execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+    endif
 
-	execute 'set runtimepath+=' . s:dein_repo_dir
+    execute 'set runtimepath+=' . s:dein_repo_dir
 endif
 
 if dein#load_state(s:dein_dir)
-	call dein#begin(s:dein_dir)
+    call dein#begin(s:dein_dir)
 
-	let g:rc_dir	= g:config_dir . '/dein'
-	let s:toml	= g:rc_dir . '/dein.toml'
-	let s:lazy_toml	= g:rc_dir . '/dein_lazy.toml'
+    let g:rc_dir    = g:config_dir . '/dein'
+    let s:toml      = g:rc_dir . '/dein.toml'
+    let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
 
-	call dein#load_toml(s:toml,	{'lazy': 0})
-	call dein#load_toml(s:lazy_toml, {'lazy': 1})
+    call dein#load_toml(s:toml,         {'lazy': 0})
+    call dein#load_toml(s:lazy_toml,    {'lazy': 1})
 
-	call dein#end()
-	call dein#save_state()
+    call dein#end()
+    call dein#save_state()
 endif
 
 filetype plugin indent on
 syntax enable
 
 if dein#check_install()
-	call dein#install()
+    call dein#install()
 endif
 
 " search settings
@@ -74,7 +74,7 @@ cabbrev h vert bo h
 set hidden
 
 if has('win64')
-	set shell=pwsh
+    set shell=pwsh
 endif
 
 " :T to open terminal in new split
