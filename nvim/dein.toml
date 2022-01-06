@@ -41,9 +41,6 @@ hook_add = ''' execute 'source ' . g:config_dir . '/plugin/committia.vim' '''
 repo = 'twitvim/twitvim'
 
 [[plugins]]
-repo = 'neoclide/coc.nvim'
-
-[[plugins]]
 repo = 'ggandor/lightspeed.nvim'
 hook_add = ''' execute 'source ' . g:config_dir . '/plugin/lightspeed.lua' '''
 
@@ -66,3 +63,30 @@ repo = 'lambdalisue/fern.vim'
 [[plugins]]
 repo = 'hrsh7th/vim-searchx'
 hook_add = ''' execute 'source ' . g:config_dir . '/plugin/searchx.vim' '''
+
+[[plugins]]
+repo = 'Shougo/ddc.vim'
+hook_add = ''' execute 'source ' . g:config_dir . '/plugin/ddc.vim' '''
+
+[[plugins]]
+repo = 'vim-denops/denops.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-around'
+
+[[plugins]]
+repo = 'Shougo/ddc-matcher_head'
+
+[[plugins]]
+repo = 'Shougo/ddc-sorter_rank'
+
+[[plugins]]
+repo = 'Shougo/pum.vim'
+hook_add = ''' execute 'source ' . g:config_dir . '/plugin/pum.vim' '''
+
+[[plugins]]
+repo = 'Shougo/ddc-cmdline'
+
+[[plugins]]
+repo = 'Shougo/ddc-cmdline-history'
+
