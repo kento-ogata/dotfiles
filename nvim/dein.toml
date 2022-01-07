@@ -58,9 +58,6 @@ repo = 'nvim-telescope/telescope.nvim'
 hook_add = ''' execute 'source ' . g:config_dir . '/plugin/telescope.vim' '''
 
 [[plugins]]
-repo = 'lambdalisue/fern.vim'
-
-[[plugins]]
 repo = 'hrsh7th/vim-searchx'
 hook_add = ''' execute 'source ' . g:config_dir . '/plugin/searchx.vim' '''
 
