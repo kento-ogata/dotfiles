@@ -4,6 +4,7 @@ call ddc#custom#patch_global('sources', ['around'])
 
 call ddc#custom#patch_global('sourceOptions', {
             \ '_' : {
+                \ 'ignoreCase': ['v:true'],
                 \ 'matchers': ['matcher_head'],
                 \ 'sorters': ['sorter_rank']},
                 \ })
