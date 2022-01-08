@@ -7,13 +7,13 @@ repo = 'tpope/vim-surround'
 [[plugins]]
 repo = 'cohama/lexima.vim'
 hook_add = '''
-    inoremap <silent><C-l> <C-r>=lexima#insmode#leave(1, '<LT>C-G>U<LT>RIGHT>')<CR>
+inoremap <silent><C-l> <C-r>=lexima#insmode#leave(1, '<LT>C-G>U<LT>RIGHT>')<CR>
 '''
 
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
 hook_add = ''' 
-    lua << EOF
+lua << EOF
 require 'nvim-treesitter.configs'.setup {
     ensure_installed = { 'vim','toml','c','cpp','c_sharp' },
     incremental_selection = { enable = true },
@@ -28,8 +28,8 @@ repo = 'chriskempson/vim-tomorrow-theme'
 [[plugins]]
 repo = 'w0ng/vim-hybrid'
 hook_add = '''
-	let g:hybrid_custom_term_colors = 1
-	let g:hybrid_reduced_contrast = 1
+let g:hybrid_custom_term_colors = 1
+let g:hybrid_reduced_contrast = 1
 '''
 
 [[plugins]]
@@ -47,26 +47,26 @@ repo = 'tpope/vim-fugitive'
 [[plugins]]
 repo = 'rhysd/committia.vim'
 hook_add = ''' 
-    augroup GitSpellCheck
-        autocmd!
-        autocmd FileType gitcommit setlocal spell
-    augroup END
+augroup GitSpellCheck
+    autocmd!
+    autocmd FileType gitcommit setlocal spell
+augroup END
 
-    let g:committia_hooks = {}
-    function! g:committia_hooks.edit_open(info)
-        setlocal spell
-        setlocal spelllang+=cjk
+let g:committia_hooks = {}
+function! g:committia_hooks.edit_open(info)
+    setlocal spell
+    setlocal spelllang+=cjk
 
-        imap <buffer><C-n> <Plug>(committia-scroll-diff-down-half)
-        imap <buffer><C-p> <Plug>(committia-scroll-diff-up-half)
-    endfunction
+    imap <buffer><C-n> <Plug>(committia-scroll-diff-down-half)
+    imap <buffer><C-p> <Plug>(committia-scroll-diff-up-half)
+endfunction
 
-    let g:committia_open_only_vim_starting = 1
-    let g:committia_use_singlecolumn = 'fallback'
-    let g:committia_min_window_size = 160
-    let g:committia_status_window_opencmd = 'belowright split'
-    let g:committia_diff_window_opencmd = 'botright vsplit'
-    let g:committia_singlecolumn_diff_window_opencmd = 'belowright split'
+let g:committia_open_only_vim_starting = 1
+let g:committia_use_singlecolumn = 'fallback'
+let g:committia_min_window_size = 160
+let g:committia_status_window_opencmd = 'belowright split'
+let g:committia_diff_window_opencmd = 'botright vsplit'
+let g:committia_singlecolumn_diff_window_opencmd = 'belowright split'
 '''
 
 [[plugins]]
@@ -94,42 +94,42 @@ repo = 'nvim-lua/plenary.nvim'
 [[plugins]]
 repo = 'nvim-telescope/telescope.nvim'
 hook_add = ''' 
-    nnoremap <Leader>ff <cmd>Telescope find_files<cr>
-    nnoremap <Leader>fg <cmd>Telescope live_grep<cr>
-    nnoremap <Leader>fb <cmd>Telescope buffers<cr>
-    nnoremap <Leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <Leader>ff <cmd>Telescope find_files<cr>
+nnoremap <Leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <Leader>fb <cmd>Telescope buffers<cr>
+nnoremap <Leader>fh <cmd>Telescope help_tags<cr>
 '''
 
 [[plugins]]
 repo = 'hrsh7th/vim-searchx'
 hook_add = '''
-    nnoremap ? <Cmd>call searchx#start({ 'dir': 0 })<CR>
-    nnoremap / <Cmd>call searchx#start({ 'dir': 1 })<CR>
-    xnoremap ? <Cmd>call searchx#start({ 'dir': 0 })<CR>
-    xnoremap / <Cmd>call searchx#start({ 'dir': 1 })<CR>
-    cnoremap ; <Cmd>call searchx#select()<CR>
+nnoremap ? <Cmd>call searchx#start({ 'dir': 0 })<CR>
+nnoremap / <Cmd>call searchx#start({ 'dir': 1 })<CR>
+xnoremap ? <Cmd>call searchx#start({ 'dir': 0 })<CR>
+xnoremap / <Cmd>call searchx#start({ 'dir': 1 })<CR>
+cnoremap ; <Cmd>call searchx#select()<CR>
 
-    nnoremap N <Cmd>call searchx#prev_dir()<CR>
-    nnoremap n <Cmd>call searchx#next_dir()<CR>
-    xnoremap N <Cmd>call searchx#prev_dir()<CR>
-    xnoremap n <Cmd>call searchx#next_dir()<CR>
+nnoremap N <Cmd>call searchx#prev_dir()<CR>
+nnoremap n <Cmd>call searchx#next_dir()<CR>
+xnoremap N <Cmd>call searchx#prev_dir()<CR>
+xnoremap n <Cmd>call searchx#next_dir()<CR>
 
-    let g:searchx = {}
+let g:searchx = {}
 
-    let g:searchx.auto_accept = v:true
+let g:searchx.auto_accept = v:true
 
-    let g:searchx.scrolloff = &scrolloff
+let g:searchx.scrolloff = &scrolloff
 
-    let g:searchx.scrolltime = 500
+let g:searchx.scrolltime = 500
 
-    let g:searchx.markers = split('ABCDEFGHIJKLMNOPQRSTUVWXYZ', '.\zs')
+let g:searchx.markers = split('ABCDEFGHIJKLMNOPQRSTUVWXYZ', '.\zs')
 
-    function g:searchx.convert(input) abort
-        if a:input !~# '\k'
-            return '\V' .. a:input
-        endif
-        return join(split(a:input, ' '), '.\{-}')
-    endfunction
+function g:searchx.convert(input) abort
+    if a:input !~# '\k'
+        return '\V' .. a:input
+    endif
+    return join(split(a:input, ' '), '.\{-}')
+endfunction
 '''
 
 
@@ -139,8 +139,8 @@ repo = 'vim-denops/denops.vim'
 [[plugins]]
 repo = 'Shougo/pum.vim'
 hook_add = '''
-    inoremap <expr> <Tab>   pum#visible() ? pum#map#confirm() : "\<Tab>"
-    inoremap <C-n>          <Cmd>call pum#map#select_relative(+1)<CR>
-    inoremap <C-p>          <Cmd>call pum#map#select_relative(-1)<CR>
+inoremap <expr> <Tab>   pum#visible() ? pum#map#confirm() : "\<Tab>"
+inoremap <C-n>          <Cmd>call pum#map#select_relative(+1)<CR>
+inoremap <C-p>          <Cmd>call pum#map#select_relative(-1)<CR>
 '''
 
