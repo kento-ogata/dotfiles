@@ -21,3 +21,6 @@ nnoremap k gk
 
 " escape from terminal insert mode
 tnoremap <silent><Esc> <C-\><C-n>
+
+nnoremap <silent><Tab> :tabnext<CR>
+nnoremap <silent><S-Tab> :tabprevious<CR>
