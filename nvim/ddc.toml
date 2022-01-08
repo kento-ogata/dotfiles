@@ -39,33 +39,8 @@ call ddc#custom#patch_global('autoCompleteEvents', [
             \ 'CmdlineEnter', 'CmdlineChanged',
             \ ])
 
-nnoremap : <Cmd>call CommandlinePre()<CR>:
-
-function! CommandlinePre() abort
-    cnoremap <silent><C-n>          <Cmd>call pum#map#select_relative(+1)<CR>
-    cnoremap <silent><C-p>          <Cmd>call pum#map#select_relative(-1)<CR>
-    cnoremap <silent><expr><Tab>    ddc#map#pum_visible() ? pum#map#confirm() : ddc#map#manual_complete()
-
-    " Overwrite sources
-    let s:prev_buffer_config = ddc#custom#get_buffer()
-    call ddc#custom#patch_buffer('sources',
-                \ ['cmdline', 'cmdline-history', 'around'])
-
-    autocmd User DDCCmdlineLeave ++once call CommandlinePost()
-
-    " Enable command line completion
-    call ddc#enable_cmdline_completion()
-    call ddc#enable()
-endfunction
-
-function! CommandlinePost() abort
-    " Restore sources
-    call ddc#custom#set_buffer(s:prev_buffer_config)
-endfunction
-
 call ddc#enable()
 '''
-
 
 [[plugins]]
 repo = 'Shougo/ddc-around'
