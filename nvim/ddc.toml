@@ -1,58 +1,191 @@
 [[plugins]]
 repo = 'Shougo/ddc.vim'
-hook_add = ''' 
-call ddc#custom#patch_global('completionMenu', 'pum.vim')
+depends = ['denops.vim', 'pum.vim']
+on_event = 'InsertEnter'
+hook_source = '''
+inoremap <silent><expr> <C-l> ddc#complete_common_string()
 
-call ddc#custom#patch_global('sources', ['around'])
+call ddc#custom#patch_global(
+    \ 'sources', has('nvim') ?
+    \ ['around', 'file', 'rg'] :
+    \ ['around', 'file'],
+    \ )
 
 call ddc#custom#patch_global('sourceOptions', {
-            \ '_' : {
-                \ 'ignoreCase': ['v:true'],
-                \ 'matchers': ['matcher_head'],
-                \ 'sorters': ['sorter_rank']},
-                \ })
+    \ '_' : {
+    \   'ignoreCase': 'v:true',
+    \   'matchers': ['matcher_head'],
+    \   'sorters': ['sorter_rank'],
+    \   'converters': ['converter_remove_overlap'],
+    \ },
+    \ 'around': {
+    \   'mark': 'A',
+    \   'matchers': ['matcher_head', 'matcher_length'],
+    \ },
+    \ 'nextword': {
+    \   'mark': 'nextword',
+    \   'minAutoCompleteLength': 3,
+    \   'isVolatile': v:true,
+    \ },
+    \ 'cmdline': {
+    \   'mark': 'cmdline',
+    \   'forceCompletionPattern': '\S/\S*',
+    \ },
+    \ 'cmdline-history': {'mark': 'history'},
+    \ 'nvim-lsp': {
+    \   'mark': 'lsp',
+    \   'forceCompletionPattern': '\.\w*|:\w*|->\w*'
+    \ },
+    \ 'file': {
+    \   'mark': 'F',
+    \   'isVolatile': v:true,
+    \   'minAutoCompleteLength': 1000,
+    \   'forceCompletionPattern': '\S/\S*'
+    \ },
+    \ 'rg': {
+    \   'mark': 'rg',
+    \   'matchers': ['matcher_head', 'matcher_length'],
+    \   'minAutoCompleteLength': 4,
+    \ },
+    \ })
 
 call ddc#custom#patch_global('sourceOptions', {
-            \ 'around': {'mark': 'A'},
-            \ })
-call ddc#custom#patch_global('sourceParams', {
-            \ 'around': {'maxSize': 500},
-            \ })
+    \ 'file': {
+    \   'mark': 'F',
+    \   'isVolatile': v:true,
+    \   'forceCompletionPattern': '\S/\S*',
+    \ }})
+call ddc#custom#patch_filetype(
+    \ ['ps1', 'dosbatch', 'autohotkey', 'registry'], {
+    \ 'sourceOptions': {
+    \   'file': {
+    \     'forceCompletionPattern': '\S\\\S*',
+    \   },
+    \ },
+    \ 'sourceParams': {
+    \   'file': {
+    \     'mode': 'win32',
+    \   },
+    \ },
+    \ })
 
-call ddc#custom#patch_filetype(['c', 'cpp'], 'sources', ['around', 'clangd'])
-call ddc#custom#patch_filetype(['c', 'cpp'], 'sourceOptions', {
-            \ 'clangd': {'mark': 'C'},
-            \ })
-call ddc#custom#patch_filetype('markdown', 'sourceParams', {
-            \ 'around': {'maxSize': 100},
-            \ })
-
-inoremap <silent><expr> <TAB>
-            \ ddc#map#pum_visible() ? '<C-n>' :
-            \ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ?
-            \ '<TAB>' : ddc#map#manual_complete()
-
-inoremap <expr><S-TAB> ddc#map#pum_visible() ? '<C-p>' : '<C-h>'
-
+" Use pum.vim
 call ddc#custom#patch_global('autoCompleteEvents', [
             \ 'InsertEnter', 'TextChangedI', 'TextChangedP',
             \ 'CmdlineEnter', 'CmdlineChanged',
             \ ])
+call ddc#custom#patch_global('completionMenu', 'pum.vim')
+
+inoremap <silent><expr> <Tab>
+    \ pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' :
+    \ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ?
+    \ '<Tab>' : ddc#manual_complete()
+inoremap <S-Tab>    <Cmd>call pum#map#insert_relative(-1)<CR>
+inoremap <C-n>      <Cmd>call pum#map#select_relative(+1)<CR>
+inoremap <C-p>      <Cmd>call pum#map#select_relative(-1)<CR>
+inoremap <C-y>      <Cmd>call pum#map#confirm()<CR>
+inoremap <C-e>      <Cmd>call pum#map#cancel()<CR>
+inoremap <silent><expr> <C-l>   ddc#map#extend()
 
 call ddc#enable()
 '''
+hook_add = '''
+nnoremap :  <Cmd>call CommandlinePre(':')<CR>:
+nnoremap ?  <Cmd>call CommandlinePre('?')<CR>?
+
+function! CommandlinePre(mode) abort
+    call dein#source('ddc.vim')
+
+    " Note: It disables default command line completion!
+    cnoremap <expr><silent><Tab>
+    \ pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' :
+    \ ddc#manual_complete()
+    cnoremap <silent><S-Tab> <Cmd>call pum#map#insert_relative(-1)<CR>
+    set wildchar=<C-t>
+
+    "Overwrite sourcves
+    let s:prev_buffer_config = ddc#custom#get_buffer()
+    if a:mode ==# ':'
+        call ddc#custom#patch_buffer('sources',
+            \ ['cmdline', 'cmdline-history', 'around'])
+        call ddc#custom#patch_buffer('keywordPattern', '[0-9a-zA-Z_:#]*')
+    else
+        call ddc#custom#patch_buffer('sources',
+            \ ['around', 'line'])
+    endif
+
+    autocmd MyAutoCmd User DDCCmdlineLeave ++once call CommandLinePost()
+
+    " Enable command line completion
+    call ddc#enable_cmdline_completion()
+    call ddc#enable()
+endfunction
+
+function! CommandLinePost() abort
+    " Restore sources
+	call ddc#custom#set_buffer(s:prev_buffer_config)
+    silent! cunmap <Tab>
+    set wildchar=<Tab>
+endfunction
+'''
+
+[[plugins]]
+repo = 'Shougo/pum.vim'
 
 [[plugins]]
 repo = 'Shougo/ddc-around'
+on_source = 'ddc.vim'
 
 [[plugins]]
-repo = 'Shougo/ddc-matcher_head'
-
-[[plugins]]
-repo = 'Shougo/ddc-sorter_rank'
+repo = 'Shougo/ddc-nextword'
+on_source = 'ddc.vim'
 
 [[plugins]]
 repo = 'Shougo/ddc-cmdline'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-rg'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-line'
+on_source = 'ddc.vim'
 
 [[plugins]]
 repo = 'Shougo/ddc-cmdline-history'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'neovim/nvim-lspconfig'
+depends = 'impatiend.nvim'
+on_if = 'has("nvim")'
+depends = 'ddc.vim'
+hook_source = '''
+lua << EOF
+EOF
+'''
+
+[[plugins]]
+repo = 'Shougo/ddc-nvim-lsp'
+on_source = 'nvim-lspconfig'
+
+[[plugins]]
+repo = 'LumaKernel/ddc-file'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-matcher_head'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-matcher_length'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-sorter_rank'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-converter_remove_overlap'
+on_source = 'ddc.vim'
