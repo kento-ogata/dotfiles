@@ -1,7 +1,9 @@
 [[plugins]]
+repo = 'vim-denops/denops.vim'
+
+[[plugins]]
 repo = 'rhysd/committia.vim'
 on_event = 'BufReadPost'
-on_ft = 'gitcommit'
 hook_add = '''
 augroup GitSpellCheck
     autocmd!
@@ -26,9 +28,35 @@ let g:committia_singlecolumn_diff_window_opencmd = 'belowright split'
 '''
 
 [[plugins]]
-repo = 'cespare/vim-toml'
-on_ft = 'toml'
-
-[[plugins]]
 repo = 'vim-jp/syntax-vim-ex'
 on_ft = 'vim'
+
+[[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter'
+if = 'has("nvim")'
+on_event = 'BufRead'
+hook_post_update = 'TSUpdate'
+hook_source = '''
+lua << EOF
+require'nvim-treesitter.configs'.setup {
+    ensure_installed = 'all',
+    highlight = { enable = true },
+}
+EOF
+'''
+
+[[plugins]]
+repo = 'nvim-lua/plenary.nvim'
+on_if = 'has("nvim")'
+
+[[plugins]]
+repo = 'nvim-telescope/telescope.nvim'
+if = 'has("nvim")'
+depends = 'plenary.nvim'
+on_source = 'plenary.nvim'
+hook_source = '''
+nnoremap <Leader>ff <Cmd>lua require('telescope.builtin').find_files()<CR>
+nnoremap <Leader>fg <Cmd>lua require('telescope.builtin').live_grep()<CR>
+nnoremap <Leader>fb <Cmd>lua require('telescope.builtin').buffers()<CR>
+nnoremap <Leader>fh <Cmd>lua require('telescope.builtin').help_tags()<CR>
+'''

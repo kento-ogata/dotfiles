@@ -6,27 +6,20 @@ repo = 'tpope/vim-surround'
 
 [[plugins]]
 repo = 'cohama/lexima.vim'
-hook_add = '''
-inoremap <silent><C-l> <C-r>=lexima#insmode#leave(1, '<LT>C-G>U<LT>RIGHT>')<CR>
-'''
-
-[[plugins]]
-repo = 'nvim-treesitter/nvim-treesitter'
-hook_add = ''' 
-lua << EOF
-require 'nvim-treesitter.configs'.setup {
-    ensure_installed = { 'vim','toml','c','cpp','c_sharp' },
-    incremental_selection = { enable = true },
-    highlight = { enable = true }
-}
-EOF
-'''
+#hook_add = '''
+#inoremap <silent><C-l> <C-r>=lexima#insmode#leave(1, '<LT>C-G>U<LT>RIGHT>')<CR>
+#'''
 
 [[plugins]]
 repo = 'w0ng/vim-hybrid'
 hook_add = '''
 let g:hybrid_custom_term_colors = 1
 let g:hybrid_reduced_contrast = 1
+au ColorScheme * hi Normal ctermbg=none
+au ColorScheme * hi MatchParen cterm=bold ctermfg=214 ctermbg=black
+au ColorScheme * hi SpellBad ctermfg=23 cterm=none ctermbg=none
+set background=dark
+colorscheme hybrid
 '''
 
 [[plugins]]
@@ -42,16 +35,6 @@ repo = 'tpope/vim-fugitive'
 repo = 'twitvim/twitvim'
 
 [[plugins]]
-repo = 'ggandor/lightspeed.nvim'
-hook_add = ''' 
-lua << EOF
-require'lightspeed'.setup {
-    ignore_case = true,
-}
-EOF
-'''
-
-[[plugins]]
 repo = 'vim-jp/vimdoc-ja'
 merged = 0
 
@@ -60,18 +43,6 @@ repo = 'vim-jp/autofmt'
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
-
-[[plugins]]
-repo = 'nvim-lua/plenary.nvim'
-
-[[plugins]]
-repo = 'nvim-telescope/telescope.nvim'
-hook_add = ''' 
-nnoremap <Leader>ff <Cmd>lua require('telescope.builtin').find_files()<CR>
-nnoremap <Leader>fg <Cmd>lua require('telescope.builtin').live_grep()<CR>
-nnoremap <Leader>fb <Cmd>lua require('telescope.builtin').buffers()<CR>
-nnoremap <Leader>fh <Cmd>lua require('telescope.builtin').help_tags()<CR>
-'''
 
 [[plugins]]
 repo = 'hrsh7th/vim-searchx'
@@ -106,18 +77,18 @@ endfunction
 '''
 
 [[plugins]]
-repo = 'vim-denops/denops.vim'
-
-[[plugins]]
-repo = 'Shougo/pum.vim'
-hook_add = '''
-inoremap <expr> <Tab>   pum#visible() ? pum#map#confirm() : "\<Tab>"
-inoremap <C-n>          <Cmd>call pum#map#select_relative(+1)<CR>
-inoremap <C-p>          <Cmd>call pum#map#select_relative(-1)<CR>
-'''
-
-[[plugins]]
 repo = 'haya14busa/eew.vim'
+
+[[plugins]]
+repo = 'ggandor/lightspeed.nvim'
+if = 'has("nvim")'
+hook_source = '''
+lua << EOF
+require'lightspeed'.setup {
+    ignore_case = true,
+}
+EOF
+'''
 
 #[[plugins]]
 #repo = 'chriskempson/vim-tomorrow-theme'
