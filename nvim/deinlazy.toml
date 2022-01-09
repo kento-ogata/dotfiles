@@ -1,5 +1,6 @@
 [[plugins]]
 repo = 'rhysd/committia.vim'
+on_event = 'BufReadPost'
 on_ft = 'gitcommit'
 hook_add = '''
 augroup GitSpellCheck
