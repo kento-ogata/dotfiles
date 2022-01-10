@@ -6,9 +6,13 @@ repo = 'tpope/vim-surround'
 
 [[plugins]]
 repo = 'cohama/lexima.vim'
-#hook_add = '''
-#inoremap <silent><C-l> <C-r>=lexima#insmode#leave(1, '<LT>C-G>U<LT>RIGHT>')<CR>
-#'''
+hook_add = """
+call lexima#add_rule({'char': ']]', 'at': '\%#)', 'leave': 1})
+call lexima#add_rule({'char': ']]', 'at': '\%#"', 'leave': 1})
+call lexima#add_rule({'char': ']]', 'at': '\%#''', 'leave': 1})
+call lexima#add_rule({'char': ']]', 'at': '\%#]', 'leave': 1})
+call lexima#add_rule({'char': ']]', 'at': '\%#}', 'leave': 1})
+"""
 
 [[plugins]]
 repo = 'w0ng/vim-hybrid'
