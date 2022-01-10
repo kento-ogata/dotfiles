@@ -47,12 +47,6 @@ call ddc#custom#patch_global('sourceOptions', {
     \ },
     \ })
 
-call ddc#custom#patch_global('sourceOptions', {
-    \ 'file': {
-    \   'mark': 'F',
-    \   'isVolatile': v:true,
-    \   'forceCompletionPattern': '\S/\S*',
-    \ }})
 call ddc#custom#patch_filetype(
     \ ['ps1', 'dosbatch', 'autohotkey', 'registry'], {
     \ 'sourceOptions': {
