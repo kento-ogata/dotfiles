@@ -6,7 +6,7 @@ augroup MyAutoCmd
 	autocmd!
 augroup END
 
-execute 'source' . fnamemodify(expand('<sfile>'), ':h') . '/key-map.vim'
+execute 'source ' . fnamemodify(expand('<sfile>'), ':h') . '/key-map.vim'
 
 " dein setup
 if has('win64')
