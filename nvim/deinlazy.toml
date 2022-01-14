@@ -47,7 +47,8 @@ EOF
 
 [[plugins]]
 repo = 'nvim-lua/plenary.nvim'
-on_if = 'has("nvim")'
+if = 'has("nvim")'
+on_event = 'VimEnter'
 
 [[plugins]]
 repo = 'nvim-telescope/telescope.nvim'
