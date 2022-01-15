@@ -61,3 +61,15 @@ nnoremap <Leader>fg <Cmd>lua require('telescope.builtin').live_grep()<CR>
 nnoremap <Leader>fb <Cmd>lua require('telescope.builtin').buffers()<CR>
 nnoremap <Leader>fh <Cmd>lua require('telescope.builtin').help_tags()<CR>
 '''
+
+[[plugins]]
+repo = 'neovim/nvim-lspconfig'
+on_if = 'has("nvim")'
+
+[[plugins]]
+repo = 'williamboman/nvim-lsp-installer'
+depends = 'nvim-lspconfig'
+on_source = 'nvim-lspconfig'
+
+#[[plugins]]
+#repo = 'haya14busa/eew.vim'

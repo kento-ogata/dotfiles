@@ -73,9 +73,6 @@ endfunction
 '''
 
 [[plugins]]
-repo = 'haya14busa/eew.vim'
-
-[[plugins]]
 repo = 'ggandor/lightspeed.nvim'
 if = 'has("nvim")'
 hook_source = '''
