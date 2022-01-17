@@ -72,17 +72,6 @@ function g:searchx.convert(input) abort
 endfunction
 '''
 
-[[plugins]]
-repo = 'ggandor/lightspeed.nvim'
-if = 'has("nvim")'
-hook_source = '''
-lua << EOF
-require'lightspeed'.setup {
-    ignore_case = true,
-}
-EOF
-'''
-
 #[[plugins]]
 #repo = 'chriskempson/vim-tomorrow-theme'
 #
