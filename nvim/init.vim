@@ -28,12 +28,6 @@ if &runtimepath !~# '/dein.vim'
                 \ fnamemodify(s:dein_dir, ':p') , '[/\\]$', '', '')
 endif
 
-" -------------------------------------------------------------------------------
-"  dein configurations.
-
-" In Windows, auto_recache works too slow. So it is disabled.
-let g:dein#auto_recache = !has('win64')
-
 let g:dein#lazy_rplugins = v:true
 let g:dein#install_progress_type = 'title'
 let g:dein#install_check_diff = v:true
