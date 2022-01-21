@@ -15,24 +15,6 @@ call lexima#add_rule({'char': ']]', 'at': '\%#}', 'leave': 1})
 """
 
 [[plugins]]
-repo = 'w0ng/vim-hybrid'
-hook_add = '''
-let g:hybrid_custom_term_colors = 1
-let g:hybrid_reduced_contrast = 1
-au ColorScheme * hi Normal ctermbg=none
-au ColorScheme * hi MatchParen cterm=bold ctermfg=214 ctermbg=black
-au ColorScheme * hi SpellBad ctermfg=23 cterm=none ctermbg=none
-set background=dark
-colorscheme hybrid
-'''
-
-[[plugins]]
-repo = 'vim-airline/vim-airline'
-
-[[plugins]]
-repo = 'vim-airline/vim-airline-themes'
-
-[[plugins]]
 repo = 'tpope/vim-fugitive'
 
 [[plugins]]
