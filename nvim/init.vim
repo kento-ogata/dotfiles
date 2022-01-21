@@ -9,7 +9,7 @@ augroup END
 execute 'source ' . fnamemodify(expand('<sfile>'), ':h') . '/key-map.vim'
 
 " dein setup
-if has('win64')
+if has('nvim') && has('win64')
     let s:cache_home = expand('~\AppData\Local\nvim-data')
 else
     let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
@@ -63,7 +63,9 @@ set smartcase
 set wrapscan
 set incsearch
 set hlsearch
-set inccommand=split
+if has('nvim')
+    set inccommand=split
+endif
 nnoremap <Esc><Esc> :nohlsearch<CR>
 
 " indent
