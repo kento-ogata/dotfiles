@@ -84,6 +84,7 @@ cabbrev help vertical botright help
 cabbrev h vert bo h
 
 set hidden
+set noswapfile
 
 if has('win64')
     set shell=pwsh
