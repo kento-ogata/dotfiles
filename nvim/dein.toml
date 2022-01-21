@@ -41,6 +41,9 @@ repo = 'twitvim/twitvim'
 [[plugins]]
 repo = 'vim-jp/vimdoc-ja'
 merged = 0
+hook_source = '''
+set helplang=ja,en
+'''
 
 [[plugins]]
 repo = 'vim-jp/autofmt'

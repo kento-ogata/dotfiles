@@ -77,8 +77,6 @@ set smartindent
 set smarttab
 set shiftround
 
-set helplang=ja,en
-
 " help split change
 cabbrev help vertical botright help
 cabbrev h vert bo h
