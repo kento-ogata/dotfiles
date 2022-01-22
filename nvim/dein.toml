@@ -32,9 +32,3 @@ repo = 'vim-jp/autofmt'
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
-
-#[[plugins]]
-#repo = 'chriskempson/vim-tomorrow-theme'
-#
-#[[plugins]]
-#repo = 'cocopon/iceberg.vim'

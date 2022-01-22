@@ -1,21 +1,30 @@
 [[plugins]]
-repo = 'w0ng/vim-hybrid'
-on_if = '!has("nvim")'
-hook_source = '''
-let g:hybrid_custom_term_colors = 1
-let g:hybrid_reduced_contrast = 1
-au ColorScheme * hi Normal ctermbg=none
-au ColorScheme * hi MatchParen cterm=bold ctermfg=214 ctermbg=black
-au ColorScheme * hi SpellBad ctermfg=23 cterm=none ctermbg=none
-set background=dark
-colorscheme hybrid
-'''
-
-[[plugins]]
 repo = 'EdenEast/nightfox.nvim'
-on_if = 'has("nvim")'
 hook_source = '''
-colorscheme nightfox
+lua << EOF
+local nightfox = require('nightfox')
+nightfox.setup({
+    fox = "nordfox",
+    transparent = true,
+    styles = {
+        comments = "italic",
+        keywords = "bold",
+        functions = "italic,bold"
+    },
+    inverse = {
+        match_paren = true,
+    },
+    colors = {
+        red = "#FF000",
+        bg_alt = "#000000",
+    },
+    hlgroups = {
+        TSPunctDelimiter = { fg = "${red}" },
+        LspCodeLens = { bg = "#000000", style = "italic" },
+    }
+})
+nightfox.load()
+EOF
 '''
 
 [[plugins]]
