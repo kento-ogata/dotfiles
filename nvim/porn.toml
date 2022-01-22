@@ -1,5 +1,7 @@
 [[plugins]]
 repo = 'EdenEast/nightfox.nvim'
+if = 'has("nvim")'
+on_event = 'VimEnter'
 hook_source = '''
 lua << EOF
 local nightfox = require('nightfox')
@@ -28,8 +30,18 @@ EOF
 '''
 
 [[plugins]]
-repo = 'vim-airline/vim-airline'
-
-[[plugins]]
-repo = 'vim-airline/vim-airline-themes'
+repo = 'itchyny/lightline.vim'
+on_source = 'nightfox.nvim'
+hook_add = '''
+let g:lightline = {
+    \ 'colorscheme': 'nightfox',
+    \ 'active': {
+    \   'left': [ [ 'mode',  'paste' ],
+    \       [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+    \ },
+    \ 'component_function': {
+    \   'gitbranch': 'FugitiveHead'
+    \ },
+    \ }
+'''
 
