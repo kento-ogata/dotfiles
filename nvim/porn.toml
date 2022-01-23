@@ -40,8 +40,20 @@ let g:lightline = {
     \       [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
     \ },
     \ 'component_function': {
-    \   'gitbranch': 'FugitiveHead'
+    \   'gitbranch': 'FugitiveHead',
+    \   'fileformat': 'LightLineFileFormat',
+    \   'filetype': 'LightLineFileType',
     \ },
     \ }
+let g:lightline.tabline = {
+    \ 'left': [ [ 'tabs' ] ],
+    \ 'right': [ [ 'close' ] ] }
+
+function! LightLineFileFormat()
+    return winwidth(0) > 70 ? &fileformat : ''
+endfunction
+function! LightLineFileType()
+    return winwidth(0) > 70 ? &filetype : ''
+endfunction
 '''
 
