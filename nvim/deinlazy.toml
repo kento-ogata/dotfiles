@@ -103,3 +103,15 @@ lsp_installer.on_server_ready(function(server)
 end)
 EOF
 '''
+
+[[plugins]]
+repo = 'folke/trouble.nvim'
+depends = 'nvim-lspconfig'
+on_source = 'nvim-lspconfig'
+hook_source = '''
+nnoremap <leader>xx <cmd>TroubleToggle<cr>
+nnoremap <leader>xw <cmd>TroubleToggle workspace_diagnostics<cr>
+nnoremap <leader>xd <cmd>TroubleToggle document_diagnostics<cr>
+nnoremap <leader>xq <cmd>TroubleToggle loclist<cr>
+nnoremap gR <cmd>TroubleToggle lsp_references<cr>
+'''
