@@ -29,7 +29,6 @@ call ddc#custom#patch_global('sourceOptions', {
     \   'mark': 'cmdline',
     \   'forceCompletionPattern': '\S/\S*',
     \ },
-    \ 'cmdline-history': {'mark': 'history'},
     \ 'nvim-lsp': {
     \   'mark': 'lsp',
     \   'forceCompletionPattern': '\.\w*|:\w*|->\w*'
@@ -100,8 +99,7 @@ function! CommandlinePre(mode) abort
     "Overwrite sourcves
     let s:prev_buffer_config = ddc#custom#get_buffer()
     if a:mode ==# ':'
-        call ddc#custom#patch_buffer('sources',
-            \ ['cmdline', 'cmdline-history', 'around'])
+        call ddc#custom#patch_buffer('sources', ['cmdline'])
         call ddc#custom#patch_buffer('keywordPattern', '[0-9a-zA-Z_:#]*')
     else
         call ddc#custom#patch_buffer('sources',
@@ -144,10 +142,6 @@ on_source = 'ddc.vim'
 
 [[plugins]]
 repo = 'Shougo/ddc-line'
-on_source = 'ddc.vim'
-
-[[plugins]]
-repo = 'Shougo/ddc-cmdline-history'
 on_source = 'ddc.vim'
 
 [[plugins]]
