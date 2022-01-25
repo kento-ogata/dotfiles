@@ -90,6 +90,8 @@ set noswapfile
 
 if has('win64')
     set shell=pwsh
+elseif executable('fish')
+    set shell=fish
 endif
 
 " :T to open terminal in new split
