@@ -1,0 +1,6 @@
+[[plugins]]
+repo = 'vim-jp/syntax-vim-ex'
+on_ft = ['vim','toml']
+hook_source = '''
+syntax on
+'''

@@ -39,6 +39,7 @@ if dein#load_state(s:path)
 
     let s:dein_toml         = s:base_dir . 'dein.toml'
     let s:dein_lazy_toml    = s:base_dir . 'deinlazy.toml'
+    let s:dein_ft_toml      = s:base_dir . 'deinft.toml'
     let s:dein_ddc_toml     = s:base_dir . 'ddc.toml'
     let s:dein_porn_toml    = s:base_dir . 'porn.toml'
 
@@ -48,6 +49,7 @@ if dein#load_state(s:path)
 
     call dein#load_toml(s:dein_toml,         {'lazy': 0})
     call dein#load_toml(s:dein_lazy_toml,    {'lazy': 1})
+    call dein#load_toml(s:dein_ft_toml,      {'lazy': 1})
     call dein#load_toml(s:dein_ddc_toml,     {'lazy': 1})
     call dein#load_toml(s:dein_porn_toml,    {'lazy': 1})
 
