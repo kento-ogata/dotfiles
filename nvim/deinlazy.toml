@@ -3,6 +3,7 @@ repo = 'vim-denops/denops.vim'
 
 [[plugins]]
 repo = 'rhysd/committia.vim'
+ft = 'gitcommit'
 on_event = 'BufReadPost'
 hook_add = '''
 augroup GitSpellCheck
@@ -44,13 +45,12 @@ EOF
 [[plugins]]
 repo = 'nvim-lua/plenary.nvim'
 if = 'has("nvim")'
-on_event = 'VimEnter'
 
 [[plugins]]
 repo = 'nvim-telescope/telescope.nvim'
 if = 'has("nvim")'
 depends = 'plenary.nvim'
-on_source = 'plenary.nvim'
+on_event = 'VimEnter'
 hook_source = '''
 nnoremap <Leader>ff <Cmd>lua require('telescope.builtin').find_files()<CR>
 nnoremap <Leader>fg <Cmd>lua require('telescope.builtin').live_grep()<CR>
@@ -60,7 +60,8 @@ nnoremap <Leader>fh <Cmd>lua require('telescope.builtin').help_tags()<CR>
 
 [[plugins]]
 repo = 'neovim/nvim-lspconfig'
-on_if = 'has("nvim")'
+if = 'has("nvim")'
+on_event = 'BufReadPost'
 hook_source = '''
 lua << EOF
 local on_attach = function(client, bufnr)
@@ -90,7 +91,6 @@ EOF
 
 [[plugins]]
 repo = 'williamboman/nvim-lsp-installer'
-depends = 'nvim-lspconfig'
 on_source = 'nvim-lspconfig'
 hook_source = '''
 lua << EOF
@@ -106,7 +106,6 @@ EOF
 
 [[plugins]]
 repo = 'folke/trouble.nvim'
-depends = 'nvim-lspconfig'
 on_source = 'nvim-lspconfig'
 hook_source = '''
 nnoremap <leader>xx <cmd>TroubleToggle<cr>

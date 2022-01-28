@@ -31,7 +31,8 @@ EOF
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
-on_source = 'nightfox.nvim'
+depends = 'nightfox.nvim'
+on_event = 'VimEnter'
 hook_add = '''
 let g:lightline = {
     \ 'colorscheme': 'nightfox',
