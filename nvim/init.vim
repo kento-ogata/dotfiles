@@ -35,7 +35,7 @@ let g:dein#enable_notification = v:true
 
 let s:path = s:cache_home . '/dein'
 if dein#load_state(s:path)
-    let s:base_dir = fnamemodify(expand('<sfile>'), ':h') . '/'
+    let s:base_dir = fnamemodify(expand('<sfile>'), ':h') . '/deinrc/'
 
     let s:dein_toml         = s:base_dir . 'dein.toml'
     let s:dein_lazy_toml    = s:base_dir . 'deinlazy.toml'
