@@ -6,7 +6,7 @@ augroup MyAutoCmd
 	autocmd!
 augroup END
 
-execute 'source ' . fnamemodify(expand('<sfile>'), ':h') . '/key-map.vim'
+let mapleader="\<Space>"
 
 " dein setup
 if has('nvim') && has('win64')
@@ -116,3 +116,23 @@ filetype plugin indent on
 syntax enable
 
 command! DosEnc e ++enc=cp932 ++ff=dos
+
+nnoremap <C-d> :q<CR>
+
+" around clipboard
+vmap <Leader>y "+y
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
+
+nnoremap j gj
+nnoremap k gk
+nnoremap j gj
+nnoremap k gk
+
+" escape from terminal insert mode
+tnoremap <silent><Esc> <C-\><C-n>
+
+nnoremap <silent><Tab> :tabnext<CR>
+nnoremap <silent><S-Tab> :tabprevious<CR>
