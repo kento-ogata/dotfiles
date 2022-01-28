@@ -115,8 +115,6 @@ let g:netrw_preview=1
 filetype plugin indent on
 syntax enable
 
-command! DosEnc e ++enc=cp932 ++ff=dos
-
 nnoremap <C-d> :q<CR>
 
 " around clipboard
