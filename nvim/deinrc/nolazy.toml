@@ -2,7 +2,7 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
-repo = 'tpope/vim-surround'
+repo = 'machakann/vim-sandwich'
 
 [[plugins]]
 repo = 'cohama/lexima.vim'
