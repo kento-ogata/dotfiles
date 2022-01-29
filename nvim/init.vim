@@ -37,9 +37,9 @@ let s:path = s:cache_home . '/dein'
 if dein#load_state(s:path)
     let s:base_dir = fnamemodify(expand('<sfile>'), ':h') . '/deinrc/'
 
-    let s:dein_toml         = s:base_dir . 'dein.toml'
-    let s:dein_lazy_toml    = s:base_dir . 'deinlazy.toml'
-    let s:dein_ft_toml      = s:base_dir . 'deinft.toml'
+    let s:dein_toml         = s:base_dir . 'nolazy.toml'
+    let s:dein_lazy_toml    = s:base_dir . 'lazy.toml'
+    let s:dein_ft_toml      = s:base_dir . 'ft.toml'
     let s:dein_ddc_toml     = s:base_dir . 'ddc.toml'
     let s:dein_porn_toml    = s:base_dir . 'porn.toml'
 
