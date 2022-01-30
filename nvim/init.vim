@@ -51,7 +51,7 @@ if dein#load_state(s:path)
     call dein#load_toml(s:dein_lazy_toml,    {'lazy': 1})
     call dein#load_toml(s:dein_ft_toml,      {'lazy': 1})
     call dein#load_toml(s:dein_ddc_toml,     {'lazy': 1})
-    call dein#load_toml(s:dein_porn_toml,    {'lazy': 1})
+    call dein#load_toml(s:dein_porn_toml,    {'lazy': 0})
 
     call dein#end()
     call dein#save_state()
@@ -132,3 +132,5 @@ tnoremap <silent><Esc> <C-\><C-n>
 
 nnoremap <silent><Tab> :tabnext<CR>
 nnoremap <silent><S-Tab> :tabprevious<CR>
+
+colorscheme kanagawa

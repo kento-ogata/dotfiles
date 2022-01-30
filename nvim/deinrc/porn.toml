@@ -1,7 +1,5 @@
 [[plugins]]
 repo = 'EdenEast/nightfox.nvim'
-if = 'has("nvim")'
-on_event = 'VimEnter'
 hook_source = '''
 lua << EOF
 local nightfox = require('nightfox')
@@ -25,17 +23,19 @@ nightfox.setup({
         LspCodeLens = { bg = "#000000", style = "italic" },
     }
 })
-nightfox.load()
 EOF
 '''
 
 [[plugins]]
+repo = 'rebelot/kanagawa.nvim'
+
+[[plugins]]
+repo = 'cocopon/iceberg.vim'
+
+[[plugins]]
 repo = 'itchyny/lightline.vim'
-depends = 'nightfox.nvim'
-on_event = 'VimEnter'
 hook_add = '''
 let g:lightline = {
-    \ 'colorscheme': 'nightfox',
     \ 'active': {
     \   'left': [ [ 'mode',  'paste' ],
     \       [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
@@ -49,7 +49,9 @@ let g:lightline = {
 let g:lightline.tabline = {
     \ 'left': [ [ 'tabs' ] ],
     \ 'right': [ [ 'close' ] ] }
-
+if dein#tap('nightfox.nvim')
+    let g:lightline.colorscheme = 'nightfox'
+endif
 function! LightLineFileFormat()
     return winwidth(0) > 70 ? &fileformat : ''
 endfunction
@@ -57,4 +59,3 @@ function! LightLineFileType()
     return winwidth(0) > 70 ? &filetype : ''
 endfunction
 '''
-
