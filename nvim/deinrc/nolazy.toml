@@ -32,3 +32,6 @@ repo = 'vim-jp/autofmt'
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
+
+[[plugins]]
+repo = 'lambdalisue/fern.vim'
