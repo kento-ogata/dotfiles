@@ -4,3 +4,7 @@ on_ft = ['vim','toml']
 hook_source = '''
 syntax on
 '''
+
+[[plugins]]
+repo = 'jlcrochet/vim-razor'
+on_ft = ['razor']
