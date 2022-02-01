@@ -35,3 +35,6 @@ repo = 'airblade/vim-gitgutter'
 
 [[plugins]]
 repo = 'lambdalisue/fern.vim'
+
+[[plugins]]
+repo = 'lambdalisue/fern-hijack.vim'
