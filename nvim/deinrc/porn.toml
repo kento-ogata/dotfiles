@@ -33,6 +33,9 @@ repo = 'rebelot/kanagawa.nvim'
 repo = 'cocopon/iceberg.vim'
 
 [[plugins]]
+repo = 'jdkanani/vim-material-theme'
+
+[[plugins]]
 repo = 'itchyny/lightline.vim'
 hook_add = '''
 let g:lightline = {
