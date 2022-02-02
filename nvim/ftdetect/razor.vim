@@ -7,4 +7,4 @@
 " https://github.com/jlcrochet/vim-razor/blob/master/ftdetect/razor.vim
 " Because I want to get razor filetype before loading vim-razor plugin.
 
-autocmd BufRead,BufNewFile *.razor,*.cshtml setlocal filetype=razor
+autocmd MyAutoCmd BufRead,BufNewFile *.razor,*.cshtml setlocal filetype=razor
