@@ -65,12 +65,10 @@ endif
 set ignorecase
 set smartcase
 set wrapscan
-set incsearch
 set hlsearch
 if has('nvim')
     set inccommand=split
 endif
-nnoremap <Esc><Esc> :nohlsearch<CR>
 
 " indent
 set tabstop=4
