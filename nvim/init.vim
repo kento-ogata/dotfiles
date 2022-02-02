@@ -130,6 +130,8 @@ nnoremap k gk
 " escape from terminal insert mode
 tnoremap <silent><Esc> <C-\><C-n>
 
+nnoremap <C-n> <C-i>
+nnoremap <C-p> <C-o>
 nnoremap <silent><Tab> :tabnext<CR>
 nnoremap <silent><S-Tab> :tabprevious<CR>
 
