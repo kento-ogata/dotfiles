@@ -114,3 +114,15 @@ nnoremap <leader>xd <cmd>TroubleToggle document_diagnostics<cr>
 nnoremap <leader>xq <cmd>TroubleToggle loclist<cr>
 nnoremap gR <cmd>TroubleToggle lsp_references<cr>
 '''
+
+[[plugins]]
+repo = 'ray-x/lsp_signature.nvim'
+if = 'has("nvim")'
+depends = 'nvim-lspconfig'
+on_event = 'BufReadPost'
+hook_source = '''
+lua << EOF
+cfg = {...}
+require("lsp_signature").setup(cfg)
+EOF
+'''
