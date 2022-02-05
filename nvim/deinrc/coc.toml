@@ -1,0 +1,5 @@
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+if = 'has("nvim")'
+rev = 'release'
+on_event = 'BufReadPost'

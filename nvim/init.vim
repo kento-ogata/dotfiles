@@ -33,6 +33,9 @@ let g:dein#install_progress_type = 'title'
 let g:dein#install_check_diff = v:true
 let g:dein#enable_notification = v:true
 
+let b:use_ddc = v:false
+let b:use_coc = !(b:use_ddc)
+
 let s:path = s:cache_home . '/dein'
 if dein#load_state(s:path)
     let s:base_dir = fnamemodify(expand('<sfile>'), ':h') . '/deinrc/'
@@ -43,6 +46,7 @@ if dein#load_state(s:path)
     let s:nvim_lsp_toml     = s:base_dir . 'nvim-lsp.toml'
     let s:dein_ddc_toml     = s:base_dir . 'ddc.toml'
     let s:dein_porn_toml    = s:base_dir . 'porn.toml'
+    let s:coc_toml          = s:base_dir . 'coc.toml'
 
     call dein#begin(s:path, [
                 \ expand('<sfile>'), s:dein_toml, s:dein_lazy_toml
@@ -51,8 +55,12 @@ if dein#load_state(s:path)
     call dein#load_toml(s:dein_toml,         {'lazy': 0})
     call dein#load_toml(s:dein_lazy_toml,    {'lazy': 1})
     call dein#load_toml(s:dein_ft_toml,      {'lazy': 1})
-    call dein#load_toml(s:nvim_lsp_toml,     {'lazy': 1})
-    call dein#load_toml(s:dein_ddc_toml,     {'lazy': 1})
+    if b:use_ddc
+        call dein#load_toml(s:nvim_lsp_toml,     {'lazy': 1})
+        call dein#load_toml(s:dein_ddc_toml,     {'lazy': 1})
+    elseif b:use_coc
+        call dein#load_toml(s:coc_toml,     {'lazy': 1})
+    endif
     call dein#load_toml(s:dein_porn_toml,    {'lazy': 0})
 
     call dein#end()
@@ -130,8 +138,6 @@ nnoremap k gk
 " escape from terminal insert mode
 tnoremap <silent><Esc> <C-\><C-n>
 
-nnoremap <C-n> <C-i>
-nnoremap <C-p> <C-o>
 nnoremap <silent><Tab> :tabnext<CR>
 nnoremap <silent><S-Tab> :tabprevious<CR>
 
