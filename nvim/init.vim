@@ -33,7 +33,7 @@ let g:dein#install_progress_type = 'title'
 let g:dein#install_check_diff = v:true
 let g:dein#enable_notification = v:true
 
-let b:use_ddc = v:false
+let b:use_ddc = v:true
 let b:use_coc = !(b:use_ddc)
 
 let s:path = s:cache_home . '/dein'
