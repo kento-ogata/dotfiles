@@ -47,6 +47,7 @@ if dein#load_state(s:path)
     let s:ddc_toml      = s:base_dir . 'ddc.toml'
     let s:porn_toml     = s:base_dir . 'porn.toml'
     let s:coc_toml      = s:base_dir . 'coc.toml'
+    let s:ddu_toml      = s:base_dir . 'ddu.toml'
 
     call dein#begin(s:path, [
                 \ expand('<sfile>'), s:nolazy_toml, s:lazy_toml
@@ -55,13 +56,14 @@ if dein#load_state(s:path)
     call dein#load_toml(s:nolazy_toml,  {'lazy': 0})
     call dein#load_toml(s:lazy_toml,    {'lazy': 1})
     call dein#load_toml(s:ft_toml,      {'lazy': 1})
+    call dein#load_toml(s:porn_toml,    {'lazy': 0})
+    call dein#load_toml(s:ddu_toml,     {'lazy': 1})
     if b:use_ddc
         call dein#load_toml(s:nvim_lsp_toml,    {'lazy': 1})
         call dein#load_toml(s:ddc_toml,         {'lazy': 1})
     elseif b:use_coc
         call dein#load_toml(s:coc_toml, {'lazy': 1})
     endif
-    call dein#load_toml(s:porn_toml,    {'lazy': 0})
 
     call dein#end()
     call dein#save_state()
