@@ -41,14 +41,13 @@ repo = 'lambdalisue/fern-hijack.vim'
 
 [[plugins]]
 repo = 'hrsh7th/vim-searchx'
+if = 'has("nvim-0.5")'
 hook_add = '''
 nnoremap / <Cmd>call searchx#start({ 'dir': 1 })<CR>
 cnoremap ; <Cmd>call searchx#select()<CR>
 
 nnoremap N <Cmd>call searchx#prev_dir()<CR>
 nnoremap n <Cmd>call searchx#next_dir()<CR>
-
-nnoremap <Esc><Esc> <Cmd>call searchx#clear()<CR>
 
 let g:searchx = {}
 " auto jump if the recent input matches to any marker.
