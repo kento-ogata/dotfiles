@@ -62,19 +62,6 @@ nnoremap <Leader>fh <Cmd>lua require('telescope.builtin').help_tags()<CR>
 repo = 'itchyny/vim-cursorword'
 on_event = 'FileType'
 hook_add = '''
-let g:cursorword = 0
-'''
-hook_source = '''
-augroup user_plugin_cursorword
-    autocmd!
-    autocmd FileType json,yaml,markdown,nginx,dosini,conf,text
-        \ let b:cursorword = 1
-    autocmd WinEnter * if &diff || &pvw | let b:cursorword = 0 | endif
-    autocmd InsertEnter * if get(b:, 'cursorword', 0) == 1
-        \| let b:cursorword = 1
-        \| endif
-    autocmd InsertLeave * if get(b:, 'cursorword', 1) == 0
-        \| let b:cursorword = 1
-        \| endif
-augroup END
+let g:cursorword = 1
+let g:cursorword_highlight = 1
 '''
