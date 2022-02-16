@@ -4,7 +4,8 @@ depends = 'denops.vim'
 on_source = 'denops.vim'
 hook_add = '''
   nnoremap <silent> ;f
-  \ <Cmd>Ddu -name=files `finddir('.git', ';') != '' ? 'file_external' : 'file_rec'`<CR>
+  \ <Cmd>Ddu -name=files file_external
+  \ -ui-param-startFilter<CR>
   nnoremap <silent> ;l <Cmd>Ddu
   \ -name=search line
   \ -ui-param-startFilter<CR>
@@ -24,17 +25,12 @@ call ddu#custom#patch_global({
     \   'sourceOptions': {
     \     '_': {
     \       'ignoreCase': v:true,
-    \       'matchers': ['matcher_substring'],
-    \     },
-    \     'file_external': {
-    \       'matchers': [
-    \         'matcher_substring', 'matcher_hidden',
-    \       ],
+    \       'matchers': ['matcher_fzf'],
     \     },
     \   },
     \   'sourceParams': {
     \     'file_external': {
-    \       'cmd': ['git', 'ls-files', '-co', '--exclude-standard'],
+    \       'cmd': ['fd', '.', '-H', '-E', '.git', '-E', '__pycache__', '-t', 'f'],
     \     },
     \   },
     \   'uiParams': {
@@ -110,14 +106,6 @@ repo = 'Shougo/ddu-ui-ff'
 on_source = 'ddu.vim'
 
 [[plugins]]
-repo = 'Shougo/ddu-source-file'
-on_source = 'ddu.vim'
-
-[[plugins]]
-repo = 'Shougo/ddu-source-file_rec'
-on_source = 'ddu.vim'
-
-[[plugins]]
 repo = 'Shougo/ddu-source-line'
 on_source = 'ddu.vim'
 
@@ -134,15 +122,7 @@ repo = 'shun/ddu-source-rg'
 on_source = 'ddu.vim'
 
 [[plugins]]
-repo = 'Shougo/ddu-filter-matcher_substring'
-on_source = 'ddu.vim'
-
-[[plugins]]
-repo = 'Shougo/ddu-filter-matcher_relative'
-on_source = 'ddu.vim'
-
-[[plugins]]
-repo = 'Shougo/ddu-filter-matcher_hidden'
+repo = 'yuki-yano/ddu-filter-fzf'
 on_source = 'ddu.vim'
 
 [[plugins]]
