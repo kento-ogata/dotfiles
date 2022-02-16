@@ -3,16 +3,15 @@ repo = 'Shougo/ddu.vim'
 depends = 'denops.vim'
 on_source = 'denops.vim'
 hook_add = '''
-  nnoremap <silent> ss
-  \ <Cmd>Ddu -name=files file_point file_old
-  \ `finddir('.git', ';') != '' ? 'file_external' : 'file_rec'`<CR>
-  nnoremap <silent> <Leader><CR> <Cmd>Ddu
+  nnoremap <silent> ;f
+  \ <Cmd>Ddu -name=files `finddir('.git', ';') != '' ? 'file_external' : 'file_rec'`<CR>
+  nnoremap <silent> ;l <Cmd>Ddu
   \ -name=search line
   \ -ui-param-startFilter<CR>
   nnoremap <silent> ;g <Cmd>Ddu
   \ -name=search rg 
   \ -source-param-input=`input('Pattern: ')`<CR>
-  nnoremap <silent> <Leader><Leader><CR> <Cmd>Ddu
+  nnoremap <silent> ;n <Cmd>Ddu
   \ -name=search -resume
   \ -ui-param-startFilter=v:false<CR>
   nnoremap <silent> ;r <Cmd>Ddu
@@ -26,11 +25,6 @@ call ddu#custom#patch_global({
     \     '_': {
     \       'ignoreCase': v:true,
     \       'matchers': ['matcher_substring'],
-    \     },
-    \     'file_old': {
-    \       'matchers': [
-    \         'matcher_substring', 'matcher_relative', 'matcher_hidden',
-    \       ],
     \     },
     \     'file_external': {
     \       'matchers': [
@@ -63,15 +57,11 @@ call ddu#custom#patch_global({
 call ddu#custom#patch_local('files', {
     \   'uiParams': {
     \     'ff': {
-    \       'split': has('nvim') ? 'floating' : 'horizontal',
+    \       'split': 'horizontal',
     \     }
     \   },
     \ })
 
-"call ddu#custom#action('kind', 'file', 'test',
-"    \ { args -> execute('let g:foo = 1') })
-"call ddu#custom#action('source', 'file_old', 'test2',
-"    \ { args -> execute('let g:bar = 1') })
 '''
 
 [plugins.ftplugin]
@@ -125,14 +115,6 @@ on_source = 'ddu.vim'
 
 [[plugins]]
 repo = 'Shougo/ddu-source-file_rec'
-on_source = 'ddu.vim'
-
-[[plugins]]
-repo = 'Shougo/ddu-source-file_old'
-on_source = 'ddu.vim'
-
-[[plugins]]
-repo = 'Shougo/ddu-source-file_point'
 on_source = 'ddu.vim'
 
 [[plugins]]
