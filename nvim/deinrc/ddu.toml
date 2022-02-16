@@ -6,7 +6,7 @@ hook_add = '''
   nnoremap <silent> ;f
   \ <Cmd>Ddu -name=files file_external
   \ -ui-param-startFilter<CR>
-  nnoremap <silent> ;l <Cmd>Ddu
+  nnoremap <silent> ;c <Cmd>Ddu
   \ -name=search line
   \ -ui-param-startFilter<CR>
   nnoremap <silent> ;g <Cmd>Ddu
@@ -27,6 +27,7 @@ call ddu#custom#patch_global({
     \       'ignoreCase': v:true,
     \       'matchers': ['matcher_fzf'],
     \     },
+    \     'line': { 'matchers': ['matcher_substring'] }
     \   },
     \   'sourceParams': {
     \     'file_external': {
@@ -119,6 +120,10 @@ on_source = 'ddu.vim'
 
 [[plugins]]
 repo = 'shun/ddu-source-rg'
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo = 'Shougo/ddu-filter-matcher_substring'
 on_source = 'ddu.vim'
 
 [[plugins]]
