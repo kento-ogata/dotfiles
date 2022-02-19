@@ -34,8 +34,8 @@ call ddu#custom#patch_global({
     \       'cmd': (
     \           executable('fd') ? ['fd', '.', '-H', '-E', '.git', '-E', '__pycache__', '-t', 'f'] : (
     \           executable('rg') ? ['rg', '--files'] : (
-    \           has('unix') && executable('find')) ? ['find', '.', '-type', 'f'] : (
-    \           has('win32') && executable('where') ? ['where', '/r', '.', '*'] : []))) ,
+    \           has('unix') && executable('find') ? ['find', '.', '-type', 'f'] : (
+    \           has('win32') && executable('where') ? ['where', '/r', '.', '*'] : [])))) ,
     \     },
     \   },
     \   'uiParams': {
