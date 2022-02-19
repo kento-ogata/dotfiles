@@ -41,6 +41,8 @@ call ddu#custom#patch_global({
     \   'uiParams': {
     \     'ff': {
     \       'filterSplitDirection': 'floating',
+    \       'split': 'horizontal',
+    \       'splitDirection': 'topleft',
     \     }
     \   },
     \   'kindOptions': {
@@ -55,14 +57,6 @@ call ddu#custom#patch_global({
     \     },
     \   }
     \ })
-call ddu#custom#patch_local('files', {
-    \   'uiParams': {
-    \     'ff': {
-    \       'split': 'horizontal',
-    \     }
-    \   },
-    \ })
-
 '''
 
 [plugins.ftplugin]
