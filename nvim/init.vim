@@ -87,10 +87,6 @@ set smartindent
 set smarttab
 set shiftround
 
-" help split change
-cabbrev help vertical botright help
-cabbrev h vert bo h
-
 set hidden
 set noswapfile
 
@@ -133,8 +129,5 @@ nnoremap k gk
 
 " escape from terminal insert mode
 tnoremap <silent><Esc> <C-\><C-n>
-
-nnoremap <silent><Tab> :tabnext<CR>
-nnoremap <silent><S-Tab> :tabprevious<CR>
 
 colorscheme kanagawa
