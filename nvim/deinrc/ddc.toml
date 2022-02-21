@@ -162,3 +162,16 @@ on_source = 'ddc.vim'
 [[plugins]]
 repo = 'Shougo/ddc-converter_remove_overlap'
 on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'vim-skk/denops-skkeleton.vim'
+depends = 'denops.vim'
+hook_add = '''
+imap <C-j> <Plug>(skkeleton-toggle)
+cmap <C-j> <Plug>(skkeleton-toggle)
+'''
+hook_source = '''
+call skkeleton#config({
+    \   'eggLikeNewline': v:true
+    \ })
+'''
