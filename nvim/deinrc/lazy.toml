@@ -51,12 +51,12 @@ if = 'has("nvim")'
 repo = 'nvim-telescope/telescope.nvim'
 if = 'has("nvim")'
 depends = 'plenary.nvim'
-on_event = 'VimEnter'
-hook_source = '''
-nnoremap <Leader>ff <Cmd>lua require('telescope.builtin').find_files()<CR>
-nnoremap <Leader>fg <Cmd>lua require('telescope.builtin').live_grep()<CR>
-nnoremap <Leader>fb <Cmd>lua require('telescope.builtin').buffers()<CR>
-nnoremap <Leader>fh <Cmd>lua require('telescope.builtin').help_tags()<CR>
+on_map = { n = '<Cmd>Telescope' }
+hook_add = '''
+nnoremap <Leader>ff <Cmd>Telescope find_files<CR>
+nnoremap <Leader>fg <Cmd>Telescope live_grep<CR>
+nnoremap <Leader>fb <Cmd>Telescope buffers<CR>
+nnoremap <Leader>fh <Cmd>Telescope help_tags<CR>
 '''
 
 [[plugins]]
