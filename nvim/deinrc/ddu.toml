@@ -38,6 +38,11 @@ call ddu#custom#patch_global({
     \           has('win32') && executable('where') ? ['where', '/r', '.', '*'] : [])))) ,
     \     },
     \   },
+    \   'filterParams': {
+    \     'matcher_substring': {
+    \       'highlightMatched': 'Search',
+    \     },
+    \   },
     \   'uiParams': {
     \     'ff': {
     \       'filterSplitDirection': 'floating',
