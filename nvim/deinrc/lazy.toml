@@ -3,6 +3,7 @@ repo = 'vim-denops/denops.vim'
 
 [[plugins]]
 repo = 'rhysd/committia.vim'
+if = 'has("unix")'
 ft = 'gitcommit'
 on_event = 'BufReadPost'
 hook_add = '''
@@ -65,3 +66,54 @@ hook_add = '''
 let g:cursorword = 1
 let g:cursorword_highlight = 1
 '''
+
+[[plugins]]
+repo = 'machakann/vim-sandwich'
+on_event = 'InsertEnter'
+
+[[plugins]]
+repo = 'cohama/lexima.vim'
+on_event = 'InsertEnter'
+hook_source = """
+call lexima#add_rule({'char': '<C-]>', 'at': '\%#)', 'leave': 1})
+call lexima#add_rule({'char': '<C-]>', 'at': '\%#"', 'leave': 1})
+call lexima#add_rule({'char': '<C-]>', 'at': '\%#''', 'leave': 1})
+call lexima#add_rule({'char': '<C-]>', 'at': '\%#]', 'leave': 1})
+call lexima#add_rule({'char': '<C-]>', 'at': '\%#}', 'leave': 1})
+"""
+
+[[plugins]]
+repo = 'hrsh7th/vim-searchx'
+if = 'has("nvim-0.5")'
+on_map = { n = '<Cmd>call searchx#start' }
+hook_add = '''
+nnoremap / <Cmd>call searchx#start({ 'dir': 1 })<CR>
+
+nnoremap N <Cmd>call searchx#prev_dir()<CR>
+nnoremap n <Cmd>call searchx#next_dir()<CR>
+'''
+hook_source = '''
+let g:searchx = {}
+" auto jump if the recent input matches to any marker.
+let g:searchx.auto_accept = v:true
+" The scrolloff value for moving to next/prev.
+let g:searchx.scrolloff = &scrolloff
+" To diable scrolling animation.
+let g:searchx.scrolltime = 0
+" To enable auto nohlsearch after cursor is moved
+let g:searchx.nohlsearch = {}
+let g:searchx.nohlsearch.jump = v:true
+" Marker characters.
+let g:searchx.markers = split('ABCDEFGHIJKLMNOPQRSTUVWXYZ', '.\zs')
+" Convert searchx pattern.
+function g:searchx.convert(input) abort
+    if a:input !~# '\k'
+        return '\V' .. a:input
+    endif
+    return a:input[0] .. substitute(a:input[1:], '\\\@<! ', '.\\{-}', 'g')
+endfunction
+'''
+
+[[plugins]]
+repo = 'twitvim/twitvim'
+on_if = 'has("python3")'
