@@ -116,4 +116,5 @@ endfunction
 
 [[plugins]]
 repo = 'twitvim/twitvim'
-on_if = 'has("python3")'
+if = 'has("python3")'
+on_event = 'VimEnter'
