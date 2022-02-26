@@ -6,7 +6,7 @@ hook_source = '''
 call ddc#custom#patch_global(
     \ 'sources', has('nvim') ?
     \ ['around', 'file', 'rg', 'nvim-lsp'] :
-    \ ['around', 'file'],
+    \ ['around', 'file', 'rg'],
     \ )
 
 call ddc#custom#patch_global('sourceOptions', {
@@ -76,14 +76,13 @@ call ddc#custom#patch_global('autoCompleteEvents', [
             \ ])
 call ddc#custom#patch_global('completionMenu', 'pum.vim')
 
-inoremap <silent><expr> <Tab>
-    \ pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' : '<Tab>'
-inoremap <S-Tab>    <Cmd>call pum#map#insert_relative(-1)<CR>
-inoremap <C-n>      <Cmd>call pum#map#select_relative(+1)<CR>
-inoremap <C-p>      <Cmd>call pum#map#select_relative(-1)<CR>
-inoremap <C-y>      <Cmd>call pum#map#confirm()<CR>
+inoremap <expr><silent><C-n>    pum#visible() ?
+    \ pum#map#insert_relative(+1) :
+    \ ddc#map#manual_complete()
+inoremap <expr><silent><C-p>    pum#visible() ?
+    \ pum#map#insert_relative(-1) :
+    \ ddc#map#manual_complete()
 inoremap <C-e>      <Cmd>call pum#map#cancel()<CR>
-inoremap <silent><expr> <C-l>   ddc#map#extend()
 
 call ddc#enable()
 '''
@@ -94,10 +93,10 @@ function! CommandlinePre() abort
     call dein#source('ddc.vim')
 
     " Note: It disables default command line completion!
-    cnoremap <expr><silent><Tab>
-    \ pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' :
+    cnoremap <expr><silent><C-n>
+    \ pum#visible() ? pum#map#insert_relative(+1) :
     \ ddc#manual_complete()
-    cnoremap <silent><S-Tab> <Cmd>call pum#map#insert_relative(-1)<CR>
+    cnoremap <silent><C-p> <Cmd>call pum#map#insert_relative(-1)<CR>
     set wildchar=<C-t>
 
     "Overwrite sourcves
@@ -181,8 +180,4 @@ call skkeleton#config({
     \   'eggLikeNewline': v:true
     \ })
 call skkeleton#config({ 'globalJisyo': '~/.skk/SKK-JISYO.L' })
-
-if dein#tap('ddc.vim')
-    call ddc#custom#patch_global('sources', ['around', 'rg', 'file', 'skkeleton'])
-endif
 '''
