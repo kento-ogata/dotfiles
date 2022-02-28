@@ -93,10 +93,10 @@ function! CommandlinePre() abort
     call dein#source('ddc.vim')
 
     " Note: It disables default command line completion!
-    cnoremap <expr><silent><C-n>
+    cnoremap <expr><silent><Tab>
     \ pum#visible() ? pum#map#insert_relative(+1) :
     \ ddc#manual_complete()
-    cnoremap <silent><C-p> <Cmd>call pum#map#insert_relative(-1)<CR>
+    cnoremap <silent><S-Tab> <Cmd>call pum#map#insert_relative(-1)<CR>
     set wildchar=<C-t>
 
     "Overwrite sourcves
