@@ -1,33 +1,4 @@
 [[plugins]]
-repo = 'EdenEast/nightfox.nvim'
-if = 'has("nvim")'
-hook_source = '''
-lua << EOF
-local nightfox = require('nightfox')
-nightfox.setup({
-    fox = "nordfox",
-    transparent = true,
-    styles = {
-        comments = "italic",
-        keywords = "bold",
-        functions = "italic,bold"
-    },
-    inverse = {
-        match_paren = true,
-    },
-    colors = {
-        red = "#FF000",
-        bg_alt = "#000000",
-    },
-    hlgroups = {
-        TSPunctDelimiter = { fg = "${red}" },
-        LspCodeLens = { bg = "#000000", style = "italic" },
-    }
-})
-EOF
-'''
-
-[[plugins]]
 if = 'has("nvim")'
 repo = 'rebelot/kanagawa.nvim'
 
