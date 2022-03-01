@@ -33,7 +33,8 @@ repo = 'rebelot/kanagawa.nvim'
 
 [[plugins]]
 repo = 'cocopon/iceberg.vim'
-hook_source = '''
+hook_add = '''
+set background=dark
 colorscheme iceberg
 '''
 
