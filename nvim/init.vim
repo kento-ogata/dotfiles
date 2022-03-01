@@ -89,6 +89,7 @@ set shiftround
 
 set hidden
 set noswapfile
+set nowrap
 
 if has('win64')
     set shell=pwsh
