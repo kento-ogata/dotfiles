@@ -51,11 +51,11 @@ if dein#load_state(s:path)
                 \ expand('<sfile>'), s:nolazy_toml, s:lazy_toml
                 \ ])
 
-    call dein#load_toml(s:nolazy_toml,  {'lazy': 0})
-    call dein#load_toml(s:lazy_toml,    {'lazy': 1})
-    call dein#load_toml(s:ft_toml,      {'lazy': 1})
-    call dein#load_toml(s:porn_toml,    {'lazy': 0})
-    call dein#load_toml(s:ddu_toml,     {'lazy': 1})
+    call dein#load_toml(s:nolazy_toml,      {'lazy': 0})
+    call dein#load_toml(s:lazy_toml,        {'lazy': 1})
+    call dein#load_toml(s:ft_toml,          {'lazy': 1})
+    call dein#load_toml(s:porn_toml)
+    call dein#load_toml(s:ddu_toml,         {'lazy': 1})
     call dein#load_toml(s:nvim_lsp_toml,    {'lazy': 1})
     call dein#load_toml(s:ddc_toml,         {'lazy': 1})
 
@@ -130,5 +130,3 @@ nnoremap k gk
 
 " escape from terminal insert mode
 tnoremap <silent><Esc> <C-\><C-n>
-
-colorscheme kanagawa
