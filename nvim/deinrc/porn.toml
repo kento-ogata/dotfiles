@@ -1,6 +1,6 @@
 [[plugins]]
 repo = 'EdenEast/nightfox.nvim'
-lazy = 1
+if = 'has("nvim")'
 hook_source = '''
 lua << EOF
 local nightfox = require('nightfox')
@@ -28,50 +28,18 @@ EOF
 '''
 
 [[plugins]]
+if = 'has("nvim")'
 repo = 'rebelot/kanagawa.nvim'
-lazy = 1
-on_event = 'VimEnter'
-hook_source = '''
-colorscheme kanagawa
-'''
 
 [[plugins]]
 repo = 'cocopon/iceberg.vim'
-lazy = 1
-
-[[plugins]]
-repo = 'itchyny/lightline.vim'
-lazy = 1
-hook_add = '''
-let g:lightline = {
-    \ 'active': {
-    \   'left': [ [ 'mode',  'paste' ],
-    \       [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-    \ },
-    \ 'component_function': {
-    \   'gitbranch': 'FugitiveHead',
-    \   'fileformat': 'LightLineFileFormat',
-    \   'filetype': 'LightLineFileType',
-    \ },
-    \ }
-let g:lightline.tabline = {
-    \ 'left': [ [ 'tabs' ] ],
-    \ 'right': [ [ 'close' ] ] }
-if dein#tap('nightfox.nvim')
-    let g:lightline.colorscheme = 'nightfox'
-endif
-function! LightLineFileFormat()
-    return winwidth(0) > 70 ? &fileformat : ''
-endfunction
-function! LightLineFileType()
-    return winwidth(0) > 70 ? &filetype : ''
-endfunction
+hook_source = '''
+colorscheme iceberg
 '''
 
 [[plugins]]
 repo = 'nvim-lualine/lualine.nvim'
-lazy = 1
-on_source = 'kanagawa.nvim'
+if = 'has("nvim")'
 hook_source = '''
 lua << EOF
 require('lualine').setup()
