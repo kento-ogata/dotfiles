@@ -82,6 +82,22 @@ call lexima#add_rule({'char': '<Tab>', 'at': '\%#]', 'leave': 1})
 call lexima#add_rule({'char': '<Tab>', 'at': '\%#}', 'leave': 1})
 
 call lexima#add_rule({'char': '$', 'input': '$\"', 'input_after': '\"', 'filetype': 'cs'})
+
+call lexima#add_rule({'char': '<', 'input': '<', 'input_after': '>', 'filetype': 'razor'})
+call lexima#add_rule({'char': '<Tab>', 'at': '<*\%#*>', 'leave': 1, 'filetype': 'razor'})
+call lexima#add_rule({
+    \ 'char': '>',
+    \ 'at': '<\(\w\+\)\%#>',
+    \ 'leave': 1,
+    \ 'input_after': '</\1>',
+    \ 'with_submatch': 1,
+    \ 'filetype': 'razor'})
+call lexima#add_rule({'char': '=', 'at': '<*\%#*>', 'input': '=\"', 'input_after': '\"', 'filetype': 'razor'})
+
+call lexima#add_rule({'char': '<CR>', 'at': '^\s*- \S\+\%#$', 'input': '<CR>- ', 'filetype': 'markdown'})
+call lexima#add_rule({'char': '<CR>', 'at': '^\s\+- \%#$', 'input': '<BS><BS><BS>- ', 'filetype': 'markdown'})
+call lexima#add_rule({'char': '<CR>', 'at': '^- \%#$', 'input': '<BS><BS>', 'filetype': 'markdown'})
+call lexima#add_rule({'char': '-', 'at': '- \%#$', 'input': '<BS><BS>  - ', 'filetype': 'markdown'})
 """
 
 [[plugins]]
