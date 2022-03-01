@@ -41,7 +41,7 @@ colorscheme iceberg
 [[plugins]]
 repo = 'nvim-lualine/lualine.nvim'
 if = 'has("nvim")'
-hook_source = '''
+hook_add = '''
 lua << EOF
 require('lualine').setup()
 EOF
