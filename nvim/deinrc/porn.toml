@@ -9,6 +9,9 @@ colorscheme iceberg
 '''
 
 [[plugins]]
+repo = 'w0ng/vim-hybrid'
+
+[[plugins]]
 repo = 'nvim-lualine/lualine.nvim'
 hook_add = '''
 lua << EOF
