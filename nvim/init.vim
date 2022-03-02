@@ -10,7 +10,7 @@ let mapleader="\<Space>"
 
 " dein setup
 if has('nvim') && has('win64')
-    let s:cache_home = expand($LOCALAPPDATA . '\nvim-data')
+    let s:cache_home = expand($LOCALAPPDATA . '/nvim-data')
 else
     let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
 endif
@@ -91,7 +91,7 @@ set hidden
 set noswapfile
 set nowrap
 
-if has('win64')
+if has('win64') && executable('pwsh')
     set shell=pwsh
 elseif executable('fish')
     set shell=fish
