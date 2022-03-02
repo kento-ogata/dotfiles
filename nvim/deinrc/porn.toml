@@ -1,19 +1,26 @@
 [[plugins]]
 repo = 'rebelot/kanagawa.nvim'
+hook_add = '''
+call add(g:colorschemes, 'kanagawa')
+'''
 
 [[plugins]]
 repo = 'cocopon/iceberg.vim'
 hook_add = '''
-set background=dark
-colorscheme iceberg
+call add(g:colorschemes, 'iceberg')
 '''
 
 [[plugins]]
 repo = 'w0ng/vim-hybrid'
+hook_add = '''
+call add(g:colorschemes, 'hybrid')
+'''
 
 [[plugins]]
 repo = 'lifepillar/vim-solarized8'
-merged = 0
+hook_add = '''
+call add(g:colorschemes, 'solarized8')
+'''
 
 [[plugins]]
 repo = 'nvim-lualine/lualine.nvim'

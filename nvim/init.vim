@@ -8,6 +8,22 @@ augroup END
 
 let mapleader="\<Space>"
 
+let g:colorschemes = []
+
+function init#setRandomColorScheme()
+    let count_of_colorschemes = len(g:colorschemes)
+    if count_of_colorschemes == 0
+        return
+    endif
+
+    let choosed = localtime() % count_of_colorschemes
+
+    execute 'colorscheme ' . g:colorschemes[choosed]
+    execute 'set background=' . (fmod(ceil(reltimefloat(reltime()) * 1000), 2) == 0 ? 'dark':'light')
+endfunction
+
+autocmd MyAutoCmd VimEnter * call init#setRandomColorScheme()
+
 " dein setup
 if has('nvim') && has('win64')
     let s:cache_home = expand($LOCALAPPDATA . '/nvim-data')
