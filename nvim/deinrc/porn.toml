@@ -12,6 +12,10 @@ colorscheme iceberg
 repo = 'w0ng/vim-hybrid'
 
 [[plugins]]
+repo = 'lifepillar/vim-solarized8'
+merged = 0
+
+[[plugins]]
 repo = 'nvim-lualine/lualine.nvim'
 hook_add = '''
 lua << EOF
