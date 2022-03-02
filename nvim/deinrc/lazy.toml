@@ -136,3 +136,7 @@ endfunction
 repo = 'twitvim/twitvim'
 if = 'has("python3")'
 on_event = 'CmdlineEnter'
+
+[[plugins]]
+repo = 'lambdalisue/gina.vim'
+on_cmd = 'Gina'
