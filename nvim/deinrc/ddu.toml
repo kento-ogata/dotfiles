@@ -1,7 +1,7 @@
 [[plugins]]
 repo = 'Shougo/ddu.vim'
 depends = 'denops.vim'
-on_source = 'denops.vim'
+on_map = '<Cmd>Ddu'
 hook_add = '''
   nnoremap <silent> ;f
   \ <Cmd>Ddu -name=files file_external
