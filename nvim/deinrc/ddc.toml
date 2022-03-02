@@ -12,7 +12,7 @@ call ddc#custom#patch_global(
 call ddc#custom#patch_global('sourceOptions', {
     \ '_' : {
     \   'ignoreCase': 'v:true',
-    \   'matchers': ['matcher_fuzzy'],
+    \   'matchers': ['matcher_fuzzy', 'matcher_length'],
     \   'sorters': ['sorter_fuzzy'],
     \   'converters': ['converter_fuzzy'],
     \ },
@@ -40,7 +40,7 @@ call ddc#custom#patch_global('sourceOptions', {
     \ },
     \ 'rg': {
     \   'mark': 'rg',
-    \   'matchers': ['matcher_head', 'matcher_length'],
+    \   'matchers': ['matcher_fuzzy', 'matcher_length'],
     \   'minAutoCompleteLength': 4,
     \ },
     \ 'skkeleton': {
@@ -55,7 +55,7 @@ call ddc#custom#patch_global('sourceParams', {
     \ })
 
 call ddc#custom#patch_global('filterParams', {
-    \   'matcher_fuzzy': {'splitMode': 'word'}
+    \   'matcher_fuzzy': {'splitMode': 'character'}
     \ })
 
 call ddc#custom#patch_filetype(
