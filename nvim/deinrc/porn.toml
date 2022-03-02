@@ -1,5 +1,4 @@
 [[plugins]]
-if = 'has("nvim")'
 repo = 'rebelot/kanagawa.nvim'
 
 [[plugins]]
@@ -11,7 +10,6 @@ colorscheme iceberg
 
 [[plugins]]
 repo = 'nvim-lualine/lualine.nvim'
-if = 'has("nvim")'
 hook_add = '''
 lua << EOF
 require('lualine').setup()
