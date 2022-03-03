@@ -88,13 +88,14 @@ call lexima#add_rule({'char': '$', 'input': '$\"', 'input_after': '\"', 'filetyp
 call lexima#add_rule({'char': '<', 'input': '<', 'input_after': '>', 'filetype': ['html', 'razor']})
 call lexima#add_rule({'char': '<Tab>', 'at': '<[^<]*\%#[^>]*>', 'leave': 1, 'filetype': ['html','razor']})
 call lexima#add_rule({
-    \ 'char': '>',
-    \ 'at': '<\(\w\+\)\%#>',
+    \ 'char': '<Tab>',
+    \ 'at': '<\(\w\+[^>]*[^\/]\)\%#>',
     \ 'leave': 1,
     \ 'input_after': '</\1>',
     \ 'with_submatch': 1,
-    \ 'filetype': 'razor'})
-call lexima#add_rule({'char': '=', 'at': '<*\%#*>', 'input': '=\"', 'input_after': '\"', 'filetype': 'razor'})
+    \ 'filetype': ['html','razor']})
+call lexima#add_rule({'char': '<BS>', 'at': '<\%#>', 'input': '<BS><DEL>', 'filetype': ['html', 'razor']})
+call lexima#add_rule({'char': '=', 'at': '<[^<]*\%#[^>]*>', 'input': '=\"', 'input_after': '\"', 'filetype': ['html','razor']})
 
 call lexima#add_rule({'char': '<CR>', 'at': '^\s*- \S\+\%#$', 'input': '<CR>- ', 'filetype': 'markdown'})
 call lexima#add_rule({'char': '<CR>', 'at': '^\s\+- \%#$', 'input': '<BS><BS><BS>- ', 'filetype': 'markdown'})
