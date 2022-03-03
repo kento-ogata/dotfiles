@@ -83,10 +83,10 @@ call lexima#add_rule({'char': '<Tab>', 'at': '\%#''', 'leave': 1})
 call lexima#add_rule({'char': '<Tab>', 'at': '\%#]', 'leave': 1})
 call lexima#add_rule({'char': '<Tab>', 'at': '\%#}', 'leave': 1})
 
-call lexima#add_rule({'char': '$', 'input': '$\"', 'input_after': '\"', 'filetype': 'cs'})
+call lexima#add_rule({'char': '$', 'input': '$\"', 'input_after': '\"', 'filetype': ['cs','razor']})
 
-call lexima#add_rule({'char': '<', 'input': '<', 'input_after': '>', 'filetype': 'razor'})
-call lexima#add_rule({'char': '<Tab>', 'at': '<*\%#*>', 'leave': 1, 'filetype': 'razor'})
+call lexima#add_rule({'char': '<', 'input': '<', 'input_after': '>', 'filetype': ['html', 'razor']})
+call lexima#add_rule({'char': '<Tab>', 'at': '<[^<]*\%#[^>]*>', 'leave': 1, 'filetype': ['html','razor']})
 call lexima#add_rule({
     \ 'char': '>',
     \ 'at': '<\(\w\+\)\%#>',
