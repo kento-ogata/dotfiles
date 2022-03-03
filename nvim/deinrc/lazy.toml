@@ -135,6 +135,14 @@ endfunction
 '''
 
 [[plugins]]
+repo = 'yuki-yano/fuzzy-motion.vim'
+depends = 'denops.vim'
+on_cmd = 'FuzzyMotion'
+hook_add = '''
+nmap <CR> <Cmd>FuzzyMotion<CR>
+'''
+
+[[plugins]]
 repo = 'twitvim/twitvim'
 if = 'has("python3")'
 on_event = 'CmdlineEnter'
