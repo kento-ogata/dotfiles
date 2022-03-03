@@ -8,6 +8,7 @@ augroup END
 
 let mapleader="\<Space>"
 
+" list of {'name', 'background'}
 let g:colorschemes = []
 
 function init#setRandomColorScheme()
