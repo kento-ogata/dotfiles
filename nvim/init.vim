@@ -108,8 +108,12 @@ set hidden
 set noswapfile
 set nowrap
 
-if has('win64') && executable('pwsh')
-    set shell=pwsh
+if has('win64')
+    if executable('bash')
+        set shell=bash
+    elseif executable('pwsh')
+        set shell=pwsh
+    endif
 elseif executable('fish')
     set shell=fish
 endif
