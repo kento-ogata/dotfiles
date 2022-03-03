@@ -15,7 +15,6 @@ call add(g:colorschemes, {'name': 'iceberg', 'background': 'light'})
 repo = 'w0ng/vim-hybrid'
 hook_add = '''
 call add(g:colorschemes, {'name': 'hybrid', 'background': 'dark'})
-call add(g:colorschemes, {'name': 'hybrid', 'background': 'light'})
 '''
 
 [[plugins]]
@@ -23,6 +22,25 @@ repo = 'lifepillar/vim-solarized8'
 hook_add = '''
 call add(g:colorschemes, {'name': 'solarized8', 'background': 'dark'})
 call add(g:colorschemes, {'name': 'solarized8', 'background': 'light'})
+'''
+
+[[plugins]]
+repo = 'gosukiwi/vim-atom-dark'
+hook_add = '''
+call add(g:colorschemes, {'name': 'atom-dark-256', 'background': 'dark'})
+'''
+
+[[plugins]]
+repo = 'YorickPeterse/vim-paper'
+hook_add = '''
+call add(g:colorschemes, {'name': 'paper', 'background': 'light'})
+'''
+
+[[plugins]]
+repo = 'savq/melange'
+hook_add = '''
+call add(g:colorschemes, {'name': 'melange', 'background': 'dark'})
+call add(g:colorschemes, {'name': 'melange', 'background': 'light'})
 '''
 
 [[plugins]]
