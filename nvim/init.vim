@@ -18,8 +18,8 @@ function init#setRandomColorScheme()
 
     let choosed = localtime() % count_of_colorschemes
 
-    execute 'colorscheme ' . g:colorschemes[choosed]
-    execute 'set background=' . (fmod(ceil(reltimefloat(reltime()) * 1000), 2) == 0 ? 'dark':'light')
+    execute 'colorscheme ' . g:colorschemes[choosed].name
+    execute 'set background=' . g:colorschemes[choosed].background
 endfunction
 
 autocmd MyAutoCmd VimEnter * call init#setRandomColorScheme()
