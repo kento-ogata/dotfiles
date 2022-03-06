@@ -110,8 +110,8 @@ on_map = { n = '<Cmd>call searchx#start' }
 hook_add = '''
 nnoremap / <Cmd>call searchx#start({ 'dir': 1 })<CR>
 
-nnoremap N <Cmd>call searchx#prev_dir()<CR>
-nnoremap n <Cmd>call searchx#next_dir()<CR>
+nnoremap N <Cmd>call searchx#prev()<CR>
+nnoremap n <Cmd>call searchx#next()<CR>
 '''
 hook_source = '''
 let g:searchx = {}
