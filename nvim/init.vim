@@ -122,7 +122,7 @@ endif
 command! -nargs=* T split | wincmd j | terminal <args>
 
 set number
-set nocursorline
+set cursorline
 
 set termguicolors
 
