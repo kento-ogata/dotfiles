@@ -106,6 +106,19 @@ call lexima#add_rule({
 call lexima#add_rule({'char': '<BS>', 'at': '<\%#>', 'input': '<BS>', 'delete': 1, 'filetype': ['html', 'razor']})
 " { <input type|>, =, <input type="|"> }
 call lexima#add_rule({'char': '=', 'at': '<[^<]*\%#[^>]*>', 'input': '=\"', 'input_after': '\"', 'filetype': ['html','razor']})
+" {
+"   <div>|</div>,
+"   <CR>,
+"   <div>
+"     |
+"   </div>
+" }
+call lexima#add_rule({
+    \ 'char': '<CR>',
+    \ 'at': '>\%#<',
+    \ 'input': '<CR><Tab>',
+    \ 'input_after': '<CR>',
+    \ 'filetype': ['html', 'razor']})
 
 " markdown itemization rules
 call lexima#add_rule({'char': '<CR>', 'at': '^\s*- \S\+\%#$', 'input': '<CR>- ', 'filetype': 'markdown'})
