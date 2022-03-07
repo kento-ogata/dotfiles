@@ -116,7 +116,7 @@ call lexima#add_rule({'char': '=', 'at': '<[^<]*\%#[^>]*>', 'input': '=\"', 'inp
 call lexima#add_rule({
     \ 'char': '<CR>',
     \ 'at': '>\%#<',
-    \ 'input': '<CR><Tab>',
+    \ 'input': '<CR>',
     \ 'input_after': '<CR>',
     \ 'filetype': ['html', 'razor']})
 
