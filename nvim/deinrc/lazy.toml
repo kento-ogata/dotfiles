@@ -5,7 +5,7 @@ merged = 0
 
 [[plugins]]
 repo = 'rhysd/committia.vim'
-if = 'has("unix")'
+if = '!(has("win32")&&(&shell!~#"cmd"))'
 ft = 'gitcommit'
 on_event = 'BufReadPost'
 hook_add = '''
