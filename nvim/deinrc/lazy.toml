@@ -71,6 +71,10 @@ let g:cursorword_highlight = 1
 [[plugins]]
 repo = 'machakann/vim-sandwich'
 on_event = 'InsertEnter'
+hook_add = '''
+nmap s <Nop>
+xmap s <Nop>
+'''
 
 [[plugins]]
 repo = 'cohama/lexima.vim'
