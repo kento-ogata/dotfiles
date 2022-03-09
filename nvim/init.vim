@@ -111,9 +111,7 @@ set nowrap
 let s:interactive_shell = ''
 
 if has('win32')
-    if executable('bash')
-        let s:interactive_shell = 'bash'
-    elseif executable('pwsh')
+    if executable('pwsh')
         let s:interactive_shell = 'pwsh'
     elseif executable('powershell')
         let s:interactive_shell = 'powershell'
