@@ -108,26 +108,26 @@ set hidden
 set noswapfile
 set nowrap
 
-let s:interective_shell = ''
+let s:interactive_shell = ''
 
 if has('win32')
     if executable('bash')
-        let s:interective_shell = 'bash'
+        let s:interactive_shell = 'bash'
     elseif executable('pwsh')
-        let s:interective_shell = 'pwsh'
+        let s:interactive_shell = 'pwsh'
     elseif executable('powershell')
-        let s:interective_shell = 'powershell'
+        let s:interactive_shell = 'powershell'
     endif
 elseif has('unix')
     if executable('fish')
-        let s:interective_shell = 'fish'
+        let s:interactive_shell = 'fish'
     elseif executable('bash')
-        let s:interective_shell = 'bash'
+        let s:interactive_shell = 'bash'
     endif
 endif
 
-if s:interective_shell != ''
-    execute 'command TermOpen split | wincmd j | terminal ' . s:interective_shell
+if s:interactive_shell != ''
+    execute 'command TermOpen split | wincmd j | terminal ' . s:interactive_shell
 endif
 
 " :T to open terminal in new split
