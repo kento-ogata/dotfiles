@@ -124,12 +124,12 @@ elseif has('unix')
     endif
 endif
 
+" :TermOpen to open terminal
 if s:interactive_shell != ''
-    execute 'command TermOpen split | wincmd j | terminal ' . s:interactive_shell
+    execute 'command TermOpen terminal ' . s:interactive_shell
+    execute 'command HTermOpen split | wincmd j | terminal ' . s:interactive_shell
+    execute 'command VTermOpen vsplit | wincmd l | terminal ' . s:interactive_shell
 endif
-
-" :T to open terminal in new split
-command! -nargs=* T split | wincmd j | terminal <args>
 
 set number
 set cursorline
