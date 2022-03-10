@@ -49,9 +49,12 @@ repo = 'nvim-lua/plenary.nvim'
 if = 'has("nvim")'
 
 [[plugins]]
+repo = 'kyazdani42/nvim-web-devicons'
+
+[[plugins]]
 repo = 'nvim-telescope/telescope.nvim'
 if = 'has("nvim")'
-depends = 'plenary.nvim'
+depends = ['plenary.nvim', 'nvim-web-devicons']
 on_map = { n = '<Cmd>Telescope' }
 hook_add = '''
 nnoremap <Leader>ff <Cmd>Telescope find_files<CR>

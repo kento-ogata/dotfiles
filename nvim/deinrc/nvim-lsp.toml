@@ -46,6 +46,7 @@ EOF
 
 [[plugins]]
 repo = 'folke/trouble.nvim'
+depends = 'nvim-web-devicons'
 on_source = 'nvim-lspconfig'
 hook_source = '''
 nnoremap <leader>xx <cmd>TroubleToggle<cr>
