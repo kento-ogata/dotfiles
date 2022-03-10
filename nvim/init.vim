@@ -25,6 +25,18 @@ endfunction
 
 autocmd MyAutoCmd VimEnter * call init#setRandomColorScheme()
 
+function init#LoadProjectSettings()
+    let l:opened_dir = getcwd()
+    let l:local_config_dir = l:opened_dir . '/.vim'
+    let l:local_config_file = l:local_config_dir . '/settings.vim'
+    if !isdirectory(l:local_config_dir) || (glob(l:local_config_file) == '')
+        return
+    endif
+    execute 'source ' . l:opened_dir . '/.vim/settings.vim'
+endfunction
+
+autocmd MyAutoCmd VimEnter * call init#LoadProjectSettings()
+
 " dein setup
 if has('nvim') && has('win64')
     let s:cache_home = expand($LOCALAPPDATA . '/nvim-data')
