@@ -3,21 +3,15 @@ repo = 'Shougo/ddu.vim'
 depends = 'denops.vim'
 on_map = '<Cmd>Ddu'
 hook_add = '''
-  nnoremap <silent> ;f
+  nnoremap <silent> ;s
   \ <Cmd>Ddu -name=files file_external
   \ -ui-param-startFilter<CR>
   nnoremap <silent> ;c <Cmd>Ddu
   \ -name=search line
   \ -ui-param-startFilter<CR>
-  nnoremap <silent> ;g <Cmd>Ddu
-  \ -name=search rg 
-  \ -source-param-input=`input('Pattern: ')`<CR>
   nnoremap <silent> ;n <Cmd>Ddu
   \ -name=search -resume
   \ -ui-param-startFilter=v:false<CR>
-  nnoremap <silent> ;r <Cmd>Ddu
-  \ -buffer-name=register register
-  \ -ui-param-autoResize<CR>
 '''
 hook_source = '''
 call ddu#custom#patch_global({
