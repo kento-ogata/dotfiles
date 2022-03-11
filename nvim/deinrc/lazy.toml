@@ -112,6 +112,13 @@ call lexima#add_rule({
 call lexima#add_rule({'char': '<BS>', 'at': '<\%#>', 'input': '<BS>', 'delete': 1, 'filetype': ['html', 'razor']})
 " { <input type|>, =, <input type="|"> }
 call lexima#add_rule({'char': '=', 'at': '<[^<]*\%#[^>]*>', 'input': '=\"', 'input_after': '\"', 'filetype': ['html','razor']})
+" { |</div>, <Tab>, </div>| }
+call lexima#add_rule({
+    \ 'char': '<Tab>',
+    \ 'at': '\%#<\/\w\+>',
+    \ 'leave': '>',
+    \ 'filetype': ['html', 'razor']
+    \ })
 " {
 "   <div>|</div>,
 "   <CR>,
