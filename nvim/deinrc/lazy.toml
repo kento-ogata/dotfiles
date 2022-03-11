@@ -100,7 +100,7 @@ call lexima#add_rule({'char': '$', 'input': '$\"', 'input_after': '\"', 'filetyp
 call lexima#add_rule({'char': '<', 'input': '<', 'input_after': '>', 'filetype': ['html', 'razor']})
 " { <input type="text"|>, <Tab>, <input type="text">|</input> }
 " { <input type="text"/|>, <Tab>, <input type="text"/>| }
-call lexima#add_rule({'char': '<Tab>', 'at': '<[^<]*\%#[^>]*>', 'leave': 1, 'filetype': ['html','razor']})
+call lexima#add_rule({'char': '<Tab>', 'at': '\%#>', 'leave': '>', 'filetype': ['html','razor']})
 call lexima#add_rule({
     \ 'char': '<Tab>',
     \ 'at': '<\(\w\+\)[^>]*[^\/]\%#>',
