@@ -47,6 +47,9 @@ call add(g:colorschemes, {'name': 'melange', 'background': 'light'})
 repo = 'nvim-lualine/lualine.nvim'
 lazy = 1
 on_event = 'VimEnter'
+hook_add = '''
+call init#setRandomColorScheme()
+'''
 hook_source = '''
 lua << EOF
 require('lualine').setup()
