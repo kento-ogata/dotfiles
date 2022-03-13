@@ -23,8 +23,6 @@ function init#setRandomColorScheme()
     execute 'set background=' . g:colorschemes[choosed].background
 endfunction
 
-autocmd MyAutoCmd VimEnter * call init#setRandomColorScheme()
-
 function init#LoadProjectSettings()
     let l:opened_dir = getcwd()
     let l:local_config_dir = l:opened_dir . '/.vim'
@@ -95,6 +93,8 @@ endif
 if dein#check_install()
     call dein#install()
 endif
+
+call init#setRandomColorScheme()
 
 " search settings
 set ignorecase
