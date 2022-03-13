@@ -192,3 +192,6 @@ on_cmd = 'Gina'
 [[plugins]]
 repo = 'lambdalisue/fern.vim'
 on_cmd = 'Fern'
+hook_add = '''
+nmap ;e <Cmd>Fern . -reveal=%<CR>
+'''
