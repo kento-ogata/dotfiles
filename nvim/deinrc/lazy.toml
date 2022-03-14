@@ -193,7 +193,7 @@ on_cmd = 'Gina'
 repo = 'lambdalisue/fern.vim'
 on_cmd = 'Fern'
 hook_add = '''
-nmap ;e <Cmd>Fern . -reveal=%<CR>
+nmap ;e <Cmd>Fern . -reveal=% -drawer<CR>
 '''
 
 [[plugins]]
