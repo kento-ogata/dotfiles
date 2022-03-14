@@ -18,19 +18,6 @@ call add(g:colorschemes, {'name': 'hybrid', 'background': 'dark'})
 '''
 
 [[plugins]]
-repo = 'lifepillar/vim-solarized8'
-hook_add = '''
-call add(g:colorschemes, {'name': 'solarized8', 'background': 'dark'})
-call add(g:colorschemes, {'name': 'solarized8', 'background': 'light'})
-'''
-
-[[plugins]]
-repo = 'gosukiwi/vim-atom-dark'
-hook_add = '''
-call add(g:colorschemes, {'name': 'atom-dark-256', 'background': 'dark'})
-'''
-
-[[plugins]]
 repo = 'YorickPeterse/vim-paper'
 hook_add = '''
 call add(g:colorschemes, {'name': 'paper', 'background': 'light'})
