@@ -47,8 +47,8 @@ EOF
 [[plugins]]
 repo = 'folke/trouble.nvim'
 depends = 'nvim-web-devicons'
-on_source = 'nvim-lspconfig'
-hook_source = '''
+on_cmd = 'TroubleToggle'
+hook_add = '''
 nnoremap <leader>xx <cmd>TroubleToggle<cr>
 nnoremap <leader>xw <cmd>TroubleToggle workspace_diagnostics<cr>
 nnoremap <leader>xd <cmd>TroubleToggle document_diagnostics<cr>
@@ -59,8 +59,7 @@ nnoremap gR <cmd>TroubleToggle lsp_references<cr>
 [[plugins]]
 repo = 'ray-x/lsp_signature.nvim'
 if = 'has("nvim")'
-depends = 'nvim-lspconfig'
-on_event = 'BufReadPost'
+on_source = 'nvim-lspconfig'
 hook_source = '''
 lua << EOF
 cfg = {...}
