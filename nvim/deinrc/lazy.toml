@@ -191,7 +191,7 @@ nmap <CR> <Cmd>FuzzyMotion<CR>
 [[plugins]]
 repo = 'twitvim/twitvim'
 if = 'has("python3")'
-on_event = 'CmdlineEnter'
+on_cmd = ['FriendsTwitter', 'PosttoTwitter']
 
 [[plugins]]
 repo = 'lambdalisue/gina.vim'
@@ -204,10 +204,21 @@ hook_add = '''
 nmap ;e <Cmd>Fern . -reveal=% -drawer<CR>
 '''
 
-[[plugins]]
-repo = 'rmagatti/auto-session'
-if = 'has("nvim")'
-on_event = 'VimEnter'
+#[[plugins]]
+#repo = 'rmagatti/auto-session'
+#if = 'has("nvim")'
+#on_event = 'VimEnter'
+#hook_source = '''
+#lua << EOF
+#require('auto-session').setup {
+#    log_level = 'error',
+#    auto_session_enable_last_session = false,
+#    auto_session_enabled = true,
+#    auto_save_enabled = true,
+#    auto_restore_enabled = true,
+#}
+#EOF
+#'''
 
 [[plugins]]
 repo = 'rhysd/git-messenger.vim'
