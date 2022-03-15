@@ -118,8 +118,6 @@ set hidden
 set noswapfile
 set nowrap
 
-let s:interactive_shell = ''
-
 if has('win32')
     if executable('pwsh')
         let s:interactive_shell = 'pwsh'
@@ -135,7 +133,7 @@ elseif has('unix')
 endif
 
 " :TermOpen to open terminal
-if s:interactive_shell != ''
+if exists('s:interactive_shell')
     execute 'command TermOpen terminal ' . s:interactive_shell
     execute 'command HTermOpen split | wincmd j | terminal ' . s:interactive_shell
     execute 'command VTermOpen vsplit | wincmd l | terminal ' . s:interactive_shell
