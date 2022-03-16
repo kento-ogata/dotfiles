@@ -57,10 +57,14 @@ if = 'has("nvim")'
 depends = ['plenary.nvim', 'nvim-web-devicons']
 on_map = { n = '<Cmd>Telescope' }
 hook_add = '''
+nmap ; <Nop>
 nnoremap ;f <Cmd>Telescope find_files<CR>
 nnoremap ;g <Cmd>Telescope live_grep<CR>
 nnoremap ;b <Cmd>Telescope buffers<CR>
 nnoremap ;h <Cmd>Telescope help_tags<CR>
+nnoremap ;s <Cmd>Telescope treesitter<CR>
+nnoremap ;c <Cmd>Telescope current_buffer_fuzzy_find<CR>
+nnoremap ;n <Cmd>Telescope resume<CR>
 '''
 
 [[plugins]]
