@@ -204,6 +204,17 @@ hook_add = '''
 nmap ;e <Cmd>Fern . -reveal=%<CR>
 '''
 
+[[plugins]]
+repo = 'lambdalisue/nerdfont.vim'
+
+[[plugins]]
+repo = 'lambdalisue/fern-renderer-nerdfont.vim'
+depends = 'nerdfont.vim'
+on_source = 'fern.vim'
+hook_add = '''
+let g:fern#renderer = 'nerdfont'
+'''
+
 #[[plugins]]
 #repo = 'rmagatti/auto-session'
 #if = 'has("nvim")'
