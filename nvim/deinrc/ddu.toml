@@ -2,18 +2,6 @@
 repo = 'Shougo/ddu.vim'
 depends = 'denops.vim'
 on_map = '<Cmd>Ddu'
-hook_add = '''
-  nnoremap ; <Nop>
-  nnoremap <silent> ;s
-  \ <Cmd>Ddu -name=files file_external
-  \ -ui-param-startFilter<CR>
-  nnoremap <silent> ;; <Cmd>Ddu
-  \ -name=search line
-  \ -ui-param-startFilter<CR>
-  nnoremap <silent> ;n <Cmd>Ddu
-  \ -name=search -resume
-  \ -ui-param-startFilter=v:false<CR>
-'''
 hook_source = '''
 call ddu#custom#patch_global({
     \   'ui': 'ff',
