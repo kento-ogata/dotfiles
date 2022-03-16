@@ -91,6 +91,8 @@ call lexima#add_rule({'char': '<Tab>', 'at': '\%#''', 'leave': 1})
 call lexima#add_rule({'char': '<Tab>', 'at': '\%#]', 'leave': 1})
 call lexima#add_rule({'char': '<Tab>', 'at': '\%#}', 'leave': 1})
 
+call lexima#add_rule({'char': '<CR>', 'at': '\%#''''''', 'input': '<CR>', 'input_after': '<CR>', 'filetype': 'toml'})
+
 " cs:
 " { |, $, $"|" }
 call lexima#add_rule({'char': '$', 'input': '$\"', 'input_after': '\"', 'filetype': ['cs','razor']})
