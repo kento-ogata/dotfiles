@@ -202,6 +202,22 @@ on_cmd = ['FriendsTwitter', 'PosttoTwitter']
 [[plugins]]
 repo = 'lambdalisue/gina.vim'
 on_cmd = 'Gina'
+hook_add = '''
+nmap <Leader>aa <Cmd>Gina status<CR>
+nmap <Leader>aA <Cmd>Gina changes HEAD<CR>
+nmap <Leader>ac <Cmd>Gina commit<CR>
+nmap <Leader>aC <Cmd>Gina commit --amend<CR>
+nmap <Leader>ab <Cmd>Gina branch -av<CR>
+nmap <Leader>at <Cmd>Gina tag<CR>
+nmap <Leader>ag <Cmd>Gina grep<CR>
+nmap <Leader>aq <Cmd>Gina qrep<CR>
+nmap <Leader>ad <Cmd>Gina changes origin/HEAD...<CR>
+nmap <Leader>ah <Cmd>Gina log --graph<CR>
+nmap <Leader>aH <Cmd>Gina log --graph --all<CR>
+nmap <Leader>al <Cmd>Gina log<CR>
+nmap <Leader>aL <Cmd>Gina log :%<CR>
+nmap <Leader>af <Cmd>Gina ls<CR>
+'''
 
 [[plugins]]
 repo = 'lambdalisue/fern.vim'
