@@ -11,7 +11,7 @@ let mapleader="\<Space>"
 " list of {'name', 'background'}
 let g:colorschemes = []
 
-function init#setRandomColorScheme()
+function init#set_random_colorschme()
     let count_of_colorschemes = len(g:colorschemes)
     if count_of_colorschemes == 0
         return
@@ -23,7 +23,7 @@ function init#setRandomColorScheme()
     execute 'set background=' . g:colorschemes[choosed].background
 endfunction
 
-function init#LoadProjectSettings()
+function init#load_project_local_settings()
     let l:opened_dir = getcwd()
     let l:local_config_dir = l:opened_dir . '/.vim'
     let l:local_config_file = l:local_config_dir . '/settings.vim'
@@ -33,7 +33,7 @@ function init#LoadProjectSettings()
     execute 'source ' . l:opened_dir . '/.vim/settings.vim'
 endfunction
 
-autocmd MyAutoCmd VimEnter * call init#LoadProjectSettings()
+autocmd MyAutoCmd VimEnter * call init#load_project_local_settings()
 
 " dein setup
 if has('nvim') && has('win64')
