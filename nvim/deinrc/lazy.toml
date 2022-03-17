@@ -261,3 +261,14 @@ hook_add = '''
 let g:git_messenger_no_default_mappings = v:true
 nmap <Leader>mp <Plug>(git-messenger)
 '''
+
+[[plugins]]
+repo = 'vim-jp/syntax-vim-ex'
+on_ft = ['vim','toml']
+hook_source = '''
+syntax on
+'''
+
+[[plugins]]
+repo = 'jlcrochet/vim-razor'
+on_ft = ['razor']
