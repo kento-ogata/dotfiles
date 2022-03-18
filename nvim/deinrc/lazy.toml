@@ -73,6 +73,7 @@ on_event = 'FileType'
 hook_add = '''
 let g:cursorword = 1
 let g:cursorword_highlight = 1
+autocmd MyAutoCmd FileType toml let b:cursorword = 0
 '''
 
 [[plugins]]
