@@ -12,15 +12,15 @@ let mapleader="\<Space>"
 let g:colorschemes = []
 
 function init#set_random_colorschme()
-    let count_of_colorschemes = len(g:colorschemes)
-    if count_of_colorschemes == 0
+    let l:count_of_colorschemes = len(g:colorschemes)
+    if l:count_of_colorschemes == 0
         return
     endif
 
-    let choosed = localtime() % count_of_colorschemes
+    let l:choosed = localtime() % l:count_of_colorschemes
 
-    execute 'colorscheme ' . g:colorschemes[choosed].name
-    execute 'set background=' . g:colorschemes[choosed].background
+    execute 'colorscheme ' . g:colorschemes[l:choosed].name
+    execute 'set background=' . g:colorschemes[l:choosed].background
 endfunction
 
 function init#load_project_local_settings()
