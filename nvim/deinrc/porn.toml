@@ -32,6 +32,8 @@ call add(g:colorschemes, {'name': 'melange', 'background': 'light'})
 
 [[plugins]]
 repo = 'nvim-lualine/lualine.nvim'
+depends = 'nvim-web-devicons'
+if = 'has("nvim")'
 lazy = 1
 on_event = 'VimEnter'
 hook_source = '''
