@@ -241,6 +241,21 @@ hook_add = '''
 let g:fern#renderer = 'nerdfont'
 '''
 
+[[plugins]]
+repo = 'lambdalisue/fern-git-status.vim'
+on_source = 'fern.vim'
+hook_source = '''
+call fern_git_status#init()
+'''
+
+[[plugins]]
+repo = 'lambdalisue/fern-hijack.vim'
+on_source = 'fern.vim'
+
+[[plugins]]
+repo = 'lambdalisue/fern-mapping-git.vim'
+on_source = 'fern.vim'
+
 #[[plugins]]
 #repo = 'rmagatti/auto-session'
 #if = 'has("nvim")'
