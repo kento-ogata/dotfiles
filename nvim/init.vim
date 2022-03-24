@@ -37,7 +37,7 @@ autocmd MyAutoCmd VimEnter * call init#load_project_local_settings()
 
 " dein setup
 if has('nvim') && has('win64')
-    let s:cache_home = expand($LOCALAPPDATA . '/nvim-data')
+    let s:cache_home = $TEMP
 else
     let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
 endif
