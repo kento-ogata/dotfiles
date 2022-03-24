@@ -80,14 +80,6 @@ autocmd MyAutoCmd FileType toml let b:cursorword = 0
 '''
 
 [[plugins]]
-repo = 'machakann/vim-sandwich'
-on_event = 'InsertEnter'
-hook_add = '''
-nmap s <Nop>
-xmap s <Nop>
-'''
-
-[[plugins]]
 repo = 'cohama/lexima.vim'
 on_event = 'InsertEnter'
 hook_source = """

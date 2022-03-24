@@ -19,3 +19,10 @@ repo = 'airblade/vim-gitgutter'
 hook_add = '''
 set signcolumn=yes
 '''
+
+[[plugins]]
+repo = 'machakann/vim-sandwich'
+hook_add = '''
+nmap s <Nop>
+xmap s <Nop>
+'''
