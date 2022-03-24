@@ -39,7 +39,10 @@ hook_source = '''
 lua << EOF
 require'nvim-treesitter.configs'.setup {
     ensure_installed = 'all',
-    highlight = { enable = true },
+    highlight = {
+        disable = { "vim" },
+        enable = true
+    },
 }
 EOF
 '''
@@ -265,7 +268,7 @@ nmap <Leader>mp <Plug>(git-messenger)
 
 [[plugins]]
 repo = 'vim-jp/syntax-vim-ex'
-on_ft = ['vim','toml']
+#on_ft = ['vim','toml']
 hook_source = '''
 syntax on
 '''
