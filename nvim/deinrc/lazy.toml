@@ -209,8 +209,8 @@ on_cmd = 'Gina'
 hook_add = '''
 nmap <Leader>aa <Cmd>Gina status<CR>
 nmap <Leader>aA <Cmd>Gina changes HEAD<CR>
-nmap <Leader>ac <Cmd>Gina commit<CR>
-nmap <Leader>aC <Cmd>Gina commit --amend<CR>
+nmap <Leader>ac <Cmd>Gina commit --verbose<CR>
+nmap <Leader>aC <Cmd>Gina commit --amend --verbose<CR>
 nmap <Leader>ab <Cmd>Gina branch -av<CR>
 nmap <Leader>at <Cmd>Gina tag<CR>
 nmap <Leader>ag <Cmd>Gina grep<CR>
