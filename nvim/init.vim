@@ -52,10 +52,10 @@ if &runtimepath !~# '/dein.vim'
                 \ fnamemodify(s:dein_dir, ':p') , '[/\\]$', '', '')
 endif
 
-const g:dein#lazy_rplugins = v:true
-const g:dein#install_progress_type = 'tabline'
-const g:dein#install_check_diff = v:true
-const g:dein#enable_notification = v:true
+let g:dein#lazy_rplugins = v:true
+let g:dein#install_progress_type = 'tabline'
+let g:dein#install_check_diff = v:true
+let g:dein#enable_notification = v:true
 
 const b:use_ddc = v:true
 
@@ -139,11 +139,11 @@ set cursorline
 
 set termguicolors
 
-const g:netrw_liststyle=3
-const g:netrw_banner=0
-const g:netrw_sizestyle="H"
-const g:netrw_timefmt="%Y/%m/%d(%a) %H:%M:%S"
-const g:netrw_preview=1
+let g:netrw_liststyle=3
+let g:netrw_banner=0
+let g:netrw_sizestyle="H"
+let g:netrw_timefmt="%Y/%m/%d(%a) %H:%M:%S"
+let g:netrw_preview=1
 
 filetype plugin indent on
 syntax enable
