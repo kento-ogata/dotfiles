@@ -65,13 +65,13 @@ nmap ;f     <Cmd>Telescope find_files<CR>
 nmap ;q     <Cmd>Telescope live_grep<CR>
 nmap ;b     <Cmd>Telescope buffers<CR>
 nmap ;h     <Cmd>Telescope help_tags<CR>
-nmap ;s     <Cmd>Telescope treesitter<CR>
-nmap ;c     <Cmd>Telescope current_buffer_fuzzy_find<CR>
-nmap ;n     <Cmd>Telescope resume<CR>
-nmap ;gc    <Cmd>Telescope git_commits<CR>
-nmap ;gC    <Cmd>Telescope git_bcommits<CR>
-nmap ;gb    <Cmd>Telescope git_branch<CR>
-nmap ;gs    <Cmd>Telescope git_status<CR>
+nmap ;t     <Cmd>Telescope treesitter<CR>
+nmap ;s     <Cmd>Telescope current_buffer_fuzzy_find<CR>
+nmap ;n     <Cmd>Telescope resume<CR><Esc>
+nmap ;gG    <Cmd>Telescope git_commits<CR>
+nmap ;gg    <Cmd>Telescope git_bcommits<CR>
+nmap ;gb    <Cmd>Telescope git_branches<CR>
+nmap ;ga    <Cmd>Telescope git_status<CR>
 '''
 
 [[plugins]]
