@@ -5,8 +5,7 @@ merged = 0
 
 [[plugins]]
 repo = 'rhysd/committia.vim'
-ft = 'gitcommit'
-on_event = 'BufReadPost'
+on_ft = 'gitcommit'
 hook_add = '''
 augroup GitSpellCheck
     autocmd!
@@ -28,6 +27,9 @@ let g:committia_min_window_size = 160
 let g:committia_status_window_opencmd = 'belowright split'
 let g:committia_diff_window_opencmd = 'botright vsplit'
 let g:committia_singlecolumn_diff_window_opencmd = 'belowright split'
+'''
+hook_source = '''
+call committia#open('git')
 '''
 
 [[plugins]]
