@@ -247,10 +247,6 @@ call fern_git_status#init()
 '''
 
 [[plugins]]
-repo = 'lambdalisue/fern-hijack.vim'
-on_source = 'fern.vim'
-
-[[plugins]]
 repo = 'lambdalisue/fern-mapping-git.vim'
 on_source = 'fern.vim'
 

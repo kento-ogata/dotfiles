@@ -26,3 +26,6 @@ hook_add = '''
 nmap s <Nop>
 xmap s <Nop>
 '''
+
+[[plugins]]
+repo = 'lambdalisue/fern-hijack.vim'
