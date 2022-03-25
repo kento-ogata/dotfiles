@@ -217,6 +217,8 @@ nmap <Leader>aH <Cmd>Gina log --graph --all<CR>
 nmap <Leader>al <Cmd>Gina log<CR>
 nmap <Leader>aL <Cmd>Gina log :%<CR>
 nmap <Leader>af <Cmd>Gina ls<CR>
+
+autocmd MyAutoCmd FileType gina-commit setlocal spell
 '''
 
 [[plugins]]
