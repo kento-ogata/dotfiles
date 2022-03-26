@@ -202,8 +202,8 @@ on_cmd = 'Gina'
 hook_add = '''
 nmap <Leader>aa <Cmd>Gina status<CR>
 nmap <Leader>aA <Cmd>Gina changes HEAD<CR>
-nmap <Leader>ac <Cmd>Gina commit --verbose<CR>
-nmap <Leader>aC <Cmd>Gina commit --amend --verbose<CR>
+nmap <Leader>ac <Cmd>Gina commit<CR>
+nmap <Leader>aC <Cmd>Gina commit --amend<CR>
 nmap <Leader>ab <Cmd>Gina branch -av<CR>
 nmap <Leader>at <Cmd>Gina tag<CR>
 nmap <Leader>ag <Cmd>Gina grep<CR>
@@ -216,6 +216,11 @@ nmap <Leader>aL <Cmd>Gina log :%<CR>
 nmap <Leader>af <Cmd>Gina ls<CR>
 
 autocmd MyAutoCmd FileType gina-commit setlocal spell
+'''
+hook_source = '''
+call gina#custom#command#option(
+    \ 'commit', '-v|--verbose'
+    \ )
 '''
 
 [[plugins]]
