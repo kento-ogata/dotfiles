@@ -14,9 +14,6 @@ let g:committia_hooks = {}
 function! g:committia_hooks.edit_open(info)
     setlocal spell
     setlocal spelllang+=cjk
-
-    imap <buffer><C-n> <Plug>(committia-scroll-diff-down-half)
-    imap <buffer><C-p> <Plug>(committia-scroll-diff-up-half)
 endfunction
 
 let g:committia_open_only_vim_starting = 1
