@@ -124,6 +124,11 @@ endfunction
 
 [[plugins]]
 repo = 'Shougo/pum.vim'
+hook_source = '''
+if has('nvim')
+    call pum#set_option('border', 'rounded')
+endif
+'''
 
 [[plugins]]
 repo = 'Shougo/ddc-around'
