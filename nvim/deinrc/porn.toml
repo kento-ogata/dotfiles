@@ -1,7 +1,7 @@
 [[plugins]]
 repo = 'rebelot/kanagawa.nvim'
 hook_add = '''
-call add(g:colorschemes, {'name': 'kanagawa', 'background': 'dark'})
+call add(g:colorschemes, {'name': 'kanagawa'})
 '''
 
 [[plugins]]
@@ -20,7 +20,7 @@ call add(g:colorschemes, {'name': 'hybrid', 'background': 'dark'})
 [[plugins]]
 repo = 'YorickPeterse/vim-paper'
 hook_add = '''
-call add(g:colorschemes, {'name': 'paper', 'background': 'light'})
+call add(g:colorschemes, {'name': 'paper'})
 '''
 
 [[plugins]]

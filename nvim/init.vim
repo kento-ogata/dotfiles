@@ -20,7 +20,9 @@ function init#set_random_colorschme()
     const l:choosed = localtime() % l:count_of_colorschemes
 
     execute 'colorscheme ' . g:colorschemes[l:choosed].name
-    execute 'set background=' . g:colorschemes[l:choosed].background
+    if has_key(g:colorschemes[l:choosed], 'background')
+        execute 'set background=' . g:colorschemes[l:choosed].background
+    endif
 endfunction
 
 function init#load_project_local_settings()
