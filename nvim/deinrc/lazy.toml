@@ -228,6 +228,9 @@ repo = 'lambdalisue/fern.vim'
 on_cmd = 'Fern'
 hook_add = '''
 nmap ;e <Cmd>Fern . -reveal=%<CR>
+let g:fern#hide_cursor = v:true
+let g:fern#keepalt_on_edit = v:true
+let g:fern#default_hidden = v:true
 '''
 
 [[plugins]]
