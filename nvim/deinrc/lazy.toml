@@ -55,7 +55,7 @@ repo = 'kyazdani42/nvim-web-devicons'
 repo = 'nvim-telescope/telescope.nvim'
 if = 'has("nvim")'
 depends = ['plenary.nvim', 'nvim-web-devicons']
-on_map = { n = '<Cmd>Telescope' }
+on_cmd = 'Telescope'
 hook_add = '''
 nmap ; <Nop>
 nmap ;f     <Cmd>Telescope find_files<CR>
@@ -153,8 +153,7 @@ call lexima#add_rule({'char': '-', 'at': '- \%#$', 'input': '<BS><BS>  - ', 'fil
 
 [[plugins]]
 repo = 'hrsh7th/vim-searchx'
-if = 'has("nvim-0.5")'
-on_map = { n = '<Cmd>call searchx#start' }
+on_func = 'searchx#start'
 hook_add = '''
 nnoremap / <Cmd>call searchx#start({ 'dir': 1 })<CR>
 
