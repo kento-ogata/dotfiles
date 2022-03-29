@@ -137,6 +137,7 @@ if exists('s:interactive_shell')
 endif
 
 set number
+set relativenumber
 set cursorline
 
 set termguicolors
