@@ -152,7 +152,6 @@ filetype plugin indent on
 syntax enable
 
 cabbrev vh vert bo h
-nnoremap <C-d> :q<CR>
 
 " around clipboard
 vmap <Leader>y "+y
