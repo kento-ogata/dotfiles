@@ -215,6 +215,11 @@ call gina#custom#command#option(
 '''
 
 [[plugins]]
+repo = 'lambdalisue/gin.vim'
+depends = 'denops.vim'
+on_cmd = ['Gin', 'GinBranch', 'GinChaperon', 'GinDiff', 'GinEdit', 'GinPatch', 'GinStatus']
+
+[[plugins]]
 repo = 'lambdalisue/fern.vim'
 on_cmd = 'Fern'
 hook_add = '''
