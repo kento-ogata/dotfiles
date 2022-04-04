@@ -3,7 +3,7 @@ repo = 'vim-denops/denops.vim'
 
 [[plugins]]
 repo = 'rhysd/committia.vim'
-on_ft = 'gitcommit'
+on_path = ['COMMIT_EDITMSG', 'MERGE_MSG']
 hook_add = '''
 augroup GitSpellCheck
     autocmd!
@@ -22,9 +22,6 @@ let g:committia_min_window_size = 160
 let g:committia_status_window_opencmd = 'belowright split'
 let g:committia_diff_window_opencmd = 'botright vsplit'
 let g:committia_singlecolumn_diff_window_opencmd = 'belowright split'
-'''
-hook_source = '''
-call committia#open('git')
 '''
 
 [[plugins]]
