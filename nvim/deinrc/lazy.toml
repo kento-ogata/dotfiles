@@ -180,6 +180,18 @@ endfunction
 '''
 
 [[plugins]]
+repo = 'hrsh7th/vim-eft'
+on_map = ['<Plug>(eft-f-repeatable)', '<Plug>(eft-F-repeatable)']
+hook_add = '''
+nmap f <Plug>(eft-f-repeatable)
+xmap f <Plug>(eft-f-repeatable)
+omap f <Plug>(eft-f-repeatable)
+nmap F <Plug>(eft-F-repeatable)
+xmap F <Plug>(eft-F-repeatable)
+omap F <Plug>(eft-F-repeatable)
+'''
+
+[[plugins]]
 repo = 'twitvim/twitvim'
 if = 'has("python3")'
 on_cmd = ['FriendsTwitter', 'PosttoTwitter', 'BPosttoTwitter', 'CPosttoTwitter']
