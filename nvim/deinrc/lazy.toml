@@ -200,11 +200,9 @@ on_cmd = ['FriendsTwitter', 'PosttoTwitter', 'BPosttoTwitter', 'CPosttoTwitter']
 repo = 'lambdalisue/gina.vim'
 on_cmd = 'Gina'
 hook_add = '''
-nmap <Leader>aa <Cmd>Gina status<CR>
 nmap <Leader>aA <Cmd>Gina changes HEAD<CR>
 nmap <Leader>ac <Cmd>Gina commit<CR>
 nmap <Leader>aC <Cmd>Gina commit --amend<CR>
-nmap <Leader>ab <Cmd>Gina branch -av<CR>
 nmap <Leader>at <Cmd>Gina tag<CR>
 nmap <Leader>ag <Cmd>Gina grep<CR>
 nmap <Leader>aq <Cmd>Gina qrep<CR>
@@ -227,6 +225,10 @@ call gina#custom#command#option(
 repo = 'lambdalisue/gin.vim'
 depends = 'denops.vim'
 on_cmd = ['Gin', 'GinBranch', 'GinChaperon', 'GinDiff', 'GinEdit', 'GinPatch', 'GinStatus']
+hook_add = '''
+nmap <Leader>aa <Cmd>GinStatus<CR>
+nmap <Leader>ab <Cmd>GinBranch<CR>
+'''
 
 [[plugins]]
 repo = 'lambdalisue/fern.vim'
