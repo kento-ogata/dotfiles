@@ -48,4 +48,9 @@ call init#set_random_colorschme()
 lua << EOF
 require('lualine').setup()
 EOF
+
+" 'laststatus' option is overwritten in lualine.nvim
+if has('nvim-0.7')
+    set laststatus=3
+endif
 '''
