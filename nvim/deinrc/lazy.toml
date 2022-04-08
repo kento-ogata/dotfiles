@@ -376,3 +376,17 @@ gitsigns.setup {
 }
 EOF
 '''
+
+[[plugins]]
+repo = 'ctrlpvim/ctrlp.vim'
+on_map = '<Plug>(ctrlp)'
+hook_add = '''
+nmap <C-p> <Plug>(ctrlp)
+'''
+
+[[plugins]]
+repo = 'mattn/ctrlp-matchfuzzy'
+on_source = 'ctrlp.vim'
+hook_source = '''
+let g:ctrlp_match_func = { 'match': 'ctrlp_matchfuzzy#matcher' }
+'''
