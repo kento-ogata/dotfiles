@@ -386,6 +386,7 @@ nmap <C-p> <Plug>(ctrlp)
 
 [[plugins]]
 repo = 'mattn/ctrlp-matchfuzzy'
+if = 'exists("*matchfuzzy")'
 on_source = 'ctrlp.vim'
 hook_source = '''
 let g:ctrlp_match_func = { 'match': 'ctrlp_matchfuzzy#matcher' }
