@@ -38,6 +38,13 @@ call add(g:colorschemes, {'name': 'solarized8', 'background': 'light'})
 '''
 
 [[plugins]]
+repo = '4513ECHO/vim-colors-hatsunemiku'
+hook_add = '''
+call add(g:colorschemes, {'name': 'hatsunemiku'})
+call add(g:colorschemes, {'name': 'hatsunemiku_light'})
+'''
+
+[[plugins]]
 repo = 'nvim-lualine/lualine.nvim'
 depends = 'nvim-web-devicons'
 if = 'has("nvim")'
