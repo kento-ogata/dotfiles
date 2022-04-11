@@ -116,3 +116,10 @@ lspsaga.setup { -- defaults ...
 }
 EOF
 '''
+
+[[plugins]]
+repo = 'j-hui/fidget.nvim'
+on_source = 'nvim-lspconfig'
+hook_source = '''
+lua require('fidget').setup()
+'''
