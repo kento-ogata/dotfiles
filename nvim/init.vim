@@ -55,7 +55,7 @@ if &runtimepath !~# '/dein.vim'
 endif
 
 let g:dein#lazy_rplugins = v:true
-let g:dein#install_progress_type = 'tabline'
+let g:dein#install_progress_type = 'floating'
 let g:dein#install_check_diff = v:true
 let g:dein#enable_notification = v:true
 
