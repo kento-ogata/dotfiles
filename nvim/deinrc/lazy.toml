@@ -181,7 +181,7 @@ endfunction
 
 [[plugins]]
 repo = 'hrsh7th/vim-eft'
-on_map = ['<Plug>(eft-f-repeatable)', '<Plug>(eft-F-repeatable)']
+on_map = ['<Plug>(eft-f-repeatable)', '<Plug>(eft-F-repeatable)', '<Plug>(eft-t-repeatable)', '<Plug>(eft-T-repeatable)']
 hook_add = '''
 nmap f <Plug>(eft-f-repeatable)
 xmap f <Plug>(eft-f-repeatable)
@@ -189,6 +189,13 @@ omap f <Plug>(eft-f-repeatable)
 nmap F <Plug>(eft-F-repeatable)
 xmap F <Plug>(eft-F-repeatable)
 omap F <Plug>(eft-F-repeatable)
+
+nmap t <Plug>(eft-t-repeatable)
+xmap t <Plug>(eft-t-repeatable)
+omap t <Plug>(eft-t-repeatable)
+nmap T <Plug>(eft-T-repeatable)
+xmap T <Plug>(eft-T-repeatable)
+omap T <Plug>(eft-T-repeatable)
 
 let g:eft_ignorecase = v:true
 '''
