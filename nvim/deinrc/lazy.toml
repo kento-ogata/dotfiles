@@ -189,6 +189,8 @@ omap f <Plug>(eft-f-repeatable)
 nmap F <Plug>(eft-F-repeatable)
 xmap F <Plug>(eft-F-repeatable)
 omap F <Plug>(eft-F-repeatable)
+
+let g:eft_ignorecase = v:true
 '''
 
 [[plugins]]
