@@ -101,9 +101,7 @@ if has('nvim')
 endif
 
 " indent
-set tabstop=4
 set shiftwidth=4
-set softtabstop=0
 set expandtab
 
 set autoindent
