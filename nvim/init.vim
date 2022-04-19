@@ -14,14 +14,14 @@ let g:colorschemes = []
 function init#set_random_colorschme()
   const l:count_of_colorschemes = len(g:colorschemes)
   if l:count_of_colorschemes == 0
-  return
+    return
   endif
 
   const l:choosed = localtime() % l:count_of_colorschemes
 
   execute 'colorscheme ' . g:colorschemes[l:choosed].name
   if has_key(g:colorschemes[l:choosed], 'background')
-  execute 'set background=' . g:colorschemes[l:choosed].background
+    execute 'set background=' . g:colorschemes[l:choosed].background
   endif
 endfunction
 
@@ -30,7 +30,7 @@ function init#load_project_local_settings()
   const l:local_config_dir = l:opened_dir . '/.vim'
   const l:local_config_file = l:local_config_dir . '/settings.vim'
   if !isdirectory(l:local_config_dir) || (glob(l:local_config_file) == '')
-  return
+    return
   endif
   execute 'source ' . l:opened_dir . '/.vim/settings.vim'
 endfunction
@@ -48,7 +48,7 @@ endif
 if &runtimepath !~# '/dein.vim'
   const s:dein_dir = s:cache_home . '/dein/repos/github.com/Shougo/dein.vim'
   if !isdirectory(s:dein_dir)
-  execute '!git clone https://github.com/Shougo/dein.vim.git ' s:dein_dir
+    execute '!git clone https://github.com/Shougo/dein.vim.git ' s:dein_dir
   endif
   execute 'set runtimepath^=' . substitute(
         \ fnamemodify(s:dein_dir, ':p') , '[/\\]$', '', '')
