@@ -200,7 +200,7 @@ omap T <Plug>(eft-T-repeatable)
 let g:eft_ignorecase = v:true
 
 function s:eft_user_camel(state, text, index) abort
-  return (a:text[a:index - 1] =~# '\U' && a:text[a:index] =~# '\u') || (a:text[a:index] =~# '\U' && a:text[a:index + 1] =~# '\u')
+  return (a:text[a:index] =~# '\u' && a:text[a:index + 1] =~# '\U') || (a:text[a:index] =~# '\U' && a:text[a:index + 1] =~# '\u')
 endfunction
 
 let g:eft_index_function = {
