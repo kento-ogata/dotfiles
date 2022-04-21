@@ -167,3 +167,5 @@ nnoremap k gk
 
 " escape from terminal insert mode
 tnoremap <silent><Esc> <C-\><C-n>
+
+inoremap <C-v>u <C-r>=nr2char(0x)<Left>
