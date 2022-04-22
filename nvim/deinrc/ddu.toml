@@ -13,6 +13,10 @@ hook_add = '''
   nnoremap <silent> ;l <Cmd>Ddu
   \ -name=search line
   \ -ui-param-startFilter<CR>
+  nnoremap <silent> ;g <Cmd>Ddu
+  \ -name=search rg
+  \ -ui-param-ignoreEmpty
+  \ -source-param-input=`input('Pattern: ')`<CR>
   nnoremap <silent> ;h <Cmd>Ddu
   \ -name=help help
   \ -ui-param-startFilter<CR>
@@ -37,6 +41,11 @@ call ddu#custom#patch_global({
     \           executable('rg') ? ['rg', '--files'] : (
     \           has('unix') && executable('find') ? ['find', '.', '-type', 'f'] : (
     \           has('win32') && executable('where') ? ['where', '/r', '.', '*'] : [])))) ,
+    \     },
+    \     'rg': {
+    \       'args': [
+    \         '--ignore-case', '--column', '--no-heading', '--color', 'never',
+    \       ],
     \     },
     \   },
     \   'filterParams': {
