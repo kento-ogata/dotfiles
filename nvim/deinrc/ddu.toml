@@ -13,6 +13,9 @@ hook_add = '''
   nnoremap <silent> ;l <Cmd>Ddu
   \ -name=search line
   \ -ui-param-startFilter<CR>
+  nnoremap <silent> ;h <Cmd>Ddu
+  \ -name=help help
+  \ -ui-param-startFilter<CR>
   nnoremap <silent> ;n <Cmd>Ddu
   \ -name=search -resume
   \ -ui-param-startFilter=v:false<CR>
@@ -60,6 +63,9 @@ call ddu#custom#patch_global({
     \     },
     \     'deol': {
     \       'defaultAction': 'switch',
+    \     },
+    \     'help': {
+    \       'defaultAction': 'open',
     \     },
     \   }
     \ })
@@ -128,6 +134,10 @@ on_source = 'ddu.vim'
 
 [[plugins]]
 repo = 'shun/ddu-source-buffer'
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo = 'matsui54/ddu-source-help'
 on_source = 'ddu.vim'
 
 [[plugins]]
