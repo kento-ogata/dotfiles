@@ -49,26 +49,6 @@ if = 'has("nvim")'
 repo = 'kyazdani42/nvim-web-devicons'
 
 [[plugins]]
-repo = 'nvim-telescope/telescope.nvim'
-if = 'has("nvim")'
-depends = ['plenary.nvim', 'nvim-web-devicons']
-on_cmd = 'Telescope'
-hook_add = '''
-nmap ; <Nop>
-nmap ;f     <Cmd>Telescope find_files<CR>
-nmap ;q     <Cmd>Telescope live_grep<CR>
-nmap ;b     <Cmd>Telescope buffers<CR>
-nmap ;h     <Cmd>Telescope help_tags<CR>
-nmap ;t     <Cmd>Telescope treesitter<CR>
-nmap ;s     <Cmd>Telescope current_buffer_fuzzy_find<CR>
-nmap ;n     <Cmd>Telescope resume<CR><Esc>
-nmap ;gG    <Cmd>Telescope git_commits<CR>
-nmap ;gg    <Cmd>Telescope git_bcommits<CR>
-nmap ;gb    <Cmd>Telescope git_branches<CR>
-nmap ;ga    <Cmd>Telescope git_status<CR>
-'''
-
-[[plugins]]
 repo = 'itchyny/vim-cursorword'
 on_event = 'FileType'
 hook_add = '''

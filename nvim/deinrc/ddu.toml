@@ -2,6 +2,21 @@
 repo = 'Shougo/ddu.vim'
 depends = 'denops.vim'
 on_map = '<Cmd>Ddu'
+hook_add = '''
+  nnoremap ; <Nop>
+  nnoremap <silent> ;f
+  \ <Cmd>Ddu -name=files file_external
+  \ -ui-param-startFilter<CR>
+  nnoremap <silent> ;b
+  \ <Cmd>Ddu -name=buffers buffer
+  \ -ui-param-startFilter<CR>
+  nnoremap <silent> ;l <Cmd>Ddu
+  \ -name=search line
+  \ -ui-param-startFilter<CR>
+  nnoremap <silent> ;n <Cmd>Ddu
+  \ -name=search -resume
+  \ -ui-param-startFilter=v:false<CR>
+'''
 hook_source = '''
 call ddu#custom#patch_global({
     \   'ui': 'ff',
@@ -109,6 +124,10 @@ on_source = 'ddu.vim'
 
 [[plugins]]
 repo = 'shun/ddu-source-rg'
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo = 'shun/ddu-source-buffer'
 on_source = 'ddu.vim'
 
 [[plugins]]
