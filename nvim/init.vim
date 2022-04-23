@@ -17,7 +17,7 @@ function init#set_random_colorschme()
     return
   endif
 
-  const l:choosed = localtime() % l:count_of_colorschemes
+  const l:choosed = rand(srand()) % l:count_of_colorschemes
 
   execute 'colorscheme ' . g:colorschemes[l:choosed].name
   if has_key(g:colorschemes[l:choosed], 'background')
