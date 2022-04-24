@@ -27,16 +27,13 @@ let g:committia_singlecolumn_diff_window_opencmd = 'belowright split'
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
 if = 'has("nvim")'
-on_event = 'BufRead'
+on_event = 'FileType'
 hook_post_update = 'TSUpdate'
 hook_source = '''
 lua << EOF
 require'nvim-treesitter.configs'.setup {
     ensure_installed = 'all',
-    highlight = {
-        disable = { "vim" },
-        enable = true
-    },
+    highlight = { enable = true },
 }
 EOF
 '''
