@@ -19,11 +19,6 @@ call ddc#custom#patch_global('sourceOptions', {
     \ 'around': {
     \   'mark': 'A',
     \ },
-    \ 'nextword': {
-    \   'mark': 'nextword',
-    \   'minAutoCompleteLength': 3,
-    \   'isVolatile': v:true,
-    \ },
     \ 'cmdline': {
     \   'mark': 'cmdline',
     \   'forceCompletionPattern': '\S/\S*',
@@ -135,19 +130,11 @@ repo = 'Shougo/ddc-around'
 on_source = 'ddc.vim'
 
 [[plugins]]
-repo = 'Shougo/ddc-nextword'
-on_source = 'ddc.vim'
-
-[[plugins]]
 repo = 'Shougo/ddc-cmdline'
 on_source = 'ddc.vim'
 
 [[plugins]]
 repo = 'Shougo/ddc-rg'
-on_source = 'ddc.vim'
-
-[[plugins]]
-repo = 'Shougo/ddc-line'
 on_source = 'ddc.vim'
 
 [[plugins]]
