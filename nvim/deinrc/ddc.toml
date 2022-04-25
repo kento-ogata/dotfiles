@@ -167,7 +167,7 @@ repo = 'Shougo/ddc-converter_remove_overlap'
 on_source = 'ddc.vim'
 
 [[plugins]]
-repo = 'vim-skk/denops-skkeleton.vim'
+repo = 'vim-skk/skkeleton'
 depends = 'denops.vim'
 on_map = { ic = '<Plug>(skkeleton-toggle)' }
 hook_add = '''
@@ -178,5 +178,9 @@ hook_source = '''
 call skkeleton#config({
     \   'eggLikeNewline': v:true
     \ })
-call skkeleton#config({ 'globalJisyo': '~/.skk/SKK-JISYO.L' })
+call skkeleton#config({
+    \ 'globalJisyo': '~/.skk/SKK-JISYO.L',
+    \ 'userJisyo': '~/.skk/skkeleton-user',
+    \ 'completionRankFile': '~/.skk/rank.json',
+    \ })
 '''
