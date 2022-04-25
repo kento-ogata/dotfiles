@@ -23,6 +23,9 @@ hook_add = '''
   nnoremap <silent> ;n <Cmd>Ddu
   \ -name=search -resume
   \ -ui-param-startFilter=v:false<CR>
+  nnoremap <silent> ;<Tab> <Cmd>Ddu
+  \ dein
+  \ -ui-param-startFilter<CR>
 '''
 hook_source = '''
 call ddu#custom#patch_global({
