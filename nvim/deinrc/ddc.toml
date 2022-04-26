@@ -42,6 +42,7 @@ call ddc#custom#patch_global('sourceOptions', {
     \   'mark': 'SKK',
     \   'matchers': ['skkeleton'],
     \   'sorters': [],
+    \   'minAutoCompleteLength': 2,
     \ },
     \ 'treesitter': { 'mark': 'T' }
     \ })
@@ -189,4 +190,11 @@ call skkeleton#config({
     \ 'userJisyo': '~/.skk/skkeleton-user',
     \ 'completionRankFile': '~/.skk/rank.json',
     \ })
+
+" expected ddc.vim is loaded
+let ddc_sources = ddc#custom#get_global().sources
+if ( index(ddc_sources, 'skkeleton') == -1 )
+  call add(ddc_sources, 'skkeleton')
+  call ddc#custom#patch_global({ 'sources': ddc_sources })
+endif
 '''
