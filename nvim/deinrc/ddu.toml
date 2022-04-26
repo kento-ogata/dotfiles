@@ -4,11 +4,11 @@ depends = 'denops.vim'
 on_map = '<Cmd>Ddu'
 hook_add = '''
   nnoremap ; <Nop>
-  nnoremap <silent> ;f
-  \ <Cmd>Ddu -name=files file_external
+  nnoremap <silent> ;f <Cmd>Ddu
+  \ -name=files file_external
   \ -ui-param-startFilter<CR>
-  nnoremap <silent> ;b
-  \ <Cmd>Ddu -name=buffers buffer
+  nnoremap <silent> ;b <Cmd>Ddu
+  \ -name=buffers buffer
   \ -ui-param-startFilter<CR>
   nnoremap <silent> ;l <Cmd>Ddu
   \ -name=search line
@@ -23,7 +23,7 @@ hook_add = '''
   nnoremap <silent> ;n <Cmd>Ddu
   \ -name=search -resume
   \ -ui-param-startFilter=v:false<CR>
-  nnoremap <silent> ;<Tab> <Cmd>Ddu
+  nnoremap <silent> ;1 <Cmd>Ddu
   \ dein
   \ -ui-param-startFilter<CR>
 '''
