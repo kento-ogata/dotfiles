@@ -44,7 +44,10 @@ call ddc#custom#patch_global('sourceOptions', {
     \   'sorters': [],
     \   'minAutoCompleteLength': 2,
     \ },
-    \ 'treesitter': { 'mark': 'T' }
+    \ 'treesitter': {
+    \   'mark': 'T',
+    \   'matchers': ['matcher_head'],
+    \ },
     \ })
 
 call ddc#custom#patch_global('sourceParams', {
