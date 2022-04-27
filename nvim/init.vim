@@ -25,18 +25,6 @@ function init#set_random_colorschme()
   endif
 endfunction
 
-function init#load_project_local_settings()
-  const l:opened_dir = getcwd()
-  const l:local_config_dir = l:opened_dir . '/.vim'
-  const l:local_config_file = l:local_config_dir . '/settings.vim'
-  if !isdirectory(l:local_config_dir) || (glob(l:local_config_file) == '')
-    return
-  endif
-  execute 'source ' . l:opened_dir . '/.vim/settings.vim'
-endfunction
-
-autocmd MyAutoCmd VimEnter * call init#load_project_local_settings()
-
 " dein setup
 if has('nvim') && has('win64')
   const s:cache_home = $TEMP
@@ -169,3 +157,5 @@ nnoremap k gk
 tnoremap <silent><Esc> <C-\><C-n>
 
 inoremap <C-v>u <C-r>=nr2char(0x)<Left>
+
+set secure
