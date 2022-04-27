@@ -51,6 +51,12 @@ call add(g:colorschemes, {'name': 'hatsunemiku_light'})
 '''
 
 [[plugins]]
+repo = 'sainnhe/gruvbox-material'
+hook_add = '''
+call add(g:colorschemes, {'name': 'gruvbox-material', 'background': 'dark'})
+'''
+
+[[plugins]]
 repo = 'nvim-lualine/lualine.nvim'
 depends = 'nvim-web-devicons'
 if = 'has("nvim")'
