@@ -226,14 +226,6 @@ nmap <Leader>aa <Cmd>GinStatus<CR>
 nmap <Leader>ab <Cmd>GinBranch<CR>
 '''
 
-[plugins.ftplugin]
-gin-status = '''
-autocmd MyAutoCmd FileType gin-status setlocal nobuflisted
-'''
-gin-branch = '''
-autocmd MyAutoCmd FileType gin-branch setlocal nobuflisted
-'''
-
 [[plugins]]
 repo = 'lambdalisue/fern.vim'
 on_cmd = 'Fern'
