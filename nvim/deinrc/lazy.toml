@@ -395,3 +395,7 @@ on_source = 'ctrlp.vim'
 hook_source = '''
 let g:ctrlp_match_func = { 'match': 'ctrlp_matchfuzzy#matcher' }
 '''
+
+[[plugins]]
+repo = 'rust-lang/rust.vim'
+on_ft = 'rust'
