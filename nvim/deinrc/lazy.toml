@@ -391,3 +391,6 @@ let g:ctrlp_match_func = { 'match': 'ctrlp_matchfuzzy#matcher' }
 [[plugins]]
 repo = 'rust-lang/rust.vim'
 on_ft = 'rust'
+hook_source = '''
+autocmd MyAutoCmd FileType rust nmap <buffer><silent> <C-e> <Cmd>RustRun<CR>
+'''
