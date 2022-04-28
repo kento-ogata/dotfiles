@@ -10,7 +10,7 @@ let g:fern#default_hidden = v:true
 
 [[plugins]]
 repo = 'lambdalisue/fern-hijack.vim'
-lazy = 0
+on_if = 'vimrc#is_buffer_directory()'
 
 [[plugins]]
 repo = 'lambdalisue/nerdfont.vim'
