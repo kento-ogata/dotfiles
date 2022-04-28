@@ -4,10 +4,10 @@ Neovim >= 0.7.0
 
 ## Required external commands
 
-- git
-- deno
-- node ( and `neovim` module from npm )
-- cc
-- rg
-- fd
+- [git](https://git-scm.com)
+- [deno](https://deno.land)
+- [node](https://nodejs.org) ( and [neovim](https://npmjs.com/package/neovim) module from npm )
+- cc ( [gcc](https://gcc.gnu.org) || [clang](https://clang.llvm.org) )
+- [rg](https://github.com/BurntSushi/ripgrep)
+- [fd](https://github.com/sharkdp/fd)
 
