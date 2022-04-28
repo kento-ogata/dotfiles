@@ -15,6 +15,10 @@ let s:html_rules = [
       \ { 'char': '=', 'at': '\w\+\%#', 'input': '="', 'input_after': '"', 'filetype': 'html' },
       \ ]
 
+let s:toml_rules = [
+      \ {'char': '<CR>', 'at': '\%#''''''', 'input': '<CR>', 'input_after': '<CR>', 'filetype': 'toml'}
+      \ ]
+
 function vimrc#lexima#setup()
   for rule in s:extend_general_rules
     call lexima#add_rule(rule)
@@ -23,7 +27,11 @@ function vimrc#lexima#setup()
   for rule in s:html_rules
     call lexima#add_rule(rule)
   endfor
-"  call lexima#add_rule({'char': '<CR>', 'at': '\%#''''''', 'input': '<CR>', 'input_after': '<CR>', 'filetype': 'toml'})
+
+  for rule in s:toml_rules
+    call lexima#add_rule(rule)
+  endfor
+"  call lexima#add_rule()
 "
 "  " cs:
 "  " { |, $, $"|" }
