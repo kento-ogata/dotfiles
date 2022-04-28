@@ -25,63 +25,7 @@ function init#set_random_colorschme()
   endif
 endfunction
 
-" dein setup
-if has('nvim') && has('win64')
-  const s:cache_home = $TEMP
-else
-  const s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
-endif
-
-" Load dein
-if &runtimepath !~# '/dein.vim'
-  const s:dein_dir = s:cache_home . '/dein/repos/github.com/Shougo/dein.vim'
-  if !isdirectory(s:dein_dir)
-    execute '!git clone https://github.com/Shougo/dein.vim.git ' s:dein_dir
-  endif
-  execute 'set runtimepath^=' . substitute(
-        \ fnamemodify(s:dein_dir, ':p') , '[/\\]$', '', '')
-endif
-
-let g:dein#lazy_rplugins = v:true
-let g:dein#install_progress_type = 'floating'
-let g:dein#install_check_diff = v:true
-let g:dein#enable_notification = v:true
-
-const b:use_ddc = v:true
-
-const s:path = s:cache_home . '/dein'
-if dein#load_state(s:path)
-  const s:base_dir = fnamemodify(expand('<sfile>'), ':h') . '/deinrc/'
-
-  const s:nolazy_toml   = s:base_dir . 'nolazy.toml'
-  const s:lazy_toml     = s:base_dir . 'lazy.toml'
-  const s:nvim_lsp_toml = s:base_dir . 'nvim-lsp.toml'
-  const s:ddc_toml      = s:base_dir . 'ddc.toml'
-  const s:porn_toml     = s:base_dir . 'porn.toml'
-  const s:ddu_toml      = s:base_dir . 'ddu.toml'
-  const s:fern_toml     = s:base_dir . 'fern.toml'
-  const s:git_toml      = s:base_dir . 'git.toml'
-
-  call dein#begin(s:path, [
-        \ expand('<sfile>'), s:nolazy_toml, s:lazy_toml
-        \ ])
-
-  call dein#load_toml(s:nolazy_toml,      {'lazy': 0})
-  call dein#load_toml(s:lazy_toml,        {'lazy': 1})
-  call dein#load_toml(s:porn_toml,        {'lazy': 0})
-  call dein#load_toml(s:ddu_toml,         {'lazy': 1})
-  call dein#load_toml(s:nvim_lsp_toml,    {'lazy': 1})
-  call dein#load_toml(s:ddc_toml,         {'lazy': 1})
-  call dein#load_toml(s:fern_toml,        {'lazy': 1})
-  call dein#load_toml(s:git_toml,         {'lazy': 1})
-
-  call dein#end()
-  call dein#save_state()
-endif
-
-if dein#check_install()
-  call dein#install()
-endif
+call vimrc#setup_dein()
 
 " search settings
 set ignorecase
@@ -139,9 +83,6 @@ let g:netrw_banner=0
 let g:netrw_sizestyle="H"
 let g:netrw_timefmt="%Y/%m/%d(%a) %H:%M:%S"
 let g:netrw_preview=1
-
-filetype plugin indent on
-syntax enable
 
 cabbrev vh vert bo h
 
