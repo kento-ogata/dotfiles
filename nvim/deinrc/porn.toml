@@ -37,13 +37,6 @@ call add(g:colorschemes, {'name': 'melange', 'background': 'light'})
 '''
 
 [[plugins]]
-repo = 'lifepillar/vim-solarized8'
-hook_add = '''
-call add(g:colorschemes, {'name': 'solarized8', 'background': 'dark'})
-call add(g:colorschemes, {'name': 'solarized8', 'background': 'light'})
-'''
-
-[[plugins]]
 repo = '4513ECHO/vim-colors-hatsunemiku'
 hook_add = '''
 call add(g:colorschemes, {'name': 'hatsunemiku'})
