@@ -119,9 +119,9 @@ endif
 
 " :TermOpen to open terminal
 if exists('s:interactive_shell')
-  execute 'command  TermOpen                     terminal ' . s:interactive_shell
-  execute 'command HTermOpen  split | wincmd j | terminal ' . s:interactive_shell
-  execute 'command VTermOpen vsplit | wincmd l | terminal ' . s:interactive_shell
+  execute 'command  Shell                     terminal ' . s:interactive_shell
+  execute 'command HShell  split | wincmd j | terminal ' . s:interactive_shell
+  execute 'command VShell vsplit | wincmd l | terminal ' . s:interactive_shell
 endif
 
 set number
