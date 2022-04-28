@@ -9,12 +9,6 @@ set helplang=ja,en
 '''
 
 [[plugins]]
-repo = 'vim-jp/autofmt'
-hook_add = '''
-set formatexpr=autofmt#compat#formatexpr()
-'''
-
-[[plugins]]
 repo = 'machakann/vim-sandwich'
 hook_add = '''
 nmap s <Nop>
