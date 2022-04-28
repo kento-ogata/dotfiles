@@ -22,7 +22,4 @@ xmap s <Nop>
 '''
 
 [[plugins]]
-repo = 'lambdalisue/fern-hijack.vim'
-
-[[plugins]]
 repo = 'editorconfig/editorconfig-vim'

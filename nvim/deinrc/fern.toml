@@ -1,0 +1,35 @@
+[[plugins]]
+repo = 'lambdalisue/fern.vim'
+on_cmd = 'Fern'
+hook_add = '''
+nmap ;e <Cmd>Fern . -reveal=%<CR>
+let g:fern#hide_cursor = v:true
+let g:fern#keepalt_on_edit = v:true
+let g:fern#default_hidden = v:true
+'''
+
+[[plugins]]
+repo = 'lambdalisue/fern-hijack.vim'
+lazy = 0
+
+[[plugins]]
+repo = 'lambdalisue/nerdfont.vim'
+
+[[plugins]]
+repo = 'lambdalisue/fern-renderer-nerdfont.vim'
+depends = 'nerdfont.vim'
+on_source = 'fern.vim'
+hook_add = '''
+let g:fern#renderer = 'nerdfont'
+'''
+
+[[plugins]]
+repo = 'lambdalisue/fern-git-status.vim'
+on_source = 'fern.vim'
+hook_source = '''
+call fern_git_status#init()
+'''
+
+[[plugins]]
+repo = 'lambdalisue/fern-mapping-git.vim'
+on_source = 'fern.vim'
