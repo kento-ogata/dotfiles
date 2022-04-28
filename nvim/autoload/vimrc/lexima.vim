@@ -38,28 +38,6 @@ function vimrc#lexima#setup()
 "  call lexima#add_rule({'char': '$', 'input': '$\"', 'input_after': '\"', 'filetype': ['cs','razor']})
 "
 "  " html:
-"  " { |, <, <|> }
-"  call lexima#add_rule({'char': '<', 'input': '<', 'input_after': '>', 'filetype': ['html', 'razor']})
-"  " { <input type="text"/|>, <Tab>, <input type="text"/>| }
-"  call lexima#add_rule({'char': '<Tab>', 'at': '\%#>', 'leave': '>', 'filetype': ['html','razor']})
-"  " { <input type="text"|>, <Tab>, <input type="text">|</input> }
-"  call lexima#add_rule({
-"      \ 'char': '<Tab>',
-"      \ 'at': '<\(\w\+\)\s[^>]\+[^\/]\%#>',
-"      \ 'leave': '>',
-"      \ 'input_after': '</\1>',
-"      \ 'with_submatch': 1,
-"      \ 'filetype': ['html','razor']})
-"  " { <div|>, <Tab>, <div>|</div> }
-"  call lexima#add_rule({
-"      \ 'char': '<Tab>',
-"      \ 'at': '<\(\w\+\)\%#>',
-"      \ 'leave': '>',
-"      \ 'input_after': '</\1>',
-"      \ 'with_submatch': 1,
-"      \ 'filetype': ['html', 'razor']})
-"  " { <|>, <BS>, | }
-"  call lexima#add_rule({'char': '<BS>', 'at': '<\%#>', 'input': '<BS>', 'delete': '>', 'filetype': ['html', 'razor']})
 "  " { <input type|>, =, <input type="|"> }
 "  call lexima#add_rule({'char': '=', 'at': '<[^>]\+\s\w\+\%#>', 'input': '=\"', 'input_after': '\"', 'filetype': ['html','razor']})
 "
