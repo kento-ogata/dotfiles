@@ -6,7 +6,8 @@ Neovim >= 0.7.0
 
 - git
 - deno
-- node
+- node ( and `neovim` module from npm )
+- cc
 - rg
 - fd
 
