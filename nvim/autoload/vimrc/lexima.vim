@@ -3,7 +3,7 @@ let s:extend_general_rules = [
       \ {'char': '<Tab>', 'at': '\%#\s*]', 'leave': ']'},
       \ {'char': '<Tab>', 'at': '\%#\s*}', 'leave': '}'},
       \ {'char': '<Tab>', 'at': '\%#"', 'leave': '"'},
-      \ {'char': '<Tab>', 'at': "\%#'", 'leave': "'" },
+      \ {'char': '<Tab>', 'at': '\%#''', 'leave': '''' },
       \ {'char': '<Tab>', 'at': '\%#`', 'leave': '`'},
       \ ]
 
