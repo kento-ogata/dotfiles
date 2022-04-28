@@ -1,0 +1,142 @@
+[[plugins]]
+repo = 'rhysd/committia.vim'
+on_path = ['COMMIT_EDITMSG', 'MERGE_MSG']
+hook_add = '''
+augroup GitSpellCheck
+    autocmd!
+    autocmd FileType gitcommit setlocal spell
+augroup END
+
+let g:committia_hooks = {}
+function! g:committia_hooks.edit_open(info)
+    setlocal spell
+    setlocal spelllang+=cjk
+endfunction
+
+let g:committia_open_only_vim_starting = 1
+let g:committia_use_singlecolumn = 'fallback'
+let g:committia_min_window_size = 160
+let g:committia_status_window_opencmd = 'belowright split'
+let g:committia_diff_window_opencmd = 'botright vsplit'
+let g:committia_singlecolumn_diff_window_opencmd = 'belowright split'
+'''
+
+[[plugins]]
+repo = 'lambdalisue/gina.vim'
+on_cmd = 'Gina'
+hook_add = '''
+nmap <Leader>aA <Cmd>Gina changes HEAD<CR>
+nmap <Leader>ac <Cmd>Gina commit<CR>
+nmap <Leader>aC <Cmd>Gina commit --amend<CR>
+nmap <Leader>at <Cmd>Gina tag<CR>
+nmap <Leader>ag <Cmd>Gina grep<CR>
+nmap <Leader>aq <Cmd>Gina qrep<CR>
+nmap <Leader>ad <Cmd>Gina changes origin/HEAD...<CR>
+nmap <Leader>ah <Cmd>Gina log --graph --all %<CR>
+nmap <Leader>aH <Cmd>Gina log --graph --all<CR>
+nmap <Leader>af <Cmd>Gina ls<CR>
+
+autocmd MyAutoCmd FileType gina-commit setlocal spell
+'''
+hook_source = '''
+call gina#custom#command#option(
+    \ 'commit', '-v|--verbose'
+    \ )
+'''
+
+[[plugins]]
+repo = 'lambdalisue/gin.vim'
+depends = 'denops.vim'
+on_cmd = ['Gin', 'GinBranch', 'GinChaperon', 'GinDiff', 'GinEdit', 'GinPatch', 'GinStatus']
+hook_add = '''
+nmap <Leader>aa <Cmd>GinStatus<CR>
+nmap <Leader>ab <Cmd>GinBranch<CR>
+'''
+
+[[plugins]]
+repo = 'rhysd/git-messenger.vim'
+on_cmd = 'GitMessenger'
+on_map = { n = '<Plug>(git-messenger)' }
+hook_add = '''
+let g:git_messenger_no_default_mappings = v:true
+nmap <Leader>mp <Plug>(git-messenger)
+'''
+
+[[plugins]]
+repo = 'lewis6991/gitsigns.nvim'
+if = 'has("nvim")'
+on_event = 'BufReadPost'
+hook_add = '''
+set signcolumn=yes
+'''
+hook_source = '''
+lua << EOF
+local gitsigns = require('gitsigns')
+gitsigns.setup {
+    signs = {
+    add          = {hl = 'GitSignsAdd'   , text = '+', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
+    change       = {hl = 'GitSignsChange', text = '|', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
+    delete       = {hl = 'GitSignsDelete', text = '_', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
+    topdelete    = {hl = 'GitSignsDelete', text = '‾', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
+    changedelete = {hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
+    },
+    signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`
+    numhl      = false, -- Toggle with `:Gitsigns toggle_numhl`
+    linehl     = false, -- Toggle with `:Gitsigns toggle_linehl`
+    word_diff  = false, -- Toggle with `:Gitsigns toggle_word_diff`
+    watch_gitdir = {
+    interval = 1000,
+    follow_files = true
+    },
+    attach_to_untracked = true,
+    current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
+    current_line_blame_opts = {
+    virt_text = true,
+    virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
+    delay = 1000,
+    ignore_whitespace = false,
+    },
+    current_line_blame_formatter = '<author>, <author_time:%Y-%m-%d> - <summary>',
+    sign_priority = 6,
+    update_debounce = 100,
+    status_formatter = nil, -- Use default
+    max_file_length = 40000,
+    preview_config = {
+    -- Options passed to nvim_open_win
+    border = 'single',
+    style = 'minimal',
+    relative = 'cursor',
+    row = 0,
+    col = 1
+    },
+    yadm = {
+    enable = false
+    },
+    on_attach = function(bufnr)
+      local function map(mode, lhs, rhs, opts)
+        opts = vim.tbl_extend('force', {noremap = true, silent = true}, opts or {})
+        vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, opts)
+      end
+    
+      -- Navigation
+      map('n', ']c', "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", {expr=true})
+      map('n', '[c', "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", {expr=true})
+    
+      -- Actions
+      map('n', '<leader>hs', ':Gitsigns stage_hunk<CR>')
+      map('n', '<leader>hS', '<cmd>Gitsigns undo_stage_hunk<CR>')
+      map('n', '<leader>hu', ':Gitsigns reset_hunk<CR>')
+      map('n', '<leader>hp', '<cmd>Gitsigns preview_hunk<CR>')
+      map('n', '<leader>hb', '<cmd>lua require"gitsigns".blame_line{full=true}<CR>')
+      map('n', '<leader>tb', '<cmd>Gitsigns toggle_current_line_blame<CR>')
+      map('n', '<leader>hd', '<cmd>Gitsigns diffthis<CR>')
+      map('n', '<leader>hD', '<cmd>lua require"gitsigns".diffthis("~")<CR>')
+      map('n', '<leader>td', '<cmd>Gitsigns toggle_deleted<CR>')
+    
+      -- Text object
+      map('o', 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+      map('x', 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+    end
+}
+EOF
+'''
