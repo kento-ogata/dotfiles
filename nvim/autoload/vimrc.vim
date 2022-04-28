@@ -34,7 +34,8 @@ function vimrc#setup_dein()
     const s:git_toml      = s:base_dir . 'git.toml'
 
     call dein#begin(s:path, [
-          \ expand('<sfile>'), s:nolazy_toml, s:lazy_toml
+          \ $MYVIMRC, s:nolazy_toml, s:lazy_toml, s:nvim_lsp_toml, s:ddc_toml,
+          \ s:ddu_toml, s:porn_toml, s:fern_toml, s:git_toml
           \ ])
 
     call dein#load_toml(s:nolazy_toml,      {'lazy': 0})
