@@ -12,12 +12,6 @@ call add(g:colorschemes, {'name': 'iceberg', 'background': 'light'})
 '''
 
 [[plugins]]
-repo = 'w0ng/vim-hybrid'
-hook_add = '''
-call add(g:colorschemes, {'name': 'hybrid', 'background': 'dark'})
-'''
-
-[[plugins]]
 repo = 'savq/melange'
 hook_add = '''
 call add(g:colorschemes, {'name': 'melange', 'background': 'dark'})
