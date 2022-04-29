@@ -18,12 +18,6 @@ call add(g:colorschemes, {'name': 'hybrid', 'background': 'dark'})
 '''
 
 [[plugins]]
-repo = 'https://gitlab.com/yorickpeterse/happy_hacking.vim'
-hook_add = '''
-call add(g:colorschemes, {'name': 'happy_hacking'})
-'''
-
-[[plugins]]
 repo = 'savq/melange'
 hook_add = '''
 call add(g:colorschemes, {'name': 'melange', 'background': 'dark'})
