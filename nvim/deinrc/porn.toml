@@ -24,12 +24,6 @@ call add(g:colorschemes, {'name': 'happy_hacking'})
 '''
 
 [[plugins]]
-repo = 'YorickPeterse/vim-paper'
-hook_add = '''
-call add(g:colorschemes, {'name': 'paper'})
-'''
-
-[[plugins]]
 repo = 'savq/melange'
 hook_add = '''
 call add(g:colorschemes, {'name': 'melange', 'background': 'dark'})
