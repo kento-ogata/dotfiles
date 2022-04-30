@@ -8,10 +8,10 @@ let s:extend_general_rules = [
       \ ]
 
 let s:html_rules = [
-      \ { 'char': '>', 'at': '<\(\w\+\)\(\s\+\w\+=\"[^\"]\+\"\)*\%#', 'input_after': '</\1>', 'with_submatch': '1' , 'filetype': 'html'},
+      \ { 'char': '>', 'at': '<\(\w\+\)\(\s\+\w\+=\".\+\"\)*\%#', 'input_after': '</\1>', 'with_submatch': '1' , 'filetype': 'html'},
       \ { 'char': '<Tab>', 'at': '\%#</\w\+>', 'leave': '>' },
       \ { 'char': '<CR>', 'at': '\%#</\w\+>', 'input_after': '<CR>' },
-      \ { 'char': '/', 'at': '<\(\w\+\)\(\s\+\w\+=\"[^\"]\+\"\)*\%#', 'input': '/>', 'filetype': 'html'},
+      \ { 'char': '/', 'at': '<\(\w\+\)\(\s\+\w\+=\".\+\"\)*\%#', 'input': '/>', 'filetype': 'html'},
       \ { 'char': '=', 'at': '\w\+\%#', 'input': '="', 'input_after': '"', 'filetype': 'html' },
       \ ]
 
