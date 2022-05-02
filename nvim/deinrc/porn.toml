@@ -13,17 +13,9 @@ call add(g:colorschemes, {'name': 'iceberg', 'background': 'light'})
 
 [[plugins]]
 repo = 'savq/melange'
-hook_add = '''
-call add(g:colorschemes, {'name': 'melange', 'background': 'dark'})
-call add(g:colorschemes, {'name': 'melange', 'background': 'light'})
-'''
 
 [[plugins]]
 repo = '4513ECHO/vim-colors-hatsunemiku'
-hook_add = '''
-call add(g:colorschemes, {'name': 'hatsunemiku'})
-call add(g:colorschemes, {'name': 'hatsunemiku_light'})
-'''
 
 [[plugins]]
 repo = 'sainnhe/gruvbox-material'
