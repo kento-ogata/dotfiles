@@ -106,7 +106,6 @@ let g:eft_index_function = {
 
 [[plugins]]
 repo = 'twitvim/twitvim'
-if = 'has("python3")'
 on_cmd = ['FriendsTwitter', 'PosttoTwitter', 'BPosttoTwitter', 'CPosttoTwitter']
 
 #[[plugins]]
