@@ -185,9 +185,9 @@ call skkeleton#config({
     \   'eggLikeNewline': v:true
     \ })
 call skkeleton#config({
-    \ 'globalJisyo': '~/.skk/SKK-JISYO.L',
-    \ 'userJisyo': '~/.skk/skkeleton-user',
-    \ 'completionRankFile': '~/.skk/rank.json',
+    \ 'globalJisyo': '~/.local/share/skk/SKK-JISYO.L',
+    \ 'userJisyo': '~/.local/share/skk/skkeleton-user',
+    \ 'completionRankFile': '~/.local/share/skk/rank.json',
     \ })
 
 " expected ddc.vim is loaded
