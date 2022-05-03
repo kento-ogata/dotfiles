@@ -8,6 +8,10 @@ call ddc#custom#patch_global(
     \ ['nvim-lsp', 'treesitter', 'around', 'file', 'rg'] :
     \ ['around', 'file', 'rg'],
     \ )
+call ddc#custom#patch_global(
+    \ 'cmdlineSources',
+    \ ['cmdline']
+    \ )
 
 call ddc#custom#patch_global('sourceOptions', {
     \ '_' : {
