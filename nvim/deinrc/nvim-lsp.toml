@@ -67,7 +67,6 @@ EOF
 
 [[plugins]]
 repo = 'tami5/lspsaga.nvim'
-rev = 'nvim6.0'
 on_source = 'nvim-lspconfig'
 hook_source = '''
 lua << EOF
