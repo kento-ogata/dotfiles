@@ -24,6 +24,14 @@ call add(g:colorschemes, {'name': 'gruvbox-material', 'background': 'dark'})
 '''
 
 [[plugins]]
+repo = 'ishan9299/nvim-solarized-lua'
+if = 'has("nvim")'
+hook_add = '''
+call add(g:colorschemes, {'name': 'solarized', 'background': 'dark'})
+call add(g:colorschemes, {'name': 'solarized', 'background': 'light'})
+'''
+
+[[plugins]]
 repo = 'nvim-lualine/lualine.nvim'
 depends = 'nvim-web-devicons'
 if = 'has("nvim")'
