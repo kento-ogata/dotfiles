@@ -1,5 +1,6 @@
 [[plugins]]
 repo = 'rebelot/kanagawa.nvim'
+if = 'has("nvim")'
 hook_add = '''
 call add(g:colorschemes, {'name': 'kanagawa'})
 '''
