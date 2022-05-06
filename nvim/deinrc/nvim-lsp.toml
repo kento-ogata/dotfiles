@@ -55,17 +55,6 @@ nnoremap gR <cmd>TroubleToggle lsp_references<cr>
 '''
 
 [[plugins]]
-repo = 'ray-x/lsp_signature.nvim'
-if = 'has("nvim")'
-on_source = 'nvim-lspconfig'
-hook_source = '''
-lua << EOF
-cfg = {...}
-require("lsp_signature").setup(cfg)
-EOF
-'''
-
-[[plugins]]
 repo = 'tami5/lspsaga.nvim'
 on_source = 'nvim-lspconfig'
 hook_source = '''
