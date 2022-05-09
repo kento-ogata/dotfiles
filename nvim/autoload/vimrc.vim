@@ -1,6 +1,7 @@
 function vimrc#setup_dein()
-  if has('nvim') && has('win64')
-    const s:cache_home = $TEMP
+  if has('win64')
+    " Neovim's expand() function cannot expand MS-Windows's path like 'C:\Users\USER_~1\AppData\Local\Temp' to 'C:\Users\user_name\AppData\Local\Temp'
+    const s:cache_home = has('nvim') ? ($LOCALAPPDATA . '\Temp') : expand($TEMP)
   else
     const s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
   endif
