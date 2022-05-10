@@ -20,17 +20,9 @@ let s:toml_rules = [
       \ ]
 
 function vimrc#lexima#setup()
-  for rule in s:extend_general_rules
-    call lexima#add_rule(rule)
-  endfor
-
-  for rule in s:html_rules
-    call lexima#add_rule(rule)
-  endfor
-
-  for rule in s:toml_rules
-    call lexima#add_rule(rule)
-  endfor
+  call vimrc#lexima#_set_rule(s:extend_general_rules)
+  call vimrc#lexima#_set_rule(s:html_rules)
+  call vimrc#lexima#_set_rule(s:toml_rules)
 "  call lexima#add_rule()
 "
 "  " cs:
@@ -46,4 +38,10 @@ function vimrc#lexima#setup()
 "  call lexima#add_rule({'char': '<CR>', 'at': '^\s\+- \%#$', 'input': '<BS><BS><BS>- ', 'filetype': 'markdown'})
 "  call lexima#add_rule({'char': '<CR>', 'at': '^- \%#$', 'input': '<BS><BS>', 'filetype': 'markdown'})
 "  call lexima#add_rule({'char': '-', 'at': '- \%#$', 'input': '<BS><BS>  - ', 'filetype': 'markdown'})
+endfunction
+
+function vimrc#lexima#_set_rule(rules)
+  for rule in a:rules
+    call lexima#add_rule(rule)
+  endfor
 endfunction
