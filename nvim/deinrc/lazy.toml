@@ -16,6 +16,31 @@ EOF
 '''
 
 [[plugins]]
+repo = 'lewis6991/nvim-treesitter-context'
+on_source = 'nvim-treesitter'
+hook_source = '''
+lua << EOF
+require('treesitter-context').setup{
+  enable = true,
+  throttle = true,
+  max_lines = 0,
+  patterns = {
+    default = {
+      'class',
+      'function',
+      'method',
+      'for',
+      'while',
+      'if',
+      'switch',
+      'case',
+    },
+  }
+}
+EOF
+'''
+
+[[plugins]]
 repo = 'nvim-lua/plenary.nvim'
 if = 'has("nvim")'
 
