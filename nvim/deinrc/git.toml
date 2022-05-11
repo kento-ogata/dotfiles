@@ -32,7 +32,7 @@ nmap <Leader>at <Cmd>Gina tag<CR>
 nmap <Leader>ag <Cmd>Gina grep<CR>
 nmap <Leader>aq <Cmd>Gina qrep<CR>
 nmap <Leader>ad <Cmd>Gina changes origin/HEAD...<CR>
-nmap <Leader>ah <Cmd>Gina log --graph --all %<CR>
+nmap <Leader>ah <Cmd>execute printf('Gina log --graph %s', expand('%'))<CR>
 nmap <Leader>aH <Cmd>Gina log --graph --all<CR>
 nmap <Leader>af <Cmd>Gina ls<CR>
 
