@@ -41,6 +41,11 @@ EOF
 '''
 
 [[plugins]]
+repo = 'nvim-treesitter/playground'
+depends = 'nvim-treesitter'
+on_cmd = 'TSPlaygroundToggle'
+
+[[plugins]]
 repo = 'nvim-lua/plenary.nvim'
 if = 'has("nvim")'
 
