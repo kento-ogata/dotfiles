@@ -159,7 +159,7 @@ syntax on
 [[plugins]]
 repo = 'jlcrochet/vim-razor'
 on_ft = ['razor']
-merge_ftdetect = 1
+merge_ftdetect = true
 
 [[plugins]]
 repo = 'ctrlpvim/ctrlp.vim'

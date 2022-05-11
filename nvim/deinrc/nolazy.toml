@@ -3,7 +3,7 @@ repo = 'Shougo/dein.vim'
 
 [[plugins]]
 repo = 'vim-jp/vimdoc-ja'
-merged = 0
+merged = false
 hook_add = '''
 set helplang=ja,en
 '''

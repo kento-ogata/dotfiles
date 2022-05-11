@@ -36,7 +36,7 @@ call add(g:colorschemes, {'name': 'solarized', 'background': 'light'})
 repo = 'nvim-lualine/lualine.nvim'
 depends = 'nvim-web-devicons'
 if = 'has("nvim")'
-lazy = 1
+lazy = true
 on_event = 'VimEnter'
 hook_source = '''
 call init#set_random_colorschme()
