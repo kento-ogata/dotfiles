@@ -1,4 +1,4 @@
-let s:extend_general_rules = [
+let s:block_escape_rules = [
       \ {'char': '<Tab>', 'at': '\%#\s*)', 'leave': ')'},
       \ {'char': '<Tab>', 'at': '\%#\s*]', 'leave': ']'},
       \ {'char': '<Tab>', 'at': '\%#\s*}', 'leave': '}'},
@@ -20,7 +20,7 @@ let s:toml_rules = [
       \ ]
 
 function vimrc#lexima#setup()
-  call vimrc#lexima#_set_rules(s:extend_general_rules)
+  call vimrc#lexima#_set_rules(s:block_escape_rules)
   call vimrc#lexima#_set_rules(s:html_rules)
   call vimrc#lexima#_set_rules(s:toml_rules)
 "  call lexima#add_rule()
