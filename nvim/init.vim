@@ -103,4 +103,10 @@ tnoremap <silent><Esc> <C-\><C-n>
 
 inoremap <C-v>u <C-r>=nr2char(0x)<Left>
 
+if has('nvim')
+  set laststatus=3
+else
+  set laststatus=2
+endif
+
 set secure

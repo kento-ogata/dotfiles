@@ -61,7 +61,7 @@ call ddu#custom#patch_global({
     \   },
     \   'uiParams': {
     \     'ff': {
-    \       'filterSplitDirection': 'floating',
+    \       'filterSplitDirection': has('nvim') ? 'floating' : 'botright',
     \       'split': 'horizontal',
     \       'splitDirection': 'topleft',
     \     }
