@@ -108,5 +108,6 @@ if has('nvim')
 else
   set laststatus=2
 endif
+set showtabline=2
 
 set secure
