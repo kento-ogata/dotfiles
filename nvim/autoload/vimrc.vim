@@ -59,8 +59,3 @@ function vimrc#setup_dein()
   filetype plugin indent on
   syntax enable
 endfunction
-
-function vimrc#is_buffer_directory()
-  let path = expand('<afile>')
-  return isdirectory(path)
-endfunction
