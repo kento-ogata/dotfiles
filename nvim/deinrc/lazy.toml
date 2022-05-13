@@ -64,9 +64,9 @@ autocmd MyAutoCmd FileType toml let b:cursorword = 0
 [[plugins]]
 repo = 'cohama/lexima.vim'
 on_event = 'InsertEnter'
-hook_source = """
+hook_source = '''
 call vimrc#lexima#setup()
-"""
+'''
 
 [[plugins]]
 repo = 'hrsh7th/vim-searchx'
