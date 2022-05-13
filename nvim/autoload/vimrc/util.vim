@@ -1,8 +1,8 @@
-" list of { 'path': 'result' }
+" { 'path': 'result' }
 let g:vimrc#util#path_result = {}
 
 " If a:path is in a git repository, this function will return v:true
-function vimrc#util#is_git_repo(path) abort
+function vimrc#util#ingitrepo(path) abort
   if has('win32')
     echom 'vimrc#util#is_git_repo: not supported for Windows'
     return v:false
