@@ -33,21 +33,7 @@ call add(g:colorschemes, {'name': 'solarized', 'background': 'light'})
 '''
 
 [[plugins]]
-repo = 'nvim-lualine/lualine.nvim'
-depends = 'nvim-web-devicons'
-if = 'has("nvim")'
-lazy = true
-on_event = 'VimEnter'
-hook_source = '''
-call init#set_random_colorschme()
-lua << EOF
-require('lualine').setup()
-EOF
-'''
-
-[[plugins]]
 repo = 'itchyny/lightline.vim'
-if = '!has("nvim")'
 hook_add = '''
 set background=dark
 colorscheme gruvbox-material
