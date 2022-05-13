@@ -140,3 +140,7 @@ gitsigns.setup {
 }
 EOF
 '''
+
+[[plugins]]
+repo = 'itchyny/vim-gitbranch'
+on_func = 'gitbranch#name'

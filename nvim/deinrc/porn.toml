@@ -49,18 +49,31 @@ EOF
 repo = 'itchyny/lightline.vim'
 if = '!has("nvim")'
 hook_add = '''
-let g:lightline = {}
-let g:lightline.active = {
-  \ 'left': [ [ 'mode', 'paste' ],
-  \           [ 'readonly', 'filename', 'modified' ] ],
-  \ 'right': [ [ 'lineinfo' ],
-  \            [ 'percent' ],
-  \            [ 'fileformat', 'fileencofing', 'filetype' ] ] }
-let g:lightline.inactive = {
-  \ 'left': [ [ 'filename' ] ],
-  \ 'right': [ [ 'lineinfo' ],
-  \            [ 'percent' ] ] }
-let g:lightline.tabline = {
-  \ 'left': [ [ 'tabs' ] ],
-  \ 'right': [ [ 'close' ] ] }
+set background=dark
+colorscheme gruvbox-material
+
+let g:lightline = {
+  \ 'active': {
+  \   'left':  [ [ 'mode', 'paste' ],
+  \              [ 'readonly', 'filename', 'modified' ] ],
+  \   'right': [ [ 'lineinfo' ],
+  \              [ 'percent' ],
+  \              [ 'fileformat', 'fileencofing', 'filetype' ] ] },
+  \ 'inactive': {
+  \   'left':  [ [ 'filename' ] ],
+  \   'right': [ [ 'lineinfo' ],
+  \              [ 'percent' ] ] },
+  \ 'tabline': {
+  \   'left':  [ [ 'gitbranch', 'tabs' ] ],
+  \   'right': [ [ 'close' ] ] },
+  \ 'separator': {
+  \   'left': '',
+  \   'right': '' },
+  \ 'subseparator': {
+  \   'left': '',
+  \   'right': '' },
+  \ 'colorscheme': 'gruvbox_material',
+  \ 'component_function': {
+  \   'gitbranch': 'gitbranch#name' },
+  \ }
 '''
