@@ -37,7 +37,7 @@ repo = 'nvim-lualine/lualine.nvim'
 depends = 'nvim-web-devicons'
 if = 'has("nvim")'
 lazy = true
-on_event = 'VimEnter'
+#on_event = 'VimEnter'
 hook_source = '''
 call init#set_random_colorschme()
 lua require('lualine').setup()
@@ -45,7 +45,7 @@ lua require('lualine').setup()
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
-if = '!has("nvim")'
+#if = '!has("nvim")'
 hook_add = '''
 set background=dark
 colorscheme gruvbox-material
@@ -62,7 +62,7 @@ let g:lightline = {
   \   'right': [ [ 'lineinfo' ],
   \              [ 'percent' ] ] },
   \ 'tabline': {
-  \   'left':  [ [ 'gitbranch', 'tabs' ] ],
+  \   'left':  [ [ 'gitreponame', 'gitbranch', 'tabs' ] ],
   \   'right': [ ] },
   \ 'separator': {
   \   'left': '',
@@ -72,6 +72,8 @@ let g:lightline = {
   \   'right': '' },
   \ 'colorscheme': 'gruvbox_material',
   \ 'component_function': {
-  \   'gitbranch': 'gitbranch#name' },
+  \   'gitbranch': 'gina#component#repo#branch', 
+  \   'gitreponame': 'gina#component#repo#name',
+  \ },
   \ }
 '''
