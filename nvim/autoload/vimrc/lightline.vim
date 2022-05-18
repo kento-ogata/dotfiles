@@ -1,6 +1,19 @@
+function vimrc#lightline#gitreponame()
+  const repo_name = gina#component#repo#name()
+  if repo_name == ''
+    return 'no repo'
+  else
+    return repo_name
+  endif
+endfunction
+
 function vimrc#lightline#gitbranch()
   const branch_name = gina#component#repo#branch()
-  return ' ' . branch_name
+  if branch_name == ''
+    return ''
+  else
+    return ' ' . branch_name
+  endif
 endfunction
 
 function vimrc#lightline#fileformat()

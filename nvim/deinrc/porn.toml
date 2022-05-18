@@ -62,7 +62,8 @@ let g:lightline = {
   \   'right': [ [ 'lineinfo' ],
   \              [ 'percent' ] ] },
   \ 'tabline': {
-  \   'left':  [ [ 'gitreponame', 'nerdgitbranch', 'tabs' ] ],
+  \   'left':  [ [ 'gitreponame', 'nerdgitbranch' ],
+  \              [ 'tabs' ] ],
   \   'right': [ ] },
   \ 'separator': {
   \   'left': '',
@@ -73,7 +74,7 @@ let g:lightline = {
   \ 'colorscheme': 'gruvbox_material',
   \ 'component_function': {
   \   'nerdgitbranch': 'vimrc#lightline#gitbranch', 
-  \   'gitreponame': 'gina#component#repo#name',
+  \   'gitreponame': 'vimrc#lightline#gitreponame',
   \   'nerdfileformat': 'vimrc#lightline#fileformat',
   \   'nerdfiletype': 'vimrc#lightline#filetype',
   \ },
