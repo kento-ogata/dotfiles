@@ -56,13 +56,13 @@ let g:lightline = {
   \              [ 'readonly', 'filename', 'modified' ] ],
   \   'right': [ [ 'lineinfo' ],
   \              [ 'percent' ],
-  \              [ 'fileformat', 'fileencofing', 'filetype' ] ] },
+  \              [ 'nerdfileformat', 'fileencofing', 'nerdfiletype' ] ] },
   \ 'inactive': {
   \   'left':  [ [ 'filename' ] ],
   \   'right': [ [ 'lineinfo' ],
   \              [ 'percent' ] ] },
   \ 'tabline': {
-  \   'left':  [ [ 'gitreponame', 'gitbranch', 'tabs' ] ],
+  \   'left':  [ [ 'gitreponame', 'nerdgitbranch', 'tabs' ] ],
   \   'right': [ ] },
   \ 'separator': {
   \   'left': '',
@@ -72,8 +72,10 @@ let g:lightline = {
   \   'right': '' },
   \ 'colorscheme': 'gruvbox_material',
   \ 'component_function': {
-  \   'gitbranch': 'gina#component#repo#branch', 
+  \   'nerdgitbranch': 'vimrc#lightline#gitbranch', 
   \   'gitreponame': 'gina#component#repo#name',
+  \   'nerdfileformat': 'vimrc#lightline#fileformat',
+  \   'nerdfiletype': 'vimrc#lightline#filetype',
   \ },
   \ }
 '''
