@@ -26,6 +26,6 @@ function vimrc#lightline#filetype()
   if ft == ''
     return ''
   else
-    return ft . ' ' . nerdfont#find('a.' . ft)
+    return ft . ' ' . nerdfont#find(expand('%:t'))
   endif
 endfunction
