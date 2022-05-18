@@ -9,6 +9,9 @@ set helplang=ja,en
 '''
 
 [[plugins]]
+repo = 'andymass/vim-matchup'
+
+[[plugins]]
 repo = 'machakann/vim-sandwich'
 hook_add = '''
 nmap s <Nop>
