@@ -170,6 +170,11 @@ on_ft = ['razor']
 merge_ftdetect = true
 
 [[plugins]]
+repo = 'PhilT/vim-fsharp'
+on_ft = 'fsharp'
+merge_ftdetect = true
+
+[[plugins]]
 repo = 'ctrlpvim/ctrlp.vim'
 on_map = '<Plug>(ctrlp)'
 hook_add = '''
