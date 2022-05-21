@@ -195,3 +195,7 @@ on_ft = 'rust'
 hook_source = '''
 autocmd MyAutoCmd FileType rust nmap <buffer><silent> <C-e> <Cmd>RustRun<CR>
 '''
+
+[[plugins]]
+repo = 'mattn/emmet-vim'
+on_ft = ['html', 'razor']
