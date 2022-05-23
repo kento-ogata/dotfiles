@@ -202,3 +202,9 @@ autocmd MyAutoCmd FileType rust nmap <buffer><silent> <C-e> <Cmd>RustRun<CR>
 [[plugins]]
 repo = 'mattn/emmet-vim'
 on_ft = ['html', 'razor']
+
+
+[[plugins]]
+repo = '4513ECHO/rogue.nvim'
+if = "has('nvim')"
+on_cmd = 'Rogue'
