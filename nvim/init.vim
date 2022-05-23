@@ -93,10 +93,10 @@ nmap <Leader>P "+P
 vmap <Leader>p "+p
 vmap <Leader>P "+P
 
-nnoremap j gj
-nnoremap k gk
-nnoremap j gj
-nnoremap k gk
+nnoremap <silent> j gj
+nnoremap <silent> k gk
+nnoremap <silent> j gj
+nnoremap <silent> k gk
 
 " escape from terminal insert mode
 tnoremap <silent><Esc> <C-\><C-n>
