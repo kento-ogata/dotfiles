@@ -2,8 +2,8 @@
 repo = 'lambdalisue/fern.vim'
 on_cmd = 'Fern'
 hook_add = '''
-nmap ;e <Cmd>execute printf('Fern %s', input('Path: '))<CR>
-nmap <Leader>e <Cmd>Fern . -drawer -reveal=%<CR>
+nmap ;E <Cmd>execute printf('Fern %s', input('Path: '))<CR>
+nmap ;e <Cmd>Fern . -drawer -reveal=%<CR>
 let g:fern#hide_cursor = v:true
 let g:fern#keepalt_on_edit = v:true
 let g:fern#default_hidden = v:true
