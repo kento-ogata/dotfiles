@@ -11,7 +11,7 @@ EOF
 
 [[plugins]]
 repo = 'williamboman/nvim-lsp-installer'
-on_cmd = ['LspInstallInfo']
+depends = 'nvim-lspconfig'
 on_source = 'nvim-lspconfig'
 hook_source = '''
 lua require('nvim-lsp-installer').setup()
