@@ -209,3 +209,8 @@ on_ft = ['html', 'razor']
 repo = '4513ECHO/rogue.nvim'
 if = "has('nvim')"
 on_cmd = 'Rogue'
+
+[[plugins]]
+repo = 'skanehira/denops-docker.vim'
+depends = 'denops.vim'
+on_cmd = 'Docker*'
