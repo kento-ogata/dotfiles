@@ -32,9 +32,6 @@ set ignorecase
 set smartcase
 set wrapscan
 set hlsearch
-if has('nvim')
-  set inccommand=split
-endif
 
 " indent
 set tabstop=4
@@ -107,3 +104,25 @@ set laststatus=2
 set showtabline=2
 
 set secure
+
+if has('nvim')
+  set inccommand=split
+
+  function s:map_nvim_lsp_actions()
+    nmap <buffer><silent> gD          <Cmd>lua vim.lsp.buf.declaration()<CR>
+    nmap <buffer><silent> gd          <Cmd>lua vim.lsp.buf.definition()<CR>
+    nmap <buffer><silent> gi          <Cmd>lua vim.lsp.buf.implementation()<CR>
+    nmap <buffer><silent> <C-k>       <Cmd>lua vim.lsp.buf.signature_help()<CR>
+    nmap <buffer><silent> <Leader>wa  <Cmd>lua vim.lsp.buf.add_workspace_folder()<CR>
+    nmap <buffer><silent> <Leader>wr  <Cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>
+    nmap <buffer><silent> <Leader>wl  <Cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folder()))<CR>
+    nmap <buffer><silent> <Leader>D   <Cmd>lua vim.lsp.buf.type_definition()<CR>
+    nmap <buffer><silent> <Leader>q   <Cmd>lua vim.lsp.diagnostic.set_loclist()<CR>
+    nmap <buffer><silent> <Leader>f   <Cmd>lua vim.lsp.buf.format{ async = true }<CR>
+  endfunction
+
+  augroup NvimLsp
+    autocmd!
+    autocmd LspAttach * call <SID>map_nvim_lsp_actions()
+  augroup END
+endif
