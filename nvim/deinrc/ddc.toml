@@ -148,7 +148,6 @@ on_source = 'ddc.vim'
 
 [[plugins]]
 repo = 'Shougo/ddc-nvim-lsp'
-depends = 'nvim-lspconfig'
 on_source = 'ddc.vim'
 
 [[plugins]]
