@@ -121,7 +121,7 @@ if has('nvim')
     nmap <buffer><silent> <Leader>f   <Cmd>lua vim.lsp.buf.format{ async = true }<CR>
   endfunction
 
-  augroup NvimLsp
+  augroup NvimLspRc
     autocmd!
     autocmd LspAttach * call <SID>map_nvim_lsp_actions()
   augroup END

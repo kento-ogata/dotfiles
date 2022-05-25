@@ -30,7 +30,7 @@ function s:map_trouble_actions()
   nmap <buffer><silent> gr         <Cmd>TroubleToggle lsp_references<CR>
 endfunction
 
-augroup Trouble
+augroup TroubleRc
   autocmd!
   autocmd LspAttach * call <SID>map_trouble_actions()
 augroup END
@@ -49,7 +49,7 @@ function s:map_lspsaga_actions()
   nmap <buffer><silent> <Leader>]d  <Cmd>Lspsaga diagnostic_jump_next<CR>
 endfunction
 
-augroup LspSaga
+augroup LspSagaRc
   autocmd!
   autocmd LspAttach * call <SID>map_lspsaga_actions()
 augroup END
