@@ -2,6 +2,10 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
+repo = 'lewis6991/impatient.nvim'
+if = 'has("nvim")'
+
+[[plugins]]
 repo = 'vim-jp/vimdoc-ja'
 merged = false
 hook_add = '''
