@@ -16,9 +16,21 @@ function vimrc#lightline#gitbranch()
   endif
 endfunction
 
+function vimrc#lightline#fileencoding()
+  if (winwidth(0) > 70)
+    return (&fenc !=# '' ? &fenc : &enc)
+  else
+    return ''
+  endif
+endfunction
+
 function vimrc#lightline#fileformat()
   const ff = &fileformat
-  return ' ' . nerdfont#fileformat#find(ff) . ' '
+  if (winwidth(0) > 70)
+    return ' ' . nerdfont#fileformat#find(ff) . ' '
+  else
+    return ''
+  endif
 endfunction
 
 function vimrc#lightline#filetype()
