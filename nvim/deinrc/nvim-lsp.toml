@@ -1,5 +1,6 @@
 [[plugins]]
 repo = 'neovim/nvim-lspconfig'
+name = 'lspconfig'
 if = 'has("nvim")'
 on_event = 'BufReadPost'
 hook_source = '''
@@ -11,8 +12,7 @@ EOF
 
 [[plugins]]
 repo = 'williamboman/nvim-lsp-installer'
-depends = 'nvim-lspconfig'
-on_source = 'nvim-lspconfig'
+on_source = 'lspconfig'
 hook_source = '''
 lua require('nvim-lsp-installer').setup()
 '''
