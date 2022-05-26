@@ -23,11 +23,11 @@ depends = ['nvim-web-devicons', 'lsp-colors.nvim']
 on_cmd = 'TroubleToggle'
 hook_add = '''
 function s:map_trouble_actions()
-  nmap <buffer><silent> <Leader>xx <Cmd>TroubleToggle<CR>
-  nmap <buffer><silent> <Leader>xw <Cmd>TroubleToggle workspace_diagnostics<CR>
-  nmap <buffer><silent> <Leader>xd <Cmd>TroubleToggle document_diagnostics<CR>
-  nmap <buffer><silent> <Leader>xq <Cmd>TroubleToggle loclist<CR>
-  nmap <buffer><silent> gr         <Cmd>TroubleToggle lsp_references<CR>
+  nmap <buffer><silent> ;d          <Cmd>TroubleToggle<CR>
+  nmap <buffer><silent> ;r          <Cmd>TroubleToggle lsp_references<CR>
+  nmap <buffer><silent> <Leader>xw  <Cmd>TroubleToggle workspace_diagnostics<CR>
+  nmap <buffer><silent> <Leader>xd  <Cmd>TroubleToggle document_diagnostics<CR>
+  nmap <buffer><silent> <Leader>xq  <Cmd>TroubleToggle loclist<CR>
 endfunction
 
 augroup TroubleRc
@@ -41,12 +41,12 @@ repo = 'tami5/lspsaga.nvim'
 on_cmd = 'Lspsaga'
 hook_add = '''
 function s:map_lspsaga_actions()
-  nmap <buffer><silent> K           <Cmd>Lspsaga hover_doc<CR>
-  nmap <buffer><silent> <Leader>rn  <Cmd>Lspsaga rename<CR>
-  nmap <buffer><silent> <Leader>ca  <Cmd>Lspsaga code_action<CR>
-  nmap <buffer><silent> <Leader>e   <Cmd>Lspsaga show_line_diagnostics<CR>
-  nmap <buffer><silent> <Leader>[d  <Cmd>Lspsaga diagnostic_jump_prev<CR>
-  nmap <buffer><silent> <Leader>]d  <Cmd>Lspsaga diagnostic_jump_next<CR>
+  nmap <buffer><silent> K             <Cmd>Lspsaga hover_doc<CR>
+  nmap <buffer><silent> <Leader>rn    <Cmd>Lspsaga rename<CR>
+  nmap <buffer><silent> <Leader><CR>  <Cmd>Lspsaga code_action<CR>
+  nmap <buffer><silent> <Leader>e     <Cmd>Lspsaga show_line_diagnostics<CR>
+  nmap <buffer><silent> <Leader>[d    <Cmd>Lspsaga diagnostic_jump_prev<CR>
+  nmap <buffer><silent> <Leader>]d    <Cmd>Lspsaga diagnostic_jump_next<CR>
 endfunction
 
 augroup LspSagaRc

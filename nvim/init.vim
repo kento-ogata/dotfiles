@@ -112,7 +112,7 @@ if has('nvim')
     nmap <buffer><silent> gD          <Cmd>lua vim.lsp.buf.declaration()<CR>
     nmap <buffer><silent> gd          <Cmd>lua vim.lsp.buf.definition()<CR>
     nmap <buffer><silent> gi          <Cmd>lua vim.lsp.buf.implementation()<CR>
-    nmap <buffer><silent> <C-k>       <Cmd>lua vim.lsp.buf.signature_help()<CR>
+    imap <buffer><silent> <C-k>       <Cmd>lua vim.lsp.buf.signature_help()<CR>
     nmap <buffer><silent> <Leader>wa  <Cmd>lua vim.lsp.buf.add_workspace_folder()<CR>
     nmap <buffer><silent> <Leader>wr  <Cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>
     nmap <buffer><silent> <Leader>wl  <Cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folder()))<CR>
