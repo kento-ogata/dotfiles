@@ -2,7 +2,7 @@
 repo = 'neovim/nvim-lspconfig'
 name = 'lspconfig'
 if = 'has("nvim")'
-on_event = 'BufReadPost'
+on_event = 'BufReadPre'
 hook_source = '''
 lua << EOF
 local lspconfig = require('lspconfig')
