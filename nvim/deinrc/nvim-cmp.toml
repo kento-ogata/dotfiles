@@ -1,0 +1,40 @@
+[[plugins]]
+repo = 'hrsh7th/nvim-cmp'
+name = 'cmp'
+if = 'g:vimrc#use_cmp'
+on_event = 'InsertEnter'
+hook_source = '''
+lua << EOF
+local cmp = require('cmp')
+
+cmp.setup({
+  mapping = cmp.mapping.preset.insert({
+    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.abort(),
+    ['<CR>']  = cmp.mapping.confirm({ select = true }),
+  }),
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+    { name = 'buffer' },
+  })
+})
+EOF
+'''
+
+[[plugins]]
+repo = 'hrsh7th/cmp-nvim-lsp'
+on_source = 'cmp'
+
+[[plugins]]
+repo = 'hrsh7th/cmp-buffer'
+on_source = 'cmp'
+
+[[plugins]]
+repo = 'hrsh7th/cmp-path'
+on_source = 'cmp'
+
+[[plugins]]
+repo = 'hrsh7th/cmp-cmdline'
+on_source = 'cmp'

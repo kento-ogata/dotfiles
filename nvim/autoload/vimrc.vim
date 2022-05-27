@@ -1,4 +1,9 @@
 function vimrc#setup_dein()
+  if exists('g:vimrc#dein_loaded')
+    finish
+  endif
+  let g:vimrc#dein_loaded = v:true
+
   if has('win64')
     " Neovim's expand() function cannot expand MS-Windows's path like 'C:\Users\USER_~1\AppData\Local\Temp' to 'C:\Users\user_name\AppData\Local\Temp'
     const s:cache_home = has('nvim') ? ($LOCALAPPDATA . '\Temp') : expand($TEMP)
@@ -15,6 +20,9 @@ function vimrc#setup_dein()
     execute printf('set runtimepath^=%s', substitute(fnamemodify(s:dein_dir, ':p') , '[/\\]$', '', ''))
   endif
 
+  let g:vimrc#use_ddc = v:false
+  let g:vimrc#use_cmp = v:true
+
   let g:dein#lazy_rplugins = v:true
   let g:dein#install_progress_type = 'floating'
   let g:dein#install_check_diff = v:true
@@ -29,6 +37,7 @@ function vimrc#setup_dein()
     const s:lazy_toml     = s:base_dir . 'lazy.toml'
     const s:nvim_lsp_toml = s:base_dir . 'nvim-lsp.toml'
     const s:ddc_toml      = s:base_dir . 'ddc.toml'
+    const s:nvim_cmp_toml = s:base_dir . 'nvim-cmp.toml'
     const s:porn_toml     = s:base_dir . 'porn.toml'
     const s:ddu_toml      = s:base_dir . 'ddu.toml'
     const s:fern_toml     = s:base_dir . 'fern.toml'
@@ -36,7 +45,7 @@ function vimrc#setup_dein()
 
     call dein#begin(s:path, [
           \ $MYVIMRC, s:nolazy_toml, s:lazy_toml, s:nvim_lsp_toml, s:ddc_toml,
-          \ s:ddu_toml, s:porn_toml, s:fern_toml, s:git_toml
+          \ s:ddu_toml, s:porn_toml, s:fern_toml, s:git_toml, s:nvim_cmp_toml
           \ ])
 
     call dein#load_toml(s:nolazy_toml,      {'lazy': 0})
@@ -45,6 +54,7 @@ function vimrc#setup_dein()
     call dein#load_toml(s:ddu_toml,         {'lazy': 1})
     call dein#load_toml(s:nvim_lsp_toml,    {'lazy': 1, 'if': 'has("nvim")'})
     call dein#load_toml(s:ddc_toml,         {'lazy': 1})
+    call dein#load_toml(s:nvim_cmp_toml,    {'lazy': 1, 'if': 'has("nvim")'})
     call dein#load_toml(s:fern_toml,        {'lazy': 1})
     call dein#load_toml(s:git_toml,         {'lazy': 1})
 
