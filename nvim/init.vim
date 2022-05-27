@@ -7,6 +7,8 @@ augroup MyAutoCmd
 augroup END
 
 let mapleader="\<Space>"
+" use ; to a prefix of open finder action
+nnoremap ; <Nop>
 
 " list of {'name', 'background'}
 let g:colorschemes = []
