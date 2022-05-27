@@ -14,6 +14,10 @@ set helplang=ja,en
 
 [[plugins]]
 repo = 'andymass/vim-matchup'
+hook_add = '''
+let g:loaded_matchit = 1
+let g:loaded_matchparen = 1
+'''
 
 [[plugins]]
 repo = 'machakann/vim-sandwich'
