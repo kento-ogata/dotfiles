@@ -20,7 +20,7 @@ let s:toml_rules = [
       \ ]
 
 let s:cs_rules = [
-      \ {'char': '{' , 'at': '^\s\+\(public\|private\)\s\+\(\w\+\(<\w\+>\)*\)\s\+\(\w\+\)\s\+\%#$', 'input': '{ get', 'input_after': '; set; }', 'filetype': 'cs'},
+      \ {'char': '{' , 'at': '^\s\+\(public\|private\|protected\|internal\)\s\+\(\w\+\(<\w\+>\)*\)\s\+\(\w\+\)\s\+\%#$', 'input': '{ get', 'input_after': '; set; }', 'filetype': 'cs'},
       \ {'char': '<Tab>', 'at': 'get\( => .\+\)*\%#; set', 'leave': 'set', 'filetype': 'cs'},
       \ {'char': '<Tab>', 'at': 'set\( => .\+\)*\%#; }', 'leave': '}', 'filetype': 'cs'},
       \ ]
