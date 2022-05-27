@@ -105,6 +105,15 @@ set showtabline=2
 
 set secure
 
+function s:set_tabwidth_2()
+  const tabwidth = 2
+
+  execute printf('setlocal shiftwidth=%s', tabwidth)
+  execute printf('setlocal tabstop=%s', tabwidth)
+endfunction
+
+autocmd MyAutoCmd FileType html,toml,typescript,vim,yaml call <SID>set_tabwidth_2()
+
 if has('nvim')
   set inccommand=split
 
