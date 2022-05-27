@@ -19,10 +19,17 @@ let s:toml_rules = [
       \ {'char': '<CR>', 'at': '\%#''''''', 'input': '<CR>', 'input_after': '<CR>', 'filetype': 'toml'}
       \ ]
 
+let s:cs_rules = [
+      \ {'char': '{' , 'at': '^\s\+\(public\|private\)\s\+\(\w\+\(<\w\+>\)*\)\s\+\(\w\+\)\s\+\%#$', 'input': '{ get', 'input_after': '; set; }', 'filetype': 'cs'},
+      \ {'char': '<Tab>', 'at': 'get\( => .\+\)*\%#; set', 'leave': 'set', 'filetype': 'cs'},
+      \ {'char': '<Tab>', 'at': 'set\( => .\+\)*\%#; }', 'leave': '}', 'filetype': 'cs'},
+      \ ]
+
 function vimrc#lexima#setup()
   call vimrc#lexima#_set_rules(s:block_escape_rules)
   call vimrc#lexima#_set_rules(s:html_rules)
   call vimrc#lexima#_set_rules(s:toml_rules)
+  call vimrc#lexima#_set_rules(s:cs_rules)
 "  call lexima#add_rule()
 "
 "  " cs:
