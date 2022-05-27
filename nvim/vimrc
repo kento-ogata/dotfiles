@@ -2,10 +2,6 @@
 const s:here = fnamemodify(expand('<sfile>'), ':h')
 execute printf('source %s', s:here . '/init.vim')
 
-set background=dark
-colorscheme gruvbox-material
-let g:lightline.colorscheme = 'gruvbox_material'
-
 function s:defaults_vim()
   " ========== copied from defaults.vim ==========
 
