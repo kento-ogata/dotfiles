@@ -8,7 +8,7 @@ function vimrc#lightline#gitreponame()
 endfunction
 
 function vimrc#lightline#gitbranch()
-  const branch_name = gina#component#repo#branch()
+  const branch_name = gitbranch#name()
   if branch_name == ''
     return ''
   else
