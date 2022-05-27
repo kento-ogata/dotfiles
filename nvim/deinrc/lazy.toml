@@ -214,3 +214,6 @@ on_cmd = 'Rogue'
 repo = 'skanehira/denops-docker.vim'
 depends = 'denops.vim'
 on_cmd = 'Docker*'
+
+[[plugins]]
+repo = 'vim-jp/vital.vim'
