@@ -27,9 +27,15 @@ let s:cs_rules = [
 
 function vimrc#lexima#setup()
   call vimrc#lexima#_set_rules(s:block_escape_rules)
-  call vimrc#lexima#_set_rules(s:html_rules)
-  call vimrc#lexima#_set_rules(s:toml_rules)
-  call vimrc#lexima#_set_rules(s:cs_rules)
+
+  augroup LeximaRc
+    autocmd!
+    autocmd FileType html ++once call vimrc#lexima#_set_rules(s:html_rules)
+    autocmd FileType toml ++once call vimrc#lexima#_set_rules(s:toml_rules)
+    autocmd FileType cs   ++once call vimrc#lexima#_set_rules(s:cs_rules)
+  augroup END
+
+  doautocmd <nomodeline> LeximaRc FileType
 "  call lexima#add_rule()
 "
 "  " cs:
