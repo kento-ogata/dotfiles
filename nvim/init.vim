@@ -105,6 +105,9 @@ set showtabline=2
 
 set secure
 
+command UnixEnc e ++enc=utf-8 ++ff=unix
+command DosEnc e ++enc=cp932 ++ff=dos
+
 function s:set_tabwidth_2()
   const tabwidth = 2
 
