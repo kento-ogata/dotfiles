@@ -15,6 +15,10 @@ let s:html_rules = [
       \ { 'char': '=', 'at': '\w\+\%#', 'input': '="', 'input_after': '"', 'filetype': 'html' },
       \ ]
 
+let s:razor_rules = [
+      \ { 'char': '<CR>', 'at': '\%#</\w\+>', 'input_after': '<CR>' , 'filetype': ['razor', 'cshtml']},
+      \ ]
+
 let s:toml_rules = [
       \ {'char': '<CR>', 'at': '\%#''''''', 'input': '<CR>', 'input_after': '<CR>', 'filetype': 'toml'}
       \ ]
@@ -30,9 +34,10 @@ function vimrc#lexima#setup()
 
   augroup LeximaRc
     autocmd!
-    autocmd FileType html ++once call vimrc#lexima#_set_rules(s:html_rules)
-    autocmd FileType toml ++once call vimrc#lexima#_set_rules(s:toml_rules)
-    autocmd FileType cs   ++once call vimrc#lexima#_set_rules(s:cs_rules)
+    autocmd FileType html   ++once call vimrc#lexima#_set_rules(s:html_rules)
+    autocmd FileType toml   ++once call vimrc#lexima#_set_rules(s:toml_rules)
+    autocmd FileType cs     ++once call vimrc#lexima#_set_rules(s:cs_rules)
+    autocmd FileType razor  ++once call vimrc#lexima#_set_rules(s:razor_rules)
   augroup END
 
   doautocmd <nomodeline> LeximaRc FileType
