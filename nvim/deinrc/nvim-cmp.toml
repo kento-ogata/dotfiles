@@ -2,7 +2,7 @@
 repo = 'hrsh7th/nvim-cmp'
 name = 'cmp'
 if = 'g:vimrc#use_cmp'
-on_event = 'InsertEnter'
+on_event = ['InsertEnter', 'CmdlineEnter']
 hook_source = '''
 lua << EOF
 local cmp = require('cmp')
