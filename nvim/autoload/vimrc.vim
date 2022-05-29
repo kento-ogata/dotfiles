@@ -69,3 +69,7 @@ function vimrc#setup_dein()
   filetype plugin indent on
   syntax enable
 endfunction
+
+function vimrc#get_buffer_path()
+  return expand('<afile>')
+endfunction

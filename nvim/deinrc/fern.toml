@@ -11,7 +11,7 @@ let g:fern#default_hidden = v:true
 
 [[plugins]]
 repo = 'lambdalisue/fern-hijack.vim'
-on_if = 'isdirectory(expand("<afile>"))'
+on_if = 'isdirectory(vimrc#get_buffer_path())'
 
 [[plugins]]
 repo = 'lambdalisue/nerdfont.vim'
