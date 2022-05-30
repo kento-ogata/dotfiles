@@ -45,8 +45,8 @@ function s:map_lspsaga_actions()
   nmap <buffer><silent> <Leader>rn    <Cmd>Lspsaga rename<CR>
   nmap <buffer><silent> <Leader><CR>  <Cmd>Lspsaga code_action<CR>
   nmap <buffer><silent> <Leader>e     <Cmd>Lspsaga show_line_diagnostics<CR>
-  nmap <buffer><silent> <Leader>[d    <Cmd>Lspsaga diagnostic_jump_prev<CR>
-  nmap <buffer><silent> <Leader>]d    <Cmd>Lspsaga diagnostic_jump_next<CR>
+  nmap <buffer><silent> [d            <Cmd>Lspsaga diagnostic_jump_prev<CR>
+  nmap <buffer><silent> ]d            <Cmd>Lspsaga diagnostic_jump_next<CR>
 endfunction
 
 augroup LspSagaRc
