@@ -163,7 +163,8 @@ on_cmd = ['FriendsTwitter', 'PosttoTwitter', 'BPosttoTwitter', 'CPosttoTwitter']
 
 [[plugins]]
 repo = 'vim-jp/syntax-vim-ex'
-#on_ft = ['vim','toml']
+if = '!dein#tap("nvim-treesitter")'
+on_ft = ['vim','toml']
 hook_source = '''
 syntax on
 '''
