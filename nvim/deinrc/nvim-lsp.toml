@@ -7,6 +7,8 @@ hook_source = '''
 lua << EOF
 local lspconfig = require('lspconfig')
 lspconfig.omnisharp.setup({})
+lspconfig.dockerls.setup({})
+lspconfig.yamlls.setup({})
 EOF
 '''
 
