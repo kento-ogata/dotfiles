@@ -3,6 +3,10 @@ repo = 'Shougo/ddu.vim'
 depends = 'denops.vim'
 on_map = '<Cmd>Ddu'
 hook_add = '''
+  nnoremap <silent> <Leader><C-\> <Cmd>Ddu
+  \ -name=files file_external
+  \ -source-param-path=`fnamemodify($MYVIMRC, ':h')`
+  \ -ui-param-startFilter<CR>
   nnoremap <silent> ;f <Cmd>Ddu
   \ -name=files file_external
   \ -ui-param-startFilter<CR>
