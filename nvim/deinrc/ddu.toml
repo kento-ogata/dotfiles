@@ -62,13 +62,6 @@ call ddu#custom#patch_global({
     \       'highlightMatched': 'Search',
     \     },
     \   },
-    \   'uiParams': {
-    \     'ff': {
-    \       'filterSplitDirection': has('nvim') ? 'floating' : 'topleft',
-    \       'split': 'horizontal',
-    \       'splitDirection': 'topleft',
-    \     }
-    \   },
     \   'kindOptions': {
     \     'file': {
     \       'defaultAction': 'open',
@@ -84,6 +77,31 @@ call ddu#custom#patch_global({
     \     },
     \   }
     \ })
+if has('nvim')
+  call ddu#custom#patch_global({
+      \   'uiParams': {
+      \     'ff': {
+      \       'autoResize': v:true,
+      \       'filterSplitDirection': 'floating',
+      \       'split': 'floating',
+      \       'floatingBorder': 'none',
+      \       'displaySourceName': 'no',
+      \     }
+      \   }
+      \ })
+else
+  call ddu#custom#patch_global({
+      \   'uiParams': {
+      \     'ff': {
+      \       'autoResize': v:true,
+      \       'filterSplitDirection': 'topleft',
+      \       'split':  'horizontal',
+      \       'splitDirection': 'topleft',
+      \       'statusline': v:true,
+      \     }
+      \   }
+      \ })
+endif
 '''
 
 [plugins.ftplugin]
