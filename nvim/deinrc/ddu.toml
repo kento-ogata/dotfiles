@@ -83,6 +83,7 @@ if has('nvim')
       \     'ff': {
       \       'autoResize': v:true,
       \       'filterSplitDirection': 'floating',
+      \       'filterFloatingPosition': 'top',
       \       'split': 'floating',
       \       'floatingBorder': 'none',
       \       'displaySourceName': 'no',
@@ -93,7 +94,7 @@ else
   call ddu#custom#patch_global({
       \   'uiParams': {
       \     'ff': {
-      \       'autoResize': v:true,
+      \       'autoResize': v:false,
       \       'filterSplitDirection': 'topleft',
       \       'split':  'horizontal',
       \       'splitDirection': 'topleft',
