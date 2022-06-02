@@ -47,6 +47,8 @@ cmp.setup({
   }, {
     { name = 'nvim_lsp' },
   }, {
+    { name = 'rg' },
+  }, {
     { name = 'calc' },
     { name = 'emoji' },
   }, {
@@ -97,6 +99,11 @@ on_source = 'cmp'
 
 [[plugins]]
 repo = 'hrsh7th/cmp-calc'
+on_source = 'cmp'
+
+[[plugins]]
+repo = 'lukas-reineke/cmp-rg'
+if = 'executable("rg")'
 on_source = 'cmp'
 
 [[plugins]]
