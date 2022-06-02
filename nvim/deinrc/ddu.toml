@@ -1,5 +1,6 @@
 [[plugins]]
 repo = 'Shougo/ddu.vim'
+if = 'has("unix")'
 depends = 'denops.vim'
 on_map = '<Cmd>Ddu'
 hook_add = '''

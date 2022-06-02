@@ -222,3 +222,11 @@ repo = 'vim-jp/vital.vim'
 [[plugins]]
 repo = 'hrsh7th/vim-vsnip'
 on_func = 'vsnip#'
+
+[[plugins]]
+repo = 'nvim-telescope/telescope.nvim'
+if = 'has("win32")'
+hook_add = '''
+nmap ;f <Cmd>Telescope find_file<CR>
+nmap ;g <Cmd>Telescope live_grep<CR>
+'''
