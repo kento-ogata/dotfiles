@@ -225,8 +225,13 @@ on_func = 'vsnip#'
 
 [[plugins]]
 repo = 'nvim-telescope/telescope.nvim'
-if = 'has("win32")'
+if = 'has("win32")&&has("nvim")'
+on_cmd = 'Telescope'
 hook_add = '''
 nmap ;f <Cmd>Telescope find_file<CR>
 nmap ;g <Cmd>Telescope live_grep<CR>
+nmap ;b <Cmd>Telescope buffers<CR>
+nmap ;h <Cmd>Telescope help_tags<CR>
+nmap ;s <Cmd>Telescope treesitter<CR>
+nmap ;n <Cmd>Telescope resume<CR>
 '''
