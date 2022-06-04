@@ -140,3 +140,7 @@ if has('nvim')
     autocmd LspAttach * call <SID>map_nvim_lsp_actions()
   augroup END
 endif
+
+" automatically indent on empty rows
+nmap <expr> i (len(getline('.')) !=# 0) ? 'i' : '"_cc'
+nmap <expr> A (len(getline('.')) !=# 0) ? 'A' : '"_cc'
