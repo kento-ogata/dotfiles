@@ -23,11 +23,4 @@ let g:matchup_matchparen_offscreen = {
 '''
 
 [[plugins]]
-repo = 'machakann/vim-sandwich'
-hook_add = '''
-nmap s <Nop>
-xmap s <Nop>
-'''
-
-[[plugins]]
 repo = 'editorconfig/editorconfig-vim'

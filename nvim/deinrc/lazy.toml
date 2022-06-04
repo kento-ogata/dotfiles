@@ -235,3 +235,27 @@ nmap ;h <Cmd>Telescope help_tags<CR>
 nmap ;s <Cmd>Telescope treesitter<CR>
 nmap ;n <Cmd>Telescope resume<CR>
 '''
+
+[[plugins]]
+repo = 'machakann/vim-sandwich'
+on_map = ['<Plug>(sandwich-', '<Plug>(textobj-sandwich-']
+hook_add = '''
+let g:sandwich_no_default_key_mappings = v:true
+nmap s    <Plug>(sandwich-add)
+xmap s    <Plug>(sandwich-add)
+nmap ds   <Plug>(sandwich-delete)
+nmap dsb  <Plug>(sandwich-delete-auto)
+nmap r    <Nop>
+nmap rs   <Plug>(sandwich-replace)
+nmap rsb  <Plug>(sandwich-delete-auto)
+
+omap ib   <Plug>(textobj-sandwich-auto-i)
+xmap ib   <Plug>(textobj-sandwich-auto-i)
+omap ab   <Plug>(textobj-sandwich-auto-a)
+xmap ab   <Plug>(textobj-sandwich-auto-a)
+omap ia   <Plug>(textobj-sandwich-auto-i)
+xmap ia   <Plug>(textobj-sandwich-auto-i)
+omap aa   <Plug>(textobj-sandwich-auto-a)
+xmap aa   <Plug>(textobj-sandwich-auto-a)
+'''
+
