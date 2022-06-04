@@ -27,7 +27,7 @@ function init#set_random_colorschme()
   endif
 endfunction
 
-call vimrc#setup_dein()
+call vimrc#dein#setup()
 
 " search settings
 set ignorecase

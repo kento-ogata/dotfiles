@@ -27,3 +27,7 @@ function vimrc#util#ingitrepo(path) abort
   let g:vimrc#util#path_result[canonical_path] = result
   return result
 endfunction
+
+function vimrc#util#get_buffer_path()
+  return expand('<afile>')
+endfunction

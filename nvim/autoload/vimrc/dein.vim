@@ -1,4 +1,4 @@
-function vimrc#setup_dein()
+function vimrc#dein#setup()
   if exists('g:vimrc#dein_loaded')
     finish
   endif
@@ -67,8 +67,4 @@ function vimrc#setup_dein()
 
   filetype plugin indent on
   syntax enable
-endfunction
-
-function vimrc#get_buffer_path()
-  return expand('<afile>')
 endfunction
