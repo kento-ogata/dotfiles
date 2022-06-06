@@ -78,6 +78,8 @@ call ddu#custom#patch_global({
     \     },
     \   }
     \ })
+
+" finder window settings
 if has('nvim')
   call ddu#custom#patch_global({
       \   'uiParams': {
@@ -86,7 +88,7 @@ if has('nvim')
       \       'filterSplitDirection': 'floating',
       \       'filterFloatingPosition': 'top',
       \       'split': 'floating',
-      \       'floatingBorder': 'none',
+      \       'floatingBorder': 'single',
       \       'displaySourceName': 'no',
       \     }
       \   }
