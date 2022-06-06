@@ -6,8 +6,8 @@ on_event = 'InsertEnter'
 hook_source = '''
 call ddc#custom#patch_global(
     \ 'sources', has('nvim') ?
-    \ ['nvim-lsp', 'treesitter', 'around', 'file', 'rg'] :
-    \ ['around', 'file', 'rg'],
+    \ ['nvim-lsp', 'around', 'file'] :
+    \ ['around', 'file'],
     \ )
 call ddc#custom#patch_global(
     \ 'cmdlineSources',
