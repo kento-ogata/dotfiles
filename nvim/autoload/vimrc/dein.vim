@@ -1,8 +1,8 @@
 function vimrc#dein#setup()
-  if exists('g:vimrc#dein_loaded')
+  if exists('g:vimrc#dein#loaded')
     finish
   endif
-  let g:vimrc#dein_loaded = v:true
+  let g:vimrc#dein#loaded = v:true
 
   if has('win64')
     const s:cache_home = expand($LOCALAPPDATA) . '\nvim-data'
@@ -19,8 +19,8 @@ function vimrc#dein#setup()
     execute printf('set runtimepath^=%s', substitute(fnamemodify(s:dein_dir, ':p') , '[/\\]$', '', ''))
   endif
 
-  let g:vimrc#use_ddc = !has('nvim')
-  let g:vimrc#use_cmp = !g:vimrc#use_ddc
+  let g:vimrc#dein#use_ddc = !has('nvim')
+  let g:vimrc#dein#use_cmp = !g:vimrc#dein#use_ddc
 
   let g:dein#lazy_rplugins = v:true
   let g:dein#install_progress_type = 'floating'
