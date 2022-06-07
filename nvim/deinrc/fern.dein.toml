@@ -14,10 +14,6 @@ repo = 'lambdalisue/fern-hijack.vim'
 on_if = 'isdirectory(vimrc#util#get_buffer_path())'
 
 [[plugins]]
-repo = 'lambdalisue/nerdfont.vim'
-on_func = 'nerdfont#'
-
-[[plugins]]
 repo = 'lambdalisue/fern-renderer-nerdfont.vim'
 depends = 'nerdfont.vim'
 on_source = 'fern.vim'

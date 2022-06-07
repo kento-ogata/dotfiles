@@ -10,3 +10,11 @@ repo = 'kyazdani42/nvim-web-devicons'
 
 [[plugins]]
 repo = 'vim-jp/vital.vim'
+
+[[plugins]]
+repo = 'lambdalisue/nerdfont.vim'
+on_func = 'nerdfont#'
+
+[[plugins]]
+repo = 'onsails/lspkind-nvim'
+on_lua = 'lspkind'

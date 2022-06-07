@@ -107,7 +107,3 @@ on_source = 'cmp'
 repo = 'petertriho/cmp-git'
 depends = 'plenary.nvim'
 on_source = 'cmp'
-
-[[plugins]]
-repo = 'onsails/lspkind-nvim'
-on_source = 'cmp'
