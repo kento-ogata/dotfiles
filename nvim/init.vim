@@ -110,15 +110,6 @@ set secure
 command UnixEnc e ++enc=utf-8 ++ff=unix
 command DosEnc e ++enc=cp932 ++ff=dos
 
-function s:set_tabwidth_2()
-  const tabwidth = 2
-
-  execute printf('setlocal shiftwidth=%s', tabwidth)
-  execute printf('setlocal tabstop=%s', tabwidth)
-endfunction
-
-autocmd MyAutoCmd FileType html,toml,typescript,vim,yaml call <SID>set_tabwidth_2()
-
 if has('nvim')
   set inccommand=split
 

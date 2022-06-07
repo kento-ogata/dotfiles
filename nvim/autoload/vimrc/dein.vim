@@ -32,6 +32,7 @@ function vimrc#dein#setup()
     const s:base_dir = fnamemodify(expand($MYVIMRC), ':h') . '/deinrc/'
     "execute printf('echomsg "%s"', s:base_dir)
 
+    const s:ft_toml       = s:base_dir . 'ft.dein.toml'
     const s:lib_toml      = s:base_dir . 'lib.dein.toml'
     const s:nolazy_toml   = s:base_dir . 'nolazy.dein.toml'
     const s:lazy_toml     = s:base_dir . 'lazy.dein.toml'
@@ -45,9 +46,10 @@ function vimrc#dein#setup()
 
     call dein#begin(s:path, [
           \ $MYVIMRC, s:lib_toml, s:nolazy_toml, s:lazy_toml, s:nvim_lsp_toml, s:ddc_toml,
-          \ s:ddu_toml, s:porn_toml, s:fern_toml, s:git_toml, s:nvim_cmp_toml
+          \ s:ddu_toml, s:porn_toml, s:fern_toml, s:git_toml, s:nvim_cmp_toml, s:ft_toml
           \ ])
 
+    call dein#load_toml(s:ft_toml,          {'lazy': 0})
     call dein#load_toml(s:lib_toml,         {'lazy': 1})
     call dein#load_toml(s:nolazy_toml,      {'lazy': 0})
     call dein#load_toml(s:lazy_toml,        {'lazy': 1})

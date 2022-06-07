@@ -1,0 +1,26 @@
+[ftplugin]
+
+html = '''
+setlocal shiftwidth=2
+setlocal tabstop=2
+'''
+
+toml = '''
+setlocal shiftwidth=2
+setlocal tabstop=2
+'''
+
+typescript = '''
+setlocal shiftwidth=2
+setlocal tabstop=2
+'''
+
+vim = '''
+setlocal shiftwidth=2
+setlocal tabstop=2
+'''
+
+yaml = '''
+setlocal shiftwidth=2
+setlocal tabstop=2
+'''
