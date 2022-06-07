@@ -173,7 +173,7 @@ merge_ftdetect = true
 repo = 'ctrlpvim/ctrlp.vim'
 on_map = '<Plug>(ctrlp)'
 hook_add = '''
-nmap <C-p> <Plug>(ctrlp)
+nmap <Nop> <Plug>(ctrlp)
 '''
 
 [[plugins]]
@@ -244,3 +244,27 @@ omap aa   <Plug>(textobj-sandwich-auto-a)
 xmap aa   <Plug>(textobj-sandwich-auto-a)
 '''
 
+[[plugins]]
+repo = 'hrsh7th/nvim-pasta'
+on_map = ['<Plug>(pasta-p)', '<Plug>(pasta-P)']
+hook_add = '''
+nmap p <Plug>(pasta-p)
+xmap p <Plug>(pasta-p)
+nmap P <Plug>(pasta-P)
+xmap P <Plug>(pasta-P)
+'''
+hook_source = '''
+lua << EOF
+require('pasta').setup({
+  converters = {
+    require('pasta.converters').indentation,
+  },
+  paste_mode = true,
+  next_key = vim.api.nvim_replace_termcodes('<C-p>', true, true, true),
+  prev_key = vim.api.nvim_replace_termcodes('<C-n>', true, true, true),
+})
+
+vim.keymap.set({ 'n', 'x' }, '<Plug>(pasta-p)', require('pasta.mappings').p)
+vim.keymap.set({ 'n', 'x' }, '<Plug>(pasta-P)', require('pasta.mappings').P)
+EOF
+'''
