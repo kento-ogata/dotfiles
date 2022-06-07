@@ -2,163 +2,127 @@
 repo = 'Shougo/ddc.vim'
 if = 'g:vimrc#dein#use_ddc'
 depends = ['denops.vim', 'pum.vim']
-on_event = 'InsertEnter'
+on_event = ['InsertEnter', 'CmdlineEnter']
 hook_source = '''
-call ddc#custom#patch_global(
-    \ 'sources', has('nvim') ?
-    \ ['nvim-lsp', 'around', 'file'] :
-    \ ['around', 'file'],
-    \ )
-call ddc#custom#patch_global(
-    \ 'cmdlineSources',
-    \ ['cmdline']
-    \ )
-
-call ddc#custom#patch_global('sourceOptions', {
-    \ '_' : {
-    \   'ignoreCase': 'v:true',
-    \   'matchers': ['matcher_fuzzy'],
-    \   'sorters': ['sorter_fuzzy'],
-    \   'converters': ['converter_fuzzy'],
-    \ },
-    \ 'around': {
-    \   'mark': 'A',
-    \ },
-    \ 'cmdline': {
-    \   'mark': 'cmdline',
-    \   'forceCompletionPattern': '\S/\S*',
-    \ },
-    \ 'nvim-lsp': {
-    \   'mark': 'lsp',
-    \   'forceCompletionPattern': '\.\w*|:\w*|->\w*'
-    \ },
-    \ 'file': {
-    \   'mark': 'F',
-    \   'isVolatile': v:true,
-    \   'minAutoCompleteLength': 1000,
-    \   'forceCompletionPattern': '\S/\S*'
-    \ },
-    \ 'rg': {
-    \   'mark': 'rg',
-    \   'matchers': ['matcher_fuzzy'],
-    \   'minAutoCompleteLength': 4,
-    \ },
-    \ 'skkeleton': {
-    \   'mark': 'SKK',
-    \   'matchers': ['skkeleton'],
-    \   'sorters': [],
-    \   'minAutoCompleteLength': 2,
-    \ },
-    \ 'treesitter': {
-    \   'mark': 'T',
-    \   'matchers': ['matcher_head'],
-    \ },
-    \ })
-
-call ddc#custom#patch_global('sourceParams', {
-    \ 'nvim-lsp': { 'kindLabels': { 'Class': 'c' } },
-    \ })
-
-call ddc#custom#patch_global('filterParams', {
-    \   'matcher_fuzzy': {'splitMode': 'character'}
-    \ })
-
-call ddc#custom#patch_filetype(
-    \ ['ps1', 'dosbatch', 'autohotkey', 'registry'], {
-    \ 'sourceOptions': {
-    \   'file': {
-    \     'forceCompletionPattern': '\S\\\S*',
-    \   },
-    \ },
-    \ 'sourceParams': {
-    \   'file': {
-    \     'mode': 'win32',
-    \   },
-    \ },
-    \ })
-
-" Use pum.vim
-call ddc#custom#patch_global('autoCompleteEvents', [
-            \ 'InsertEnter', 'TextChangedI', 'TextChangedP',
-            \ 'CmdlineEnter', 'CmdlineChanged',
-            \ ])
-call ddc#custom#patch_global('completionMenu', 'pum.vim')
-
-inoremap <expr><silent><C-n>    pum#visible() ?
-    \ pum#map#insert_relative(+1) :
-    \ ddc#map#manual_complete()
-inoremap <expr><silent><C-p>    pum#visible() ?
-    \ pum#map#insert_relative(-1) :
-    \ ddc#map#manual_complete()
-inoremap <C-e>      <Cmd>call pum#map#cancel()<CR>
-
+call ddc#custom#patch_global(g:ddc_options)
 call ddc#enable()
+autocmd DdcRc CmdlineEnter * call ddc#enable_cmdline_completion()
 '''
 hook_add = '''
-nnoremap :  <Cmd>call CommandlinePre()<CR>:
-
-function! CommandlinePre() abort
-    call dein#source('ddc.vim')
-
-    " Note: It disables default command line completion!
-    cnoremap <expr><silent><Tab>
-    \ pum#visible() ? pum#map#insert_relative(+1) :
-    \ ddc#manual_complete()
-    cnoremap <silent><S-Tab> <Cmd>call pum#map#insert_relative(-1)<CR>
-    set wildchar=<C-t>
-
-    "Overwrite sourcves
-    let s:prev_buffer_config = ddc#custom#get_buffer()
-    call ddc#custom#patch_buffer('sources', ['cmdline'])
-    call ddc#custom#patch_buffer('keywordPattern', '[0-9a-zA-Z_:#]*')
-
-    autocmd MyAutoCmd User DDCCmdlineLeave ++once call CommandLinePost()
-
-    " Enable command line completion
-    call ddc#enable_cmdline_completion()
-    call ddc#enable()
-endfunction
-
-function! CommandLinePost() abort
-    " Restore sources
-	call ddc#custom#set_buffer(s:prev_buffer_config)
-    silent! cunmap <Tab>
-    set wildchar=<Tab>
-endfunction
+let g:ddc_options = {
+      \ 'sources': [],
+      \ 'cmdlineSources': [],
+      \ 'sourceOptions': {},
+      \ 'sourceParams': {},
+      \ 'filterParams': {},
+      \ 'autoCompleteEvents': [
+      \   'InsertEnter', 'TextChangedI', 'TextChangedP',
+      \   'CmdlineEnter', 'CmdlineChanged',
+      \   ],
+      \ }
+augroup DdcRc
+  autocmd!
+augroup END
 '''
 
 [[plugins]]
 repo = 'Shougo/pum.vim'
 hook_source = '''
+inoremap <expr><silent> <C-n> pum#visible() ? pum#map#insert_relative(+1) : ddc#map#manual_complete()
+inoremap <expr><silent> <C-p> pum#visible() ? pum#map#insert_relative(-1) : ddc#map#manual_complete()
+inoremap <C-e> <Cmd>call pum#map#cancel()<CR>
+cnoremap <expr><silent> <Tab> pum#visible() ? pum#map#insert_relative(+1) : ddc#manual_complete()
+cnoremap <silent> <S-Tab> <Cmd>call pum#map#insert_relative(-1)<CR>
+
+augroup PumRc
+  autocmd!
+  autocmd CmdlineEnter * setlocal wildchar=<C-t>
+  autocmd CmdlineEnter * setlocal wildcharm=<C-t>
+augroup END
+
 if has('nvim')
-    call pum#set_option('border', 'rounded')
+  call pum#set_option('border', 'rounded')
 endif
+let g:ddc_options['completionMenu'] = 'pum.vim'
 '''
 
 [[plugins]]
 repo = 'Shougo/ddc-around'
 on_source = 'ddc.vim'
+hook_source = '''
+call insert(g:ddc_options['sources'], 'around')
+let g:ddc_options['sourceOptions']['around'] = {
+      \ 'mark': 'A',
+      \ }
+'''
 
 [[plugins]]
 repo = 'Shougo/ddc-cmdline'
 on_source = 'ddc.vim'
+hook_source = '''
+call add(g:ddc_options['cmdlineSources'], 'cmdline')
+let g:ddc_options['sourceOptions']['cmdline'] = {
+      \ 'mark': 'cmdline',
+      \ 'forceCompletionPattern': '\S/\S*',
+      \ }
+'''
 
 [[plugins]]
 repo = 'Shougo/ddc-rg'
+if = 'executable("rg")'
 on_source = 'ddc.vim'
+hook_source = '''
+let g:ddc_options['sourceOptions']['rg'] = {
+      \ 'mark': 'rg',
+      \ 'matchers': ['matcher_head'],
+      \ 'minAutoCompleteLength': 4,
+      \ }
+'''
 
 [[plugins]]
 repo = 'Shougo/ddc-nvim-lsp'
+if = 'has("nvim")'
 on_source = 'ddc.vim'
+hook_source = '''
+function s:add_ddcsource_nvimlsp()
+  let l:ddc_options = ddc#custom#get_buffer()
+  call insert(l:ddc_options['sources'], 'nvim-lsp')
+  call ddc#custom#patch_buffer(l:ddc_options)
+endfunction
+autocmd DdcRc LspAttach * call <SID>add_ddcsource_nvimlsp()
+
+let g:ddc_options['sourceOptions']['nvim-lsp'] = {
+      \ 'mark': 'lsp',
+      \ 'forceCompletionPattern': '\.\w*|:\w*|->\w*',
+      \ }
+let g:ddc_options['sourceParams']['nvim-lsp'] = {
+      \ 'kindLabels': { 'Class': 'c' },
+      \ }
+'''
 
 [[plugins]]
 repo = 'LumaKernel/ddc-file'
 on_source = 'ddc.vim'
+hook_source = '''
+call add(g:ddc_options['sources'], 'file')
+let g:ddc_options['sourceOptions']['file'] = {
+      \ 'mark': 'F',
+      \ 'isVolatile': v:true,
+      \ 'minAutoCompleteLength': 1000,
+      \ 'forceCompletionPattern': '\S/\S*',
+      \ }
+'''
 
 [[plugins]]
 repo = 'delphinus/ddc-treesitter'
 depends = 'nvim-treesitter'
 on_source = 'ddc.vim'
+hook_source = '''
+let g:ddc_options['sourceOptions']['treesitter'] = {
+      \ 'mark': 'T',
+      \ 'matchers': ['matcher_head'],
+      \ }
+'''
 
 [[plugins]]
 repo = 'Shougo/ddc-matcher_head'
@@ -167,6 +131,17 @@ on_source = 'ddc.vim'
 [[plugins]]
 repo = 'tani/ddc-fuzzy'
 on_source = 'ddc.vim'
+hook_source = '''
+let g:ddc_options['sourceOptions']['_'] = {
+      \ 'ignoreCase': v:true,
+      \ 'matchers': ['matcher_fuzzy'],
+      \ 'sorters': ['sorter_fuzzy'],
+      \ 'converters': ['converter_fuzzy'],
+      \ }
+let g:ddc_options['filterParams']['matcher_fuzzy'] = {
+      \ 'splitMode': 'character',
+      \ }
+'''
 
 [[plugins]]
 repo = 'Shougo/ddc-sorter_rank'
@@ -196,10 +171,13 @@ call skkeleton#config({
 
 " expected ddc.vim is loaded
 if dein#tap('ddc.vim')
-  let ddc_sources = ddc#custom#get_global().sources
-  if ( index(ddc_sources, 'skkeleton') == -1 )
-    call add(ddc_sources, 'skkeleton')
-    call ddc#custom#patch_global({ 'sources': ddc_sources })
-  endif
+  call add(g:ddc_options['sources'], 'skkeleton')
+  let g:ddc_options['sourceOptions']['skkeleton'] = {
+        \ 'mark': 'SKK',
+        \ 'matchers': ['skkeleton'],
+        \ 'sorters': [],
+        \ 'minAutoCompleteLength': 2,
+        \ }
+  call ddc#custom#patch_global(g:ddc_options)
 endif
 '''
