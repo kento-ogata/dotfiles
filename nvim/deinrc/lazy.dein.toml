@@ -1,7 +1,4 @@
 [[plugins]]
-repo = 'vim-denops/denops.vim'
-
-[[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
 if = 'has("nvim")'
 on_event = 'FileType'
@@ -51,13 +48,6 @@ EOF
 repo = 'nvim-treesitter/playground'
 depends = 'nvim-treesitter'
 on_cmd = 'TSPlaygroundToggle'
-
-[[plugins]]
-repo = 'nvim-lua/plenary.nvim'
-if = 'has("nvim")'
-
-[[plugins]]
-repo = 'kyazdani42/nvim-web-devicons'
 
 [[plugins]]
 repo = 'itchyny/vim-cursorword'
@@ -215,9 +205,6 @@ on_cmd = 'Rogue'
 repo = 'skanehira/denops-docker.vim'
 depends = 'denops.vim'
 on_cmd = 'Docker*'
-
-[[plugins]]
-repo = 'vim-jp/vital.vim'
 
 [[plugins]]
 repo = 'hrsh7th/vim-vsnip'

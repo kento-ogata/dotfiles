@@ -1,0 +1,12 @@
+[[plugins]]
+repo = 'vim-denops/denops.vim'
+
+[[plugins]]
+repo = 'nvim-lua/plenary.nvim'
+if = 'has("nvim")'
+
+[[plugins]]
+repo = 'kyazdani42/nvim-web-devicons'
+
+[[plugins]]
+repo = 'vim-jp/vital.vim'
