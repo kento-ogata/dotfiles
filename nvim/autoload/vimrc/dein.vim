@@ -32,15 +32,15 @@ function vimrc#dein#setup()
     const s:base_dir = fnamemodify(expand($MYVIMRC), ':h') . '/deinrc/'
     "execute printf('echomsg "%s"', s:base_dir)
 
-    const s:nolazy_toml   = s:base_dir . 'nolazy.toml'
-    const s:lazy_toml     = s:base_dir . 'lazy.toml'
-    const s:nvim_lsp_toml = s:base_dir . 'nvim-lsp.toml'
-    const s:ddc_toml      = s:base_dir . 'ddc.toml'
-    const s:nvim_cmp_toml = s:base_dir . 'nvim-cmp.toml'
-    const s:porn_toml     = s:base_dir . 'porn.toml'
-    const s:ddu_toml      = s:base_dir . 'ddu.toml'
-    const s:fern_toml     = s:base_dir . 'fern.toml'
-    const s:git_toml      = s:base_dir . 'git.toml'
+    const s:nolazy_toml   = s:base_dir . 'nolazy.dein.toml'
+    const s:lazy_toml     = s:base_dir . 'lazy.dein.toml'
+    const s:nvim_lsp_toml = s:base_dir . 'nvim-lsp.dein.toml'
+    const s:ddc_toml      = s:base_dir . 'ddc.dein.toml'
+    const s:nvim_cmp_toml = s:base_dir . 'nvim-cmp.dein.toml'
+    const s:porn_toml     = s:base_dir . 'porn.dein.toml'
+    const s:ddu_toml      = s:base_dir . 'ddu.dein.toml'
+    const s:fern_toml     = s:base_dir . 'fern.dein.toml'
+    const s:git_toml      = s:base_dir . 'git.dein.toml'
 
     call dein#begin(s:path, [
           \ $MYVIMRC, s:nolazy_toml, s:lazy_toml, s:nvim_lsp_toml, s:ddc_toml,
