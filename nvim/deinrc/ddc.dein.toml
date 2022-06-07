@@ -4,7 +4,7 @@ if = 'g:vimrc#dein#use_ddc'
 depends = ['denops.vim', 'pum.vim']
 on_event = ['InsertEnter', 'CmdlineEnter']
 hook_source = '''
-call ddc#custom#patch_global(g:ddc_options)
+call ddc#custom#set_global(g:ddc_options)
 call ddc#enable()
 autocmd DdcRc CmdlineEnter * call ddc#enable_cmdline_completion()
 '''
@@ -85,9 +85,9 @@ if = 'has("nvim")'
 on_source = 'ddc.vim'
 hook_source = '''
 function s:add_ddcsource_nvimlsp()
-  let l:ddc_options = ddc#custom#get_buffer()
-  call insert(l:ddc_options['sources'], 'nvim-lsp')
-  call ddc#custom#patch_buffer(l:ddc_options)
+  let l:current_sources = ddc#custom#get_current()['sources']
+  call insert(l:current_sources, 'nvim-lsp')
+  call ddc#custom#patch_buffer('sources', l:current_sources)
 endfunction
 autocmd DdcRc LspAttach * call <SID>add_ddcsource_nvimlsp()
 
