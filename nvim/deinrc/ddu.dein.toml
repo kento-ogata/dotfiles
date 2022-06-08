@@ -14,7 +14,7 @@ function s:map_ddu_actions()
   nmap <silent> ;b <Cmd>Ddu
   \ -name=buffers buffer
   \ -ui-param-startFilter<CR>
-  nmap <silent> ;l <Cmd>Ddu
+  nmap <silent> ;s <Cmd>Ddu
   \ -name=search line
   \ -ui-param-startFilter<CR>
   nmap <silent> ;g <Cmd>Ddu
