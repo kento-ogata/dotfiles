@@ -34,6 +34,7 @@ endfunction
 
 command MapDdu call <SID>map_ddu_actions()
 nmap <Leader>;d <Cmd>MapDdu<CR>
+MapDdu
 '''
 hook_source = '''
 call ddu#custom#patch_global({
