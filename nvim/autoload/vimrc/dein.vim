@@ -32,21 +32,23 @@ function vimrc#dein#setup()
     const s:base_dir = fnamemodify(expand($MYVIMRC), ':h') . '/deinrc/'
     "execute printf('echomsg "%s"', s:base_dir)
 
-    const s:ft_toml       = s:base_dir . 'ft.dein.toml'
-    const s:lib_toml      = s:base_dir . 'lib.dein.toml'
-    const s:nolazy_toml   = s:base_dir . 'nolazy.dein.toml'
-    const s:lazy_toml     = s:base_dir . 'lazy.dein.toml'
-    const s:nvim_lsp_toml = s:base_dir . 'nvim-lsp.dein.toml'
-    const s:ddc_toml      = s:base_dir . 'ddc.dein.toml'
-    const s:nvim_cmp_toml = s:base_dir . 'nvim-cmp.dein.toml'
-    const s:porn_toml     = s:base_dir . 'porn.dein.toml'
-    const s:ddu_toml      = s:base_dir . 'ddu.dein.toml'
-    const s:fern_toml     = s:base_dir . 'fern.dein.toml'
-    const s:git_toml      = s:base_dir . 'git.dein.toml'
+    const s:ft_toml         = s:base_dir . 'ft.dein.toml'
+    const s:lib_toml        = s:base_dir . 'lib.dein.toml'
+    const s:nolazy_toml     = s:base_dir . 'nolazy.dein.toml'
+    const s:lazy_toml       = s:base_dir . 'lazy.dein.toml'
+    const s:nvim_lsp_toml   = s:base_dir . 'nvim-lsp.dein.toml'
+    const s:ddc_toml        = s:base_dir . 'ddc.dein.toml'
+    const s:nvim_cmp_toml   = s:base_dir . 'nvim-cmp.dein.toml'
+    const s:porn_toml       = s:base_dir . 'porn.dein.toml'
+    const s:ddu_toml        = s:base_dir . 'ddu.dein.toml'
+    const s:fern_toml       = s:base_dir . 'fern.dein.toml'
+    const s:git_toml        = s:base_dir . 'git.dein.toml'
+    const s:telescope_toml  = s:base_dir . 'telescope.dein.toml'
 
     call dein#begin(s:path, [
           \ $MYVIMRC, s:lib_toml, s:nolazy_toml, s:lazy_toml, s:nvim_lsp_toml, s:ddc_toml,
-          \ s:ddu_toml, s:porn_toml, s:fern_toml, s:git_toml, s:nvim_cmp_toml, s:ft_toml
+          \ s:ddu_toml, s:porn_toml, s:fern_toml, s:git_toml, s:nvim_cmp_toml, s:ft_toml,
+          \ s:telescope_toml,
           \ ])
 
     call dein#load_toml(s:ft_toml,          {'lazy': 0})
@@ -60,6 +62,7 @@ function vimrc#dein#setup()
     call dein#load_toml(s:nvim_cmp_toml,    {'lazy': 1, 'if': 'has("nvim")'})
     call dein#load_toml(s:fern_toml,        {'lazy': 1})
     call dein#load_toml(s:git_toml,         {'lazy': 1})
+    call dein#load_toml(s:telescope_toml,   {'lazy': 1})
 
     call dein#end()
     call dein#save_state()
