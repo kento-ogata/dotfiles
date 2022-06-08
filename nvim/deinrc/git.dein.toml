@@ -36,13 +36,16 @@ nmap <Leader>ad <Cmd>Gina changes origin/HEAD...<CR>
 nmap <Leader>ah <Cmd>execute printf('Gina log --graph %s', expand('%'))<CR>
 nmap <Leader>aH <Cmd>Gina log --graph --all<CR>
 nmap <Leader>af <Cmd>Gina ls<CR>
-
-autocmd MyAutoCmd FileType gina-commit setlocal spell
 '''
 hook_source = '''
 call gina#custom#command#option(
     \ 'commit', '-v|--verbose'
     \ )
+'''
+
+[plugins.ftplugin]
+gina-commit = '''
+setlocal spell
 '''
 
 [[plugins]]

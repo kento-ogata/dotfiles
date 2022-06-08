@@ -2,10 +2,6 @@ if &compatible
   set nocompatible
 endif
 
-augroup MyAutoCmd
-  autocmd!
-augroup END
-
 let mapleader="\<Space>"
 " use ; to a prefix of open finder action
 nnoremap ; <Nop>
