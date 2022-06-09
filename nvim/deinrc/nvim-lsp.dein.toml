@@ -50,10 +50,7 @@ function s:map_trouble_actions()
   nmap <buffer><silent> <Leader>xq  <Cmd>TroubleToggle loclist<CR>
 endfunction
 
-augroup TroubleRc
-  autocmd!
-  autocmd LspAttach * call <SID>map_trouble_actions()
-augroup END
+autocmd NvimLspRc LspAttach * call <SID>map_trouble_actions()
 '''
 
 [[plugins]]
@@ -68,10 +65,7 @@ function s:map_lspsaga_actions()
   nmap <buffer><silent> ]d            <Cmd>Lspsaga diagnostic_jump_next<CR>
 endfunction
 
-augroup LspSagaRc
-  autocmd!
-  autocmd LspAttach * call <SID>map_lspsaga_actions()
-augroup END
+autocmd NvimLspRc LspAttach * call <SID>map_lspsaga_actions()
 '''
 hook_source = '''
 lua << EOF
@@ -148,10 +142,7 @@ hook_add = '''
 function s:map_increname()
   nmap <Leader>r :IncRename<Space>
 endfunction
-augroup IncRenameRc
-  autocmd!
-  autocmd LspAttach * call <SID>map_increname()
-augroup END
+autocmd NvimLspRc LspAttach * call <SID>map_increname()
 '''
 hook_source = '''
 lua << EOF

@@ -2,6 +2,12 @@ if &compatible
   set nocompatible
 endif
 
+if has('nvim')
+  augroup NvimLspRc
+    autocmd!
+  augroup END
+endif
+
 let mapleader="\<Space>"
 " use ; to a prefix of open finder action
 nnoremap ; <Nop>
@@ -133,10 +139,7 @@ if has('nvim')
     nmap <buffer><silent> <Leader>f   <Cmd>lua vim.lsp.buf.format{ async = true }<CR>
   endfunction
 
-  augroup NvimLspRc
-    autocmd!
-    autocmd LspAttach * call <SID>map_nvim_lsp_actions()
-  augroup END
+  autocmd NvimLspRc LspAttach * call <SID>map_nvim_lsp_actions()
 endif
 
 " automatically indent on empty rows
