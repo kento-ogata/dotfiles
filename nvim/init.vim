@@ -6,8 +6,19 @@ let mapleader="\<Space>"
 " use ; to a prefix of open finder action
 nnoremap ; <Nop>
 
-" list of {'name', 'background'}
+" list of {'name', 'background', 'lightline'}
 let g:colorschemes = []
+
+" cs_params: { 'name': string, 'background': string, 'lightline': string }
+function init#pick_random_colorscheme(cs_params)
+    const l:count_of_colorschemes = len(a:cs_params)
+    if l:count_of_colorschemes == 0
+      return
+    endif
+  
+    const l:choosed = rand(srand()) % l:count_of_colorschemes
+    return a:cs_params[l:choosed]
+endfunction
 
 function init#set_random_colorschme()
   const l:count_of_colorschemes = len(g:colorschemes)

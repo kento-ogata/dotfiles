@@ -1,15 +1,12 @@
 [[plugins]]
 repo = 'rebelot/kanagawa.nvim'
 if = 'has("nvim")'
-hook_add = '''
-call add(g:colorschemes, {'name': 'kanagawa'})
-'''
 
 [[plugins]]
 repo = 'cocopon/iceberg.vim'
 hook_add = '''
-call add(g:colorschemes, {'name': 'iceberg', 'background': 'dark'})
-call add(g:colorschemes, {'name': 'iceberg', 'background': 'light'})
+call add(g:colorschemes, {'name': 'iceberg', 'background': 'dark',  'lightline': 'iceberg'})
+call add(g:colorschemes, {'name': 'iceberg', 'background': 'light', 'lightline': 'iceberg'})
 '''
 
 [[plugins]]
@@ -21,19 +18,18 @@ repo = '4513ECHO/vim-colors-hatsunemiku'
 [[plugins]]
 repo = 'sainnhe/gruvbox-material'
 hook_add = '''
-call add(g:colorschemes, {'name': 'gruvbox-material', 'background': 'dark'})
+call add(g:colorschemes, {'name': 'gruvbox-material', 'background': 'dark', 'lightline': 'gruvbox_material'})
 '''
 
 [[plugins]]
 repo = 'ishan9299/nvim-solarized-lua'
 if = 'has("nvim")'
-hook_add = '''
-call add(g:colorschemes, {'name': 'solarized', 'background': 'dark'})
-call add(g:colorschemes, {'name': 'solarized', 'background': 'light'})
-'''
 
 [[plugins]]
 repo = 'sainnhe/edge'
+hook_add = '''
+call add(g:colorschemes, {'name': 'edge', 'background': 'dark', 'lightline': 'edge'})
+'''
 
 [[plugins]]
 repo = 'nvim-lualine/lualine.nvim'
@@ -50,8 +46,9 @@ lua require('lualine').setup()
 repo = 'itchyny/lightline.vim'
 #if = '!has("nvim")'
 hook_add = '''
-set background=dark
-colorscheme gruvbox-material
+const s:cs = init#pick_random_colorscheme(g:colorschemes)
+execute printf('set background=%s', s:cs['background'])
+execute printf('colorscheme %s', s:cs['name'])
 
 let g:lightline = {
   \ 'active': {
@@ -74,7 +71,7 @@ let g:lightline = {
   \ 'subseparator': {
   \   'left': '',
   \   'right': '' },
-  \ 'colorscheme': 'gruvbox_material',
+  \ 'colorscheme': s:cs['lightline'],
   \ 'component_function': {
   \   'gitbranch': 'vimrc#lightline#gitbranch', 
   \   'gitreponame': 'vimrc#lightline#gitreponame',
