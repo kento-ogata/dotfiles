@@ -27,6 +27,7 @@ lspconfig.sumneko_lua.setup {
     },
   },
 }
+lspconfig.vimls.setup {}
 EOF
 '''
 
@@ -58,7 +59,7 @@ repo = 'tami5/lspsaga.nvim'
 on_cmd = 'Lspsaga'
 hook_add = '''
 function s:map_lspsaga_actions()
-  nmap <buffer><silent> K             <Cmd>Lspsaga hover_doc<CR>
+  if &ft !=# 'vim' | nmap <buffer><silent> K <Cmd>Lspsaga hover_doc<CR> | endif
   nmap <buffer><silent> <Leader><CR>  <Cmd>Lspsaga code_action<CR>
   nmap <buffer><silent> <Leader>e     <Cmd>Lspsaga show_line_diagnostics<CR>
   nmap <buffer><silent> [d            <Cmd>Lspsaga diagnostic_jump_prev<CR>
