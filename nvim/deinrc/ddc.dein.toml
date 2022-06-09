@@ -77,6 +77,7 @@ let g:ddc_options['sourceOptions']['rg'] = {
       \ 'matchers': ['matcher_head'],
       \ 'minAutoCompleteLength': 4,
       \ }
+nmap <expr> <Leader>,r vimrc#ddc#add_source_buffer('rg')
 '''
 
 [[plugins]]
@@ -84,12 +85,7 @@ repo = 'Shougo/ddc-nvim-lsp'
 if = 'has("nvim")'
 on_source = 'ddc.vim'
 hook_source = '''
-function s:add_ddcsource_nvimlsp()
-  let l:current_sources = ddc#custom#get_current()['sources']
-  call insert(l:current_sources, 'nvim-lsp')
-  call ddc#custom#patch_buffer('sources', l:current_sources)
-endfunction
-autocmd DdcRc LspAttach * call <SID>add_ddcsource_nvimlsp()
+autocmd DdcRc LspAttach * call vimrc#ddc#insert_source_buffer('nvim-lsp')
 
 let g:ddc_options['sourceOptions']['nvim-lsp'] = {
       \ 'mark': 'lsp',
