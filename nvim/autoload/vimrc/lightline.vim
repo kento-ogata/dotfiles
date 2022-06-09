@@ -3,36 +3,45 @@ function vimrc#lightline#setup()
   execute printf('set background=%s', l:cs['background'])
   execute printf('colorscheme %s', l:cs['name'])
   
-  let g:lightline = {
-    \ 'active': {
-    \   'left':  [ [ 'mode', 'paste' ],
-    \              [ 'readonly', 'filename', 'modified' ] ],
-    \   'right': [ [ 'lineinfo' ],
-    \              [ 'percent' ],
-    \              [ 'fileformat', 'fileencoding', 'filetype' ] ] },
-    \ 'inactive': {
-    \   'left':  [ [ 'filename' ] ],
-    \   'right': [ [ 'lineinfo' ],
-    \              [ 'percent' ] ] },
-    \ 'tabline': {
-    \   'left':  [ [ 'gitreponame', 'gitbranch' ],
-    \              [ 'tabs' ] ],
-    \   'right': [ ] },
-    \ 'separator': {
-    \   'left': '',
-    \   'right': '' },
-    \ 'subseparator': {
-    \   'left': '',
-    \   'right': '' },
-    \ 'colorscheme': l:cs['lightline'],
-    \ 'component_function': {
-    \   'gitbranch': 'vimrc#lightline#gitbranch', 
-    \   'gitreponame': 'vimrc#lightline#gitreponame',
-    \   'fileformat': 'vimrc#lightline#fileformat',
-    \   'fileencoding': 'vimrc#lightline#fileencoding',
-    \   'filetype': 'vimrc#lightline#filetype',
-    \ },
-    \ }
+  let g:lightline = {}
+  let g:lightline['component_function'] = {
+        \ 'gitbranch': 'vimrc#lightline#gitbranch',
+        \ 'gitreponame': 'vimrc#lightline#gitreponame',
+        \ 'fileformat': 'vimrc#lightline#fileformat',
+        \ 'fileencoding': 'vimrc#lightline#fileencoding',
+        \ 'filetype': 'vimrc#lightline#filetype',
+        \ }
+  let g:lightline['active'] = {
+        \ 'left':  [
+          \ [ 'mode', 'paste' ],
+          \ [ 'readonly', 'filename', 'modified' ] ],
+        \ 'right': [
+          \ [ 'lineinfo' ],
+          \ [ 'percent' ], 
+          \ [ 'fileformat', 'fileencoding', 'filetype' ] ],
+        \ }
+  let g:lightline['inactive'] = {
+        \ 'left': [
+          \ [ 'filename' ] ],
+        \ 'right': [
+          \ [ 'lineinfo' ],
+          \ [ 'percent' ] ],
+        \ }
+  let g:lightline['tabline'] = {
+        \ 'left':  [
+          \ [ 'gitreponame', 'gitbranch' ],
+          \ [ 'tabs' ] ],
+        \'right': [ ],
+        \ }
+  let g:lightline['separator'] = {
+        \ 'left': '',
+        \ 'right': '',
+        \ }
+  let g:lightline['subseparator'] = {
+        \ 'left': '',
+        \ 'right': '',
+        \ }
+  let g:lightline['colorscheme'] = l:cs['lightline']
 endfunction
 
 function vimrc#lightline#gitreponame()
