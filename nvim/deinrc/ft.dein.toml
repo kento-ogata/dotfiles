@@ -24,3 +24,8 @@ yaml = '''
 setlocal shiftwidth=2
 setlocal tabstop=2
 '''
+
+lua = '''
+setlocal shiftwidth=2
+setlocal tabstop=2
+'''
