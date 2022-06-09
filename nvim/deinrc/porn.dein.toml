@@ -33,6 +33,9 @@ call add(g:colorschemes, {'name': 'solarized', 'background': 'light'})
 '''
 
 [[plugins]]
+repo = 'sainnhe/edge'
+
+[[plugins]]
 repo = 'nvim-lualine/lualine.nvim'
 depends = 'nvim-web-devicons'
 if = 'has("nvim")'
