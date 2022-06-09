@@ -46,38 +46,5 @@ lua require('lualine').setup()
 repo = 'itchyny/lightline.vim'
 #if = '!has("nvim")'
 hook_add = '''
-const s:cs = init#pick_random_colorscheme(g:colorschemes)
-execute printf('set background=%s', s:cs['background'])
-execute printf('colorscheme %s', s:cs['name'])
-
-let g:lightline = {
-  \ 'active': {
-  \   'left':  [ [ 'mode', 'paste' ],
-  \              [ 'readonly', 'filename', 'modified' ] ],
-  \   'right': [ [ 'lineinfo' ],
-  \              [ 'percent' ],
-  \              [ 'fileformat', 'fileencoding', 'filetype' ] ] },
-  \ 'inactive': {
-  \   'left':  [ [ 'filename' ] ],
-  \   'right': [ [ 'lineinfo' ],
-  \              [ 'percent' ] ] },
-  \ 'tabline': {
-  \   'left':  [ [ 'gitreponame', 'gitbranch' ],
-  \              [ 'tabs' ] ],
-  \   'right': [ ] },
-  \ 'separator': {
-  \   'left': '',
-  \   'right': '' },
-  \ 'subseparator': {
-  \   'left': '',
-  \   'right': '' },
-  \ 'colorscheme': s:cs['lightline'],
-  \ 'component_function': {
-  \   'gitbranch': 'vimrc#lightline#gitbranch', 
-  \   'gitreponame': 'vimrc#lightline#gitreponame',
-  \   'fileformat': 'vimrc#lightline#fileformat',
-  \   'fileencoding': 'vimrc#lightline#fileencoding',
-  \   'filetype': 'vimrc#lightline#filetype',
-  \ },
-  \ }
+call vimrc#lightline#setup()
 '''

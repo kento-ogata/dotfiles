@@ -1,3 +1,40 @@
+function vimrc#lightline#setup()
+  const l:cs = init#pick_random_colorscheme(g:colorschemes)
+  execute printf('set background=%s', l:cs['background'])
+  execute printf('colorscheme %s', l:cs['name'])
+  
+  let g:lightline = {
+    \ 'active': {
+    \   'left':  [ [ 'mode', 'paste' ],
+    \              [ 'readonly', 'filename', 'modified' ] ],
+    \   'right': [ [ 'lineinfo' ],
+    \              [ 'percent' ],
+    \              [ 'fileformat', 'fileencoding', 'filetype' ] ] },
+    \ 'inactive': {
+    \   'left':  [ [ 'filename' ] ],
+    \   'right': [ [ 'lineinfo' ],
+    \              [ 'percent' ] ] },
+    \ 'tabline': {
+    \   'left':  [ [ 'gitreponame', 'gitbranch' ],
+    \              [ 'tabs' ] ],
+    \   'right': [ ] },
+    \ 'separator': {
+    \   'left': '',
+    \   'right': '' },
+    \ 'subseparator': {
+    \   'left': '',
+    \   'right': '' },
+    \ 'colorscheme': l:cs['lightline'],
+    \ 'component_function': {
+    \   'gitbranch': 'vimrc#lightline#gitbranch', 
+    \   'gitreponame': 'vimrc#lightline#gitreponame',
+    \   'fileformat': 'vimrc#lightline#fileformat',
+    \   'fileencoding': 'vimrc#lightline#fileencoding',
+    \   'filetype': 'vimrc#lightline#filetype',
+    \ },
+    \ }
+endfunction
+
 function vimrc#lightline#gitreponame()
   const repo_name = gina#component#repo#name()
   if repo_name == ''
