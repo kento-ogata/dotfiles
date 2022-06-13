@@ -8,25 +8,25 @@ let s:block_escape_rules = [
       \ ]
 
 let s:html_rules = [
-      \ { 'char': '>', 'at': '<\(\w\+\)\(\s\+\w\+=\".\+\"\)*\%#', 'input_after': '</\1>', 'with_submatch': '1' , 'filetype': 'html'},
-      \ { 'char': '<Tab>', 'at': '\%#</\w\+>', 'leave': '>' , 'filetype': 'html'},
-      \ { 'char': '<CR>', 'at': '\%#</\w\+>', 'input_after': '<CR>', 'filetype': 'html'},
-      \ { 'char': '/', 'at': '<\(\w\+\)\(\s\+\w\+=\".\+\"\)*\%#', 'input': '/>', 'filetype': 'html'},
-      \ { 'char': '=', 'at': '\w\+\%#', 'input': '="', 'input_after': '"', 'filetype': 'html' },
+      \ {'filetype': 'html', 'char': '>', 'at': '<\(\w\+\)\(\s\+\w\+=\".\+\"\)*\%#', 'input_after': '</\1>', 'with_submatch': '1'},
+      \ {'filetype': 'html', 'char': '<Tab>', 'at': '\%#</\w\+>', 'leave': '>'},
+      \ {'filetype': 'html', 'char': '<CR>', 'at': '\%#</\w\+>', 'input_after': '<CR>'},
+      \ {'filetype': 'html', 'char': '/', 'at': '<\(\w\+\)\(\s\+\w\+=\".\+\"\)*\%#', 'input': '/>'},
+      \ {'filetype': 'html', 'char': '=', 'at': '\w\+\%#', 'input': '="', 'input_after': '"'},
       \ ]
 
 let s:razor_rules = [
-      \ { 'char': '<CR>', 'at': '\%#</\w\+>', 'input_after': '<CR>' , 'filetype': ['razor', 'cshtml']},
+      \ {'filetype': ['razor', 'cshtml'], 'char': '<CR>', 'at': '\%#</\w\+>', 'input_after': '<CR>'},
       \ ]
 
 let s:toml_rules = [
-      \ {'char': '<CR>', 'at': '\%#''''''', 'input': '<CR>', 'input_after': '<CR>', 'filetype': 'toml'}
+      \ {'filetype': 'toml', 'char': '<CR>', 'at': '\%#''''''', 'input': '<CR>', 'input_after': '<CR>'}
       \ ]
 
 let s:cs_rules = [
-      \ {'char': '{' , 'at': '^\s\+\(public\|private\|protected\|internal\)\s\+\(\w\+\(<\w\+>\)*\)\s\+\(\w\+\)\s\+\%#$', 'input': '{ get', 'input_after': '; set; }', 'filetype': 'cs'},
-      \ {'char': '<Tab>', 'at': 'get\( => .\+\)*\%#; set', 'leave': 'set', 'filetype': 'cs'},
-      \ {'char': '<Tab>', 'at': 'set\( => .\+\)*\%#; }', 'leave': '}', 'filetype': 'cs'},
+      \ {'filetype': 'cs', 'char': '{' , 'at': '^\s\+\(public\|private\|protected\|internal\)\s\+\(\w\+\(<\w\+>\)*\)\s\+\(\w\+\)\s\+\%#$', 'input': '{ get', 'input_after': '; set; }'},
+      \ {'filetype': 'cs', 'char': '<Tab>', 'at': 'get\( => .\+\)*\%#; set', 'leave': 'set',},
+      \ {'filetype': 'cs', 'char': '<Tab>', 'at': 'set\( => .\+\)*\%#; }', 'leave': '}'},
       \ ]
 
 function vimrc#lexima#setup()
