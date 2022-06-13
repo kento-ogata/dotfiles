@@ -29,6 +29,12 @@ let s:cs_rules = [
       \ {'filetype': 'cs', 'char': '<Tab>', 'at': 'set\( => .\+\)*\%#; }', 'leave': '}'},
       \ ]
 
+let s:viml_rules = [
+      \ {'filetype': 'vim', 'char': '<CR>', 'at': '\%#\s*]', 'input': '<CR><Bslash><Space>'},
+      \ {'filetype': 'vim', 'char': '<CR>', 'at': '\%#\s*}', 'input': '<CR><Bslash><Space>'},
+      \ {'filetype': 'vim', 'char': '<CR>', 'at': ',\%#', 'input': '<CR><Bslash><Space>'},
+      \ ]
+
 function vimrc#lexima#setup()
   call vimrc#lexima#_set_rules(s:block_escape_rules)
 
@@ -38,6 +44,7 @@ function vimrc#lexima#setup()
     autocmd FileType toml   ++once call vimrc#lexima#_set_rules(s:toml_rules)
     autocmd FileType cs     ++once call vimrc#lexima#_set_rules(s:cs_rules)
     autocmd FileType razor  ++once call vimrc#lexima#_set_rules(s:razor_rules)
+    autocmd FileType vim    ++once call vimrc#lexima#_set_rules(s:viml_rules)
   augroup END
 
   doautocmd <nomodeline> LeximaRc FileType
