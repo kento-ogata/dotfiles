@@ -127,17 +127,27 @@ if has('nvim')
   set inccommand=split
 
   function s:map_nvim_lsp_actions()
-    nmap <buffer><silent> gD          <Cmd>lua vim.lsp.buf.declaration()<CR>
-    nmap <buffer><silent> gd          <Cmd>lua vim.lsp.buf.definition()<CR>
-    nmap <buffer><silent> gi          <Cmd>lua vim.lsp.buf.implementation()<CR>
-    imap <buffer><silent> <C-k>       <Cmd>lua vim.lsp.buf.signature_help()<CR>
-    nmap <buffer><silent> <Leader>wa  <Cmd>lua vim.lsp.buf.add_workspace_folder()<CR>
-    nmap <buffer><silent> <Leader>wr  <Cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>
-    nmap <buffer><silent> <Leader>wl  <Cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folder()))<CR>
-    nmap <buffer><silent> <Leader>D   <Cmd>lua vim.lsp.buf.type_definition()<CR>
-    nmap <buffer><silent> <Leader>q   <Cmd>lua vim.lsp.diagnostic.set_loclist()<CR>
-    nmap <buffer><silent> <Leader>f   <Cmd>lua vim.lsp.buf.format{ async = true }<CR>
+    nmap <buffer><silent> gD            <Cmd>lua vim.lsp.buf.declaration()<CR>
+    nmap <buffer><silent> gd            <Cmd>lua vim.lsp.buf.definition()<CR>
+    nmap <buffer><silent> gi            <Cmd>lua vim.lsp.buf.implementation()<CR>
+    nmap <buffer><silent> <Leader>wa    <Cmd>lua vim.lsp.buf.add_workspace_folder()<CR>
+    nmap <buffer><silent> <Leader>wr    <Cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>
+    nmap <buffer><silent> <Leader>wl    <Cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folder()))<CR>
+    nmap <buffer><silent> <Leader>D     <Cmd>lua vim.lsp.buf.type_definition()<CR>
+    nmap <buffer><silent> <Leader>q     <Cmd>lua vim.lsp.diagnostic.set_loclist()<CR>
+    nmap <buffer><silent> <Leader>f     <Cmd>lua vim.lsp.buf.format{ async = true }<CR>
+    if &ft !=# 'vim'
+      nmap <nowait><buffer><silent> K <Cmd>lua vim.lsp.buf.hover()<CR>
+    endif
+    nmap <buffer><silent> <Leader>h     <Cmd>lua vim.lsp.buf.signature_help()<CR>
+    nmap <buffer><silent> <Leader><CR>  <Cmd>lua vim.lsp.buf.code_action()<CR>
+    nmap <buffer><silent> ]d            <Cmd>lua vim.diagnostic.goto_next()<CR>
+    nmap <buffer><silent> [d            <Cmd>lua vim.diagnostic.goto_prev()<CR>
+    nmap <buffer><silent> <Leader>e     <Cmd>lua vim.diagnostic.open_float()<CR>
   endfunction
+
+  lua vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
+  lua vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
 
   autocmd NvimLspRc LspAttach * call <SID>map_nvim_lsp_actions()
 endif

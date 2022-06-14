@@ -55,68 +55,6 @@ autocmd NvimLspRc LspAttach * call <SID>map_trouble_actions()
 '''
 
 [[plugins]]
-repo = 'tami5/lspsaga.nvim'
-on_cmd = 'Lspsaga'
-hook_add = '''
-function s:map_lspsaga_actions()
-  if &ft !=# 'vim' | nmap <buffer><silent> K <Cmd>Lspsaga hover_doc<CR> | endif
-  nmap <buffer><silent> <Leader><CR>  <Cmd>Lspsaga code_action<CR>
-  nmap <buffer><silent> <Leader>e     <Cmd>Lspsaga show_line_diagnostics<CR>
-  nmap <buffer><silent> [d            <Cmd>Lspsaga diagnostic_jump_prev<CR>
-  nmap <buffer><silent> ]d            <Cmd>Lspsaga diagnostic_jump_next<CR>
-endfunction
-
-autocmd NvimLspRc LspAttach * call <SID>map_lspsaga_actions()
-'''
-hook_source = '''
-lua << EOF
-local lspsaga = require 'lspsaga'
-lspsaga.setup { -- defaults ...
-  debug = false,
-  use_saga_diagnostic_sign = true,
-  -- diagnostic sign
-  error_sign = "",
-  warn_sign = "",
-  hint_sign = "",
-  infor_sign = "",
-  diagnostic_header_icon = "   ",
-  -- code action title icon
-  code_action_icon = " ",
-  code_action_prompt = {
-    enable = true,
-    sign = true,
-    sign_priority = 40,
-    virtual_text = true,
-  },
-  finder_definition_icon = "  ",
-  finder_reference_icon = "  ",
-  max_preview_lines = 10,
-  finder_action_keys = {
-    open = "o",
-    vsplit = "s",
-    split = "i",
-    quit = "q",
-    scroll_down = "<C-f>",
-    scroll_up = "<C-b>",
-  },
-  code_action_keys = {
-    quit = "q",
-    exec = "<CR>",
-  },
-  rename_action_keys = {
-    quit = "<C-c>",
-    exec = "<CR>",
-  },
-  definition_preview_icon = "  ",
-  border_style = "single",
-  rename_prompt_prefix = "➤",
-  server_filetype_map = {},
-  diagnostic_prefix_format = "%d. ",
-}
-EOF
-'''
-
-[[plugins]]
 repo = 'j-hui/fidget.nvim'
 on_event = 'LspAttach'
 hook_source = '''
