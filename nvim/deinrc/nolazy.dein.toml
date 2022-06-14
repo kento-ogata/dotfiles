@@ -1,5 +1,10 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
+hook_add = '''
+nmap <Plug>(ddu-ff-dein)
+      \ <Cmd>Ddu dein
+        \ -ui-param-startFilter<CR>
+'''
 
 [[plugins]]
 repo = 'lewis6991/impatient.nvim'

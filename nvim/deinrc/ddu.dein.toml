@@ -1,199 +1,193 @@
 [[plugins]]
 repo = 'Shougo/ddu.vim'
 depends = 'denops.vim'
-on_map = '<Cmd>Ddu'
+hook_add = '''
+let g:ddu_ff_options = {
+      \ 'sourceParams': {},
+      \ 'filterParams': {},
+      \ 'sourceOptions': {},
+      \ 'kindOptions': {},
+      \ 'uiParams': {},
+      \ }
+'''
+
+[[plugins]]
+repo = 'Shougo/ddu-commands.vim'
+depends = ['ddu.vim', 'ddu-ui-ff']
+on_cmd = 'Ddu'
 hook_add = '''
 function s:map_ddu_actions()
-  nmap <silent> <Leader><C-\> <Cmd>Ddu
-  \ -name=files file_external
-  \ -source-param-path=`fnamemodify($MYVIMRC, ':h')`
-  \ -ui-param-startFilter<CR>
-  nmap <silent> ;f <Cmd>Ddu
-  \ -name=files file_external
-  \ -ui-param-startFilter<CR>
-  nmap <silent> ;b <Cmd>Ddu
-  \ -name=buffers buffer
-  \ -ui-param-startFilter<CR>
-  nmap <silent> ;s <Cmd>Ddu
-  \ -name=search line
-  \ -ui-param-startFilter<CR>
-  nmap <silent> ;g <Cmd>Ddu
-  \ -name=search rg
-  \ -ui-param-ignoreEmpty
-  \ -source-param-input=`input('Pattern: ')`<CR>
-  nmap <silent> ;h <Cmd>Ddu
-  \ -name=help help
-  \ -ui-param-startFilter<CR>
-  nmap <silent> ;n <Cmd>Ddu
-  \ -name=search -resume
-  \ -ui-param-startFilter=v:false<CR>
-  nmap <silent> ;1 <Cmd>Ddu
-  \ dein
-  \ -ui-param-startFilter<CR>
+  nmap ;n <Plug>(ddu-ff-resume)
+  nmap ;s <Plug>(ddu-ff-line)
+  nmap ;g <Plug>(ddu-ff-rg)
+  nmap ;b <Plug>(ddu-ff-buffer)
+  nmap ;h <Plug>(ddu-ff-help)
+  nmap ;1 <Plug>(ddu-ff-dein)
+  nmap ;f <Plug>(ddu-ff-file)
+  nmap <Leader><C-\> <Plug>(ddu-ff-vimrc)
 endfunction
 
 command MapDdu call <SID>map_ddu_actions()
 nmap <Leader>;d <Cmd>MapDdu<CR>
 MapDdu
 '''
-hook_source = '''
-call ddu#custom#patch_global({
-    \   'ui': 'ff',
-    \   'sourceOptions': {
-    \     '_': {
-    \       'ignoreCase': v:true,
-    \       'matchers': ['matcher_fzf'],
-    \     },
-    \     'line': { 'matchers': ['matcher_substring'] }
-    \   },
-    \   'sourceParams': {
-    \     'file_external': {
-    \       'cmd': (
-    \           executable('fd') ? ['fd', '.', '-H', '-E', '.git', '-E', '__pycache__', '-t', 'f'] : (
-    \           executable('rg') ? ['rg', '--files'] : (
-    \           has('unix') && executable('find') ? ['find', '.', '-type', 'f'] : (
-    \           has('win32') && executable('where') ? ['where', '/r', '.', '*'] : [])))) ,
-    \     },
-    \     'rg': {
-    \       'args': [
-    \         '--ignore-case', '--column', '--no-heading', '--color', 'never',
-    \       ],
-    \     },
-    \   },
-    \   'filterParams': {
-    \     'matcher_substring': {
-    \       'highlightMatched': 'Search',
-    \     },
-    \     'matcher_fzf': {
-    \       'highlightMatched': 'Search',
-    \     },
-    \   },
-    \   'kindOptions': {
-    \     'file': {
-    \       'defaultAction': 'open',
-    \     },
-    \     'word': {
-    \       'defaultAction': 'append',
-    \     },
-    \     'deol': {
-    \       'defaultAction': 'switch',
-    \     },
-    \     'help': {
-    \       'defaultAction': 'open',
-    \     },
-    \   }
-    \ })
 
+[[plugins]]
+repo = 'Shougo/ddu-ui-ff'
+depends = 'ddu-filter-fzf'
+hook_source = '''
+nmap <Plug>(ddu-ff-resume) <Cmd>Ddu -resume
+      \ -name=search
+      \ -ui-param-startFilter=v:false<CR>
+
+let g:ddu_ff_options['ui'] = 'ff'
+let g:ddu_ff_options['sourceOptions']['_'] = {
+      \ 'ignoreCase': v:true,
+      \ 'matchers': ['matcher_fzf'],
+      \ }
 " finder window settings
 if has('nvim')
-  call ddu#custom#patch_global({
-      \   'uiParams': {
-      \     'ff': {
-      \       'autoResize': v:true,
-      \       'filterSplitDirection': 'floating',
-      \       'filterFloatingPosition': 'top',
-      \       'split': 'floating',
-      \       'floatingBorder': 'single',
-      \       'displaySourceName': 'no',
-      \     }
-      \   }
-      \ })
+  let g:ddu_ff_options['uiParams']['ff'] = {
+        \ 'autoResize': v:true,
+        \ 'filterSplitDirection': 'floating',
+        \ 'filterFloatingPosition': 'top',
+        \ 'split': 'floating',
+        \ 'floatingBorder': 'single',
+        \ 'displaySourceName': 'no',
+        \ }
 else
-  call ddu#custom#patch_global({
-      \   'uiParams': {
-      \     'ff': {
-      \       'autoResize': v:false,
-      \       'filterSplitDirection': 'topleft',
-      \       'split':  'horizontal',
-      \       'splitDirection': 'topleft',
-      \       'statusline': v:true,
-      \     }
-      \   }
-      \ })
+  let g:ddu_ff_options['uiParams']['ff'] = {
+        \ 'autoResize': v:false,
+        \ 'filterSplitDirection': 'topleft',
+        \ 'split': 'horizontal',
+        \ 'splitDirection': 'topleft',
+        \ 'statusline': v:true,
+        \ }
 endif
+call ddu#custom#patch_global(g:ddu_ff_options)
 '''
 
 [plugins.ftplugin]
 ddu-ff = '''
-nnoremap <buffer><silent> <CR>
-\ <Cmd>call ddu#ui#ff#do_action('itemAction')<CR>
-nnoremap <buffer><silent> <Space>
-\ <Cmd>call ddu#ui#ff#do_action('toggleSelectItem')<CR>
-nnoremap <buffer><silent> i
-\ <Cmd>call ddu#ui#ff#do_action('openFilterWindow')<CR>
-nnoremap <buffer><silent> <C-l>
-\ <Cmd>call ddu#ui#ff#do_action('refreshItems')<CR>
-nnoremap <buffer><silent> p
-\ <Cmd>call ddu#ui#ff#do_action('preview')<CR>
-nnoremap <buffer><silent> q
-\ <Cmd>call ddu#ui#ff#do_action('quit')<CR>
-nnoremap <buffer><silent> d
-\ <Cmd>call ddu#ui#ff#do_action('itemAction', {'name': 'delete'})<CR>
-nnoremap <buffer><silent> e
-\ <Cmd>call ddu#ui#ff#do_action('itemAction', {'name': 'edit'})<CR>
-nnoremap <buffer><silent> N
-\ <Cmd>call ddu#ui#ff#do_action('itemAction', {'name': 'new'})<CR>
-nnoremap <buffer><silent> r
-\ <Cmd>call ddu#ui#ff#do_action('updateOptions', {
-\   'sourceOptions': {
-\     '_': {
-\       'matchers': [],
-\     },
-\   },
-\ })<CR>
+nnoremap <buffer><silent> <CR>    <Cmd>call ddu#ui#ff#do_action('itemAction')<CR>
+nnoremap <buffer><silent> i       <Cmd>call ddu#ui#ff#do_action('openFilterWindow')<CR>
+nnoremap <buffer><silent> <Esc>   <Cmd>call ddu#ui#ff#do_action('quit')<CR>
 '''
 ddu-ff-filter = '''
-inoremap <buffer><silent> <CR>
-\ <Esc><Cmd>close<CR>
-nnoremap <buffer><silent> <CR>
-\ <Cmd>close<CR>
+inoremap <buffer><silent> <CR>  <Esc><Cmd>close<CR>
+nnoremap <buffer><silent> <CR>  <Cmd>close<CR>
+nnoremap <buffer><silent> <Esc> <Cmd>close<CR>
 '''
-
-[[plugins]]
-repo = 'Shougo/ddu-commands.vim'
-depends = 'ddu.vim'
-on_cmd = 'Ddu'
-
-[[plugins]]
-repo = 'Shougo/ddu-ui-ff'
-on_source = 'ddu.vim'
 
 [[plugins]]
 repo = 'Shougo/ddu-source-line'
-on_source = 'ddu.vim'
+depends = 'ddu-filter-matcher_substring'
+on_map = '<Plug>(ddu-ff-line)'
+hook_source = '''
+nmap <Plug>(ddu-ff-line) <Cmd>Ddu line
+    \ -name=search
+    \ -ui-param-startFilter<CR>
 
-[[plugins]]
-repo = 'Shougo/ddu-source-register'
-on_source = 'ddu.vim'
+let g:ddu_ff_options['sourceOptions']['line'] = {
+      \ 'matchers': ['matcher_substring'],
+      \ }
+call ddu#custom#patch_global(g:ddu_ff_options)
+'''
 
 [[plugins]]
 repo = 'matsui54/ddu-source-file_external'
-on_source = 'ddu.vim'
+on_map = ['<Plug>(ddu-ff-file)', '<Plug>(ddu-ff-vimrc)']
+hook_source = '''
+nmap <Plug>(ddu-ff-file) <Cmd>Ddu file_external
+      \ -name=files
+      \ -ui-param-startFilter<CR>
+nmap <Plug>(ddu-ff-vimrc) <Cmd>Ddu file_external
+      \ -source-param-path=`fnamemodify($MYVIMRC, ':h')`
+      \ -ui-param-startFilter<CR>
+
+let g:ddu_ff_options['sourceParams']['file_external'] = {
+      \ 'cmd': (
+        \ executable('fd') ? ['fd', '.', '-H', '-E', '.git', '-E', '__pycache__', '-t', 'f'] : (
+        \ executable('rg') ? ['rg', '--files'] : (
+        \ has('unix') && executable('find') ? ['find', '.', '-type', 'f'] : (
+        \ has('win32') && executable('where') ? ['where', '/r', '.', '*'] : [])))
+        \ ),
+      \ }
+call ddu#custom#patch_global(g:ddu_ff_options)
+'''
 
 [[plugins]]
 repo = 'shun/ddu-source-rg'
-on_source = 'ddu.vim'
+on_map = '<Plug>(ddu-ff-rg)'
+hook_source = '''
+nmap <Plug>(ddu-ff-rg) <Cmd>Ddu rg
+      \ -name=search
+      \ -ui-param-ignoreEmpty
+      \ -source-param-input=`input('Pattern: ')`<CR>
+
+let g:ddu_ff_options['sourceParams']['rg'] = {
+      \ 'args': ['--ignore-case', '--column', '--no-heading', '--color', 'never',],
+      \ }
+call ddu#custom#patch_global(g:ddu_ff_options)
+'''
 
 [[plugins]]
 repo = 'shun/ddu-source-buffer'
-on_source = 'ddu.vim'
+on_map = '<Plug>(ddu-ff-buffer)'
+hook_source = '''
+nmap <Plug>(ddu-ff-buffer) <Cmd>Ddu buffer
+      \ -name=buffers
+      \ -ui-param-startFilter<CR>
+'''
 
 [[plugins]]
 repo = 'matsui54/ddu-source-help'
-on_source = 'ddu.vim'
+on_map = '<Plug>(ddu-ff-help)'
+hook_source = '''
+nmap <Plug>(ddu-ff-help) <Cmd>Ddu help
+      \ -name=help
+      \ -ui-param-startFilter<CR>
+
+let g:ddu_ff_options['kindOptions']['help'] = {
+      \ 'defaultAction': 'open',
+      \ }
+call ddu#custom#patch_global(g:ddu_ff_options)
+'''
 
 [[plugins]]
 repo = 'Shougo/ddu-filter-matcher_substring'
-on_source = 'ddu.vim'
+hook_source = '''
+let g:ddu_ff_options['filterParams']['matcher_substring'] = {
+      \ 'highlightMatched': 'Search',
+      \ }
+call ddu#custom#patch_global(g:ddu_ff_options)
+'''
 
 [[plugins]]
 repo = 'yuki-yano/ddu-filter-fzf'
-on_source = 'ddu.vim'
+hook_source = '''
+let g:ddu_ff_options['filterParams']['matcher_fzf'] = {
+      \ 'highlightMatched': 'Search',
+      \ }
+call ddu#custom#patch_global(g:ddu_ff_options)
+'''
 
 [[plugins]]
 repo = 'Shougo/ddu-kind-file'
 on_source = 'ddu.vim'
+hook_source = '''
+let g:ddu_ff_options['kindOptions']['file'] = {
+      \ 'defaultAction': 'open',
+      \ }
+call ddu#custom#patch_global(g:ddu_ff_options)
+'''
 
 [[plugins]]
 repo = 'Shougo/ddu-kind-word'
 on_source = 'ddu.vim'
+hook_source = '''
+let g:ddu_ff_options['kindOptions']['word'] = {
+      \ 'defaultAction': 'append',
+      \ }
+call ddu#custom#patch_global(g:ddu_ff_options)
+'''
