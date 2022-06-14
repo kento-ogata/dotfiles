@@ -10,6 +10,7 @@ repo = 'kyazdani42/nvim-web-devicons'
 
 [[plugins]]
 repo = 'vim-jp/vital.vim'
+on_cmd = 'Vitalize'
 
 [[plugins]]
 repo = 'lambdalisue/nerdfont.vim'
