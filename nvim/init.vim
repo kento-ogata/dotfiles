@@ -154,4 +154,4 @@ endif
 
 " automatically indent on empty rows
 nmap <expr> i (len(getline('.')) !=# 0) ? 'i' : '"_cc'
-nmap <expr> A (len(getline('.')) !=# 0) ? 'A' : '"_cc'
+nmap <expr> a (len(getline('.')) !=# 0) ? 'a' : '"_cc'
