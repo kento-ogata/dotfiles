@@ -199,6 +199,7 @@ on_ft = ['html', 'razor']
 
 [[plugins]]
 repo = '4513ECHO/rogue.nvim'
+depends = 'plenary.nvim'
 if = "has('nvim')"
 on_cmd = 'Rogue'
 
