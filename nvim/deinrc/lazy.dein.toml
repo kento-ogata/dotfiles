@@ -259,3 +259,16 @@ vim.keymap.set({ 'n', 'x' }, '<Plug>(pasta-p)', require('pasta.mappings').p)
 vim.keymap.set({ 'n', 'x' }, '<Plug>(pasta-P)', require('pasta.mappings').P)
 EOF
 '''
+
+[[plugins]]
+repo = 'rcarriga/nvim-notify'
+depends = 'plenary.nvim'
+if = 'has("nvim")'
+on_event = 'VimEnter'
+hook_source = '''
+lua << EOF
+local notify = require('notify')
+notify.setup {}
+vim.notify = notify
+EOF
+'''
