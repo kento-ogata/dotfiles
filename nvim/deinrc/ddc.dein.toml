@@ -50,7 +50,7 @@ let g:ddc_options['completionMenu'] = 'pum.vim'
 repo = 'Shougo/ddc-around'
 on_source = 'ddc.vim'
 hook_source = '''
-call insert(g:ddc_options['sources'], 'around')
+call add(g:ddc_options['sources'], 'around')
 let g:ddc_options['sourceOptions']['around'] = {
       \ 'mark': 'A',
       \ }
@@ -100,7 +100,7 @@ let g:ddc_options['sourceParams']['nvim-lsp'] = {
 repo = 'LumaKernel/ddc-file'
 on_source = 'ddc.vim'
 hook_source = '''
-call add(g:ddc_options['sources'], 'file')
+call insert(g:ddc_options['sources'], 'file', 0)
 let g:ddc_options['sourceOptions']['file'] = {
       \ 'mark': 'F',
       \ 'isVolatile': v:true,
