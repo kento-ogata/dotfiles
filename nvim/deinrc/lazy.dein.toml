@@ -272,3 +272,11 @@ notify.setup {}
 vim.notify = notify
 EOF
 '''
+
+[[plugins]]
+repo = 'stevearc/aerial.nvim'
+if = 'has("nvim")'
+
+[[plugins]]
+repo = 'jose-elias-alvarez/null-ls.nvim'
+if = 'has("nvim")'
