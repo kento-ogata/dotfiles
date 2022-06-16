@@ -72,6 +72,7 @@ ddu-ff = '''
 nnoremap <buffer><silent> <CR>    <Cmd>call ddu#ui#ff#do_action('itemAction')<CR>
 nnoremap <buffer><silent> i       <Cmd>call ddu#ui#ff#do_action('openFilterWindow')<CR>
 nnoremap <buffer><silent> <Esc>   <Cmd>call ddu#ui#ff#do_action('quit')<CR>
+setlocal relativenumber
 '''
 ddu-ff-filter = '''
 inoremap <buffer><silent> <CR>  <Esc><Cmd>close<CR>
