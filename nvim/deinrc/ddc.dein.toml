@@ -105,7 +105,7 @@ let g:ddc_options['sourceOptions']['file'] = {
       \ 'mark': 'F',
       \ 'isVolatile': v:true,
       \ 'minAutoCompleteLength': 1000,
-      \ 'forceCompletionPattern': '\S/\S*',
+      \ 'forceCompletionPattern': '\.{0,2}/(?:[/\-\_\w\.])*',
       \ }
 '''
 
