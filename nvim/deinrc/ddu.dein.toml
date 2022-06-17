@@ -9,13 +9,6 @@ let g:ddu_ff_options = {
       \ 'kindOptions': {},
       \ 'uiParams': {},
       \ }
-'''
-
-[[plugins]]
-repo = 'Shougo/ddu-commands.vim'
-depends = ['ddu.vim', 'ddu-ui-ff']
-on_cmd = 'Ddu'
-hook_add = '''
 function s:map_ddu_actions()
   nmap ;n <Plug>(ddu-ff-resume)
   nmap ;s <Plug>(ddu-ff-line)
@@ -31,6 +24,11 @@ command MapDdu call <SID>map_ddu_actions()
 nmap <Leader>;d <Cmd>MapDdu<CR>
 MapDdu
 '''
+
+[[plugins]]
+repo = 'Shougo/ddu-commands.vim'
+depends = ['ddu.vim', 'ddu-ui-ff']
+on_cmd = 'Ddu'
 
 [[plugins]]
 repo = 'Shougo/ddu-ui-ff'
