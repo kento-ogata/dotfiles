@@ -125,7 +125,9 @@ nmap <Plug>(ddu-ff-rg) <Cmd>Ddu rg
       \ -name=search
       \ -ui-param-ignoreEmpty
       \ -source-param-input=`input('Pattern: ')`<CR>
-
+let g:ddu_ff_options['sourceOptions']['rg'] = {
+      \ 'matchers': ['matcher_substring'],
+      \ }
 let g:ddu_ff_options['sourceParams']['rg'] = {
       \ 'args': ['--ignore-case', '--column', '--no-heading', '--color', 'never',],
       \ }
