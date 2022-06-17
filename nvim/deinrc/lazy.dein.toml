@@ -177,7 +177,7 @@ merge_ftdetect = true
 repo = 'ctrlpvim/ctrlp.vim'
 on_map = '<Plug>(ctrlp)'
 hook_add = '''
-nmap <Nop> <Plug>(ctrlp)
+nmap <C-p> <Plug>(ctrlp)
 '''
 
 [[plugins]]
