@@ -239,10 +239,27 @@ xmap aa   <Plug>(textobj-sandwich-auto-a)
 repo = 'hrsh7th/nvim-pasta'
 on_map = ['<Plug>(pasta-p)', '<Plug>(pasta-P)']
 hook_add = '''
-nmap p <Plug>(pasta-p)
-xmap p <Plug>(pasta-p)
-nmap P <Plug>(pasta-P)
-xmap P <Plug>(pasta-P)
+function s:map_pasta()
+  nmap p <Plug>(pasta-p)
+  xmap p <Plug>(pasta-p)
+  nmap P <Plug>(pasta-P)
+  xmap P <Plug>(pasta-P)
+endfunction
+
+function s:unmap_pasta()
+  nunmap p
+  xunmap p
+  nunmap P
+  xunmap P
+endfunction
+
+augroup PastaRc
+  autocmd!
+  autocmd CmdwinEnter * call <SID>unmap_pasta()
+  autocmd CmdwinLeave * call <SID>map_pasta()
+augroup END
+
+call <SID>map_pasta()
 '''
 hook_source = '''
 lua << EOF
