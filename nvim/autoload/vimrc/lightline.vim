@@ -1,5 +1,5 @@
 function vimrc#lightline#setup()
-  const l:cs = init#pick_random_colorscheme(g:colorschemes)
+  const l:cs = vimrc#pick_random_colorscheme(g:vimrc#colorschemes)
   execute printf('set background=%s', l:cs['background'])
   execute printf('colorscheme %s', l:cs['name'])
   

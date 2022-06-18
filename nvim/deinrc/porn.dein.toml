@@ -5,8 +5,8 @@ if = 'has("nvim")'
 [[plugins]]
 repo = 'cocopon/iceberg.vim'
 hook_add = '''
-call add(g:colorschemes, {'name': 'iceberg', 'background': 'dark',  'lightline': 'iceberg'})
-call add(g:colorschemes, {'name': 'iceberg', 'background': 'light', 'lightline': 'iceberg'})
+call add(g:vimrc#colorschemes, {'name': 'iceberg', 'background': 'dark',  'lightline': 'iceberg'})
+call add(g:vimrc#colorschemes, {'name': 'iceberg', 'background': 'light', 'lightline': 'iceberg'})
 '''
 
 [[plugins]]
@@ -18,7 +18,7 @@ repo = '4513ECHO/vim-colors-hatsunemiku'
 [[plugins]]
 repo = 'sainnhe/gruvbox-material'
 hook_add = '''
-call add(g:colorschemes, {'name': 'gruvbox-material', 'background': 'dark', 'lightline': 'gruvbox_material'})
+call add(g:vimrc#colorschemes, {'name': 'gruvbox-material', 'background': 'dark', 'lightline': 'gruvbox_material'})
 '''
 
 [[plugins]]
@@ -28,7 +28,7 @@ if = 'has("nvim")'
 [[plugins]]
 repo = 'sainnhe/edge'
 hook_add = '''
-call add(g:colorschemes, {'name': 'edge', 'background': 'dark', 'lightline': 'edge'})
+call add(g:vimrc#colorschemes, {'name': 'edge', 'background': 'dark', 'lightline': 'edge'})
 '''
 
 [[plugins]]
@@ -38,7 +38,7 @@ if = 'has("nvim")'
 lazy = true
 #on_event = 'VimEnter'
 hook_source = '''
-call init#set_random_colorschme()
+call vimrc#set_random_colorschme()
 lua require('lualine').setup()
 '''
 
