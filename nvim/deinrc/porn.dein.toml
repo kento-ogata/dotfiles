@@ -47,6 +47,17 @@ let g:everforest_better_performance = 1
 '''
 
 [[plugins]]
+repo = 'sainnhe/sonokai'
+hook_add = '''
+call add(g:vimrc#colorschemes, {'name': 'sonokai', 'background': 'dark', 'lightline': 'sonokai'})
+let g:sonokai_style = 'espresso'
+let g:sonokai_better_performance = 1
+let g:sonokai_diagnostic_line_highlight = 1
+let g:sonokai_diagnostic_text_highlight = 1
+let g:sonokai_diagnostic_virtual_text = 'colored'
+'''
+
+[[plugins]]
 repo = 'nvim-lualine/lualine.nvim'
 depends = 'nvim-web-devicons'
 if = 'has("nvim")'
