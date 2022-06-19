@@ -29,6 +29,21 @@ if = 'has("nvim")'
 repo = 'sainnhe/edge'
 hook_add = '''
 call add(g:vimrc#colorschemes, {'name': 'edge', 'background': 'dark', 'lightline': 'edge'})
+let g:edge_better_performance = 1
+'''
+
+[[plugins]]
+repo = 'sainnhe/everforest'
+hook_add = '''
+call add(g:vimrc#colorschemes, {'name': 'everforest', 'background': 'dark', 'lightline': 'everforest'})
+call add(g:vimrc#colorschemes, {'name': 'everforest', 'background': 'light', 'lightline': 'everforest'})
+let g:everforest_background = 'soft'
+let g:everforest_sign_column_background = 'none'
+let g:everforest_show_eob = 1
+let g:everforest_diagnostic_text_highlight = 1
+let g:everforest_diagnostic_line_highlight = 1
+let g:everforest_diagnostic_virtual_text = 'colored'
+let g:everforest_better_performance = 1
 '''
 
 [[plugins]]
