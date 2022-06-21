@@ -117,6 +117,7 @@ call ddu#custom#patch_global(g:ddu_ff_options)
 
 [[plugins]]
 repo = 'shun/ddu-source-rg'
+depends = 'ddu-filter-matcher_substring'
 on_map = '<Plug>(ddu-ff-rg)'
 hook_source = '''
 nmap <Plug>(ddu-ff-rg) <Cmd>Ddu rg
