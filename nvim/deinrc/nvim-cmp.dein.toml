@@ -1,7 +1,7 @@
 [[plugins]]
 repo = 'hrsh7th/nvim-cmp'
 name = 'cmp'
-if = 'g:vimrc#dein#use_cmp'
+if = 'g:vimrc#use_cmp'
 on_event = ['InsertEnter', 'CmdlineEnter']
 hook_source = '''
 lua << EOF

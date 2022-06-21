@@ -1,6 +1,6 @@
 [[plugins]]
 repo = 'Shougo/ddc.vim'
-if = 'g:vimrc#dein#use_ddc'
+if = 'g:vimrc#use_ddc'
 depends = ['denops.vim', 'pum.vim']
 on_event = ['InsertEnter', 'CmdlineEnter']
 hook_source = '''
