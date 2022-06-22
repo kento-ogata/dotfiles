@@ -1,4 +1,4 @@
-function vimrc#map()
+function vimrc#set_maps()
   " use ; to a prefix of open finder action
   nnoremap ; <Nop>
   
@@ -24,7 +24,7 @@ function vimrc#map()
   nmap <expr> a (len(getline('.')) !=# 0) ? 'a' : '"_cc'
 endfunction
 
-function vimrc#set()
+function vimrc#set_options()
   set nocompatible
   " search settings
   set ignorecase
