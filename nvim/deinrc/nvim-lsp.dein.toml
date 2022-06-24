@@ -47,21 +47,6 @@ lua require('local.config.plugins.lsp-colors').setup()
 '''
 
 [[plugins]]
-repo = 'smjonas/inc-rename.nvim'
-on_cmd = 'IncRename'
-hook_add = '''
-function s:map_increname()
-  nmap <Leader>r :IncRename<Space>
-endfunction
-autocmd NvimLspRc LspAttach * call <SID>map_increname()
-'''
-hook_source = '''
-lua << EOF
-require("inc_rename").setup()
-EOF
-'''
-
-[[plugins]]
 repo = 'tami5/lspsaga.nvim'
 on_cmd = 'Lspsaga'
 hook_add = '''
