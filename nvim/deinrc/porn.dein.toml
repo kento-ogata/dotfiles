@@ -65,19 +65,7 @@ let g:sonokai_diagnostic_virtual_text = 'colored'
 '''
 
 [[plugins]]
-repo = 'nvim-lualine/lualine.nvim'
-depends = 'nvim-web-devicons'
-if = 'has("nvim")'
-lazy = true
-#on_event = 'VimEnter'
-hook_source = '''
-call vimrc#set_random_colorschme()
-lua require('lualine').setup()
-'''
-
-[[plugins]]
 repo = 'itchyny/lightline.vim'
-#if = '!has("nvim")'
 hook_add = '''
 call vimrc#lightline#setup()
 '''
