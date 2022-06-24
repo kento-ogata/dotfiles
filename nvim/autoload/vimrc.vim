@@ -125,6 +125,7 @@ function vimrc#setup_dein()
     const s:base_dir = fnamemodify(expand($MYVIMRC), ':h') . '/deinrc/'
     "execute printf('echomsg "%s"', s:base_dir)
 
+    " ../deinrc
     const s:ft_toml         = s:base_dir . 'ft.dein.toml'
     const s:lib_toml        = s:base_dir . 'lib.dein.toml'
     const s:nolazy_toml     = s:base_dir . 'nolazy.dein.toml'

@@ -1,14 +1,18 @@
-if &compatible
-  set nocompatible
-endif
+" important commands
+" gf    : type this on filepath string, to jump the file.
+" <C-o> : jump to previous point of jumplist
+" <C-i> : jump to next point of jumplist
+" K     : open help of under cursor word
 
 if has('nvim')
+  " :autocmd NvimLspRc
   augroup NvimLspRc
     autocmd!
   augroup END
 endif
 let mapleader="\<Space>"
 
+" ./autoload/vimrc.vim
 call vimrc#set_maps()
 call vimrc#set_options()
 if has('nvim')
