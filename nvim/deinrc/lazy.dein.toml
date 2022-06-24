@@ -4,43 +4,16 @@ if = 'has("nvim")'
 on_event = 'FileType'
 hook_post_update = 'TSUpdate'
 hook_source = '''
-lua << EOF
-require'nvim-treesitter.configs'.setup {
-  highlight = {
-    enable = true,
-    disable = { "help" },
-  },
-  indent = {
-    enable = true,
-    disable = { "yaml" },
-  },
-}
-EOF
+" ./../lua/local/config/plugins/nvim-treesitter.lua
+lua require('local.config.plugins.nvim-treesitter').setup()
 '''
 
 [[plugins]]
 repo = 'lewis6991/nvim-treesitter-context'
 on_source = 'nvim-treesitter'
 hook_source = '''
-lua << EOF
-require('treesitter-context').setup{
-  enable = true,
-  throttle = true,
-  max_lines = 0,
-  patterns = {
-    default = {
-      'class',
-      'function',
-      'method',
-      'for',
-      'while',
-      'if',
-      'switch',
-      'case',
-    },
-  }
-}
-EOF
+" ./../lua/local/config/plugins/nvim-treesitter-context.lua
+lua require('local.config.plugins.nvim-treesitter-context').setup()
 '''
 
 [[plugins]]
@@ -261,19 +234,8 @@ augroup END
 call <SID>map_pasta()
 '''
 hook_source = '''
-lua << EOF
-require('pasta').setup({
-  converters = {
-    require('pasta.converters').indentation,
-  },
-  paste_mode = true,
-  next_key = vim.api.nvim_replace_termcodes('<C-p>', true, true, true),
-  prev_key = vim.api.nvim_replace_termcodes('<C-n>', true, true, true),
-})
-
-vim.keymap.set({ 'n', 'x' }, '<Plug>(pasta-p)', require('pasta.mappings').p)
-vim.keymap.set({ 'n', 'x' }, '<Plug>(pasta-P)', require('pasta.mappings').P)
-EOF
+" ./../lua/local/config/plugins/nvim-pasta.lua
+lua require('local.config.plugins.nvim-pasta').setup()
 '''
 
 [[plugins]]
@@ -282,11 +244,8 @@ depends = 'plenary.nvim'
 if = 'has("nvim")'
 on_event = 'VimEnter'
 hook_source = '''
-lua << EOF
-local notify = require('notify')
-notify.setup {}
-vim.notify = notify
-EOF
+" ./../lua/local/config/plugins/nvim-notify.lua
+lua require('local.config.plugins.nvim-notify').setup()
 '''
 
 [[plugins]]
