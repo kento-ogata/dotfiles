@@ -215,20 +215,6 @@ function vimrc#pick_random_colorscheme(cs_params)
     return a:cs_params[l:choosed]
 endfunction
 
-function vimrc#set_random_colorschme()
-  const l:count_of_colorschemes = len(g:colorschemes)
-  if l:count_of_colorschemes == 0
-    return
-  endif
-
-  const l:choosed = rand(srand()) % l:count_of_colorschemes
-
-  execute 'colorscheme ' . g:colorschemes[l:choosed].name
-  if has_key(g:colorschemes[l:choosed], 'background')
-    execute 'set background=' . g:colorschemes[l:choosed].background
-  endif
-endfunction
-
 function vimrc#ddc_add_source_buffer(source_name)
   let l:current_sources = ddc#custom#get_current()['sources']
   call add(l:current_sources, a:source_name)
