@@ -85,8 +85,8 @@ function vimrc#set_nvimlsp()
     nmap <buffer><silent> <Leader>e     <Cmd>lua vim.diagnostic.open_float()<CR>
   endfunction
   
-  lua vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
-  lua vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
+  lua vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
+  lua vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single" })
   
   autocmd NvimLspRc LspAttach * call <SID>map_nvim_lsp_actions()
 endfunction
