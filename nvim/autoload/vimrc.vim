@@ -92,10 +92,10 @@ function vimrc#set_nvimlsp()
 endfunction
 
 function vimrc#setup_dein()
-  if exists('g:vimrc#dein#loaded')
+  if exists('g:vimrc#dein_loaded')
     finish
   endif
-  let g:vimrc#dein#loaded = v:true
+  let g:vimrc#dein_loaded = v:true
 
   if has('win64')
     const s:cache_home = expand($LOCALAPPDATA) . '\nvim-data'
