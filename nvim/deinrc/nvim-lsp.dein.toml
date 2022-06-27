@@ -4,8 +4,8 @@ name = 'lspconfig'
 if = 'has("nvim")'
 on_event = 'BufReadPre'
 hook_source = '''
-" ./../lua/local/config/plugins/lspconfig.lua
-lua require('local.config.plugins.lspconfig').setup()
+" ./../lua/rc/plugins/lspconfig.lua
+lua require('rc.plugins.lspconfig').setup()
 '''
 
 [[plugins]]
@@ -42,8 +42,8 @@ lua require('fidget').setup()
 repo = 'folke/lsp-colors.nvim'
 on_event = 'LspAttach'
 hook_source = '''
-" ./../lua/local/config/plugins/lsp-colors.lua
-lua require('local.config.plugins.lsp-colors').setup()
+" ./../lua/rc/plugins/lsp-colors.lua
+lua require('rc.plugins.lsp-colors').setup()
 '''
 
 [[plugins]]
@@ -61,6 +61,6 @@ endfunction
 autocmd NvimLspRc LspAttach * call <SID>map_lspsaga()
 '''
 hook_source = '''
-" ./../lua/local/config/plugins/lsp-colors.lua
-lua require('local.config.plugins.lspsaga').setup()
+" ./../lua/rc/plugins/lsp-colors.lua
+lua require('rc.plugins.lspsaga').setup()
 '''

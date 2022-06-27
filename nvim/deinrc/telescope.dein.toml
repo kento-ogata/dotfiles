@@ -18,6 +18,6 @@ command MapTelescope call <SID>map_telescope_actions()
 nmap <Leader>;t <Cmd>MapTelescope<CR>
 '''
 hook_source = '''
-" ./../lua/local/config/plugins/telescope.lua
-lua require('local.config.plugins.telescope').setup()
+" ./../lua/rc/plugins/telescope.lua
+lua require('rc.plugins.telescope').setup()
 '''

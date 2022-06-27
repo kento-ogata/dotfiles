@@ -4,16 +4,16 @@ if = 'has("nvim")'
 on_event = 'FileType'
 hook_post_update = 'TSUpdate'
 hook_source = '''
-" ./../lua/local/config/plugins/nvim-treesitter.lua
-lua require('local.config.plugins.nvim-treesitter').setup()
+" ./../lua/rc/plugins/nvim-treesitter.lua
+lua require('rc.plugins.nvim-treesitter').setup()
 '''
 
 [[plugins]]
 repo = 'lewis6991/nvim-treesitter-context'
 on_source = 'nvim-treesitter'
 hook_source = '''
-" ./../lua/local/config/plugins/nvim-treesitter-context.lua
-lua require('local.config.plugins.nvim-treesitter-context').setup()
+" ./../lua/rc/plugins/nvim-treesitter-context.lua
+lua require('rc.plugins.nvim-treesitter-context').setup()
 '''
 
 [[plugins]]
@@ -234,8 +234,8 @@ augroup END
 call <SID>map_pasta()
 '''
 hook_source = '''
-" ./../lua/local/config/plugins/nvim-pasta.lua
-lua require('local.config.plugins.nvim-pasta').setup()
+" ./../lua/rc/plugins/nvim-pasta.lua
+lua require('rc.plugins.nvim-pasta').setup()
 '''
 
 [[plugins]]
@@ -244,8 +244,8 @@ depends = 'plenary.nvim'
 if = 'has("nvim")'
 on_event = 'VimEnter'
 hook_source = '''
-" ./../lua/local/config/plugins/nvim-notify.lua
-lua require('local.config.plugins.nvim-notify').setup()
+" ./../lua/rc/plugins/nvim-notify.lua
+lua require('rc.plugins.nvim-notify').setup()
 '''
 
 [[plugins]]

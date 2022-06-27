@@ -74,7 +74,7 @@ hook_add = '''
 set signcolumn=yes
 '''
 hook_source = '''
-lua require('local.config.plugins.gitsigns').setup()
+lua require('rc.plugins.gitsigns').setup()
 '''
 
 [[plugins]]

@@ -4,8 +4,8 @@ name = 'cmp'
 if = 'g:vimrc#use_cmp'
 on_event = ['InsertEnter', 'CmdlineEnter']
 hook_source = '''
-" ./../lua/local/config/plugins/nvim-cmp.lua
-lua require('local.config.plugins.nvim-cmp').setup()
+" ./../lua/rc/plugins/nvim-cmp.lua
+lua require('rc.plugins.nvim-cmp').setup()
 '''
 
 [[plugins]]
