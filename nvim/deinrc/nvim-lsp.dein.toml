@@ -35,7 +35,7 @@ autocmd NvimLspRc LspAttach * call <SID>map_trouble_actions()
 repo = 'j-hui/fidget.nvim'
 on_event = 'LspAttach'
 hook_source = '''
-lua require('fidget').setup()
+lua require('rc.plugins.fidget').setup()
 '''
 
 [[plugins]]
