@@ -4,9 +4,17 @@ on_cmd = 'Fern'
 hook_add = '''
 nmap ;E <Cmd>execute printf('Fern %s', input('Path: '))<CR>
 nmap ;e <Cmd>Fern . -reveal=%<CR>
+nmap <Leader>e <Cmd>Fern . -drawer -reveal=%<CR>
 let g:fern#hide_cursor = v:true
 let g:fern#keepalt_on_edit = v:true
 let g:fern#default_hidden = v:true
+'''
+
+[plugins.ftplugin]
+fern = '''
+setlocal signcolumn=no
+
+nmap <buffer> <Leader>e <Cmd>close<CR>
 '''
 
 [[plugins]]
