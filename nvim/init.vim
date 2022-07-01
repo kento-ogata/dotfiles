@@ -11,6 +11,7 @@ if has('nvim')
   augroup END
 endif
 let mapleader="\<Space>"
+nnoremap <Leader> <Nop>
 
 " ./autoload/vimrc.vim
 call vimrc#set_maps()
