@@ -2,9 +2,7 @@ local M = {}
 
 M.setup = function()
   local lspconfig = require('lspconfig')
-  lspconfig.omnisharp.setup {
-    filetypes = { "cs", "vb", "razor" },
-  }
+  lspconfig.omnisharp.setup {}
   lspconfig.dockerls.setup {}
   lspconfig.yamlls.setup {}
   lspconfig.sumneko_lua.setup {
