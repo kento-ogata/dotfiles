@@ -55,7 +55,6 @@ function s:map_lspsaga()
   nnoremap <silent><buffer> <Leader><CR> <Cmd>Lspsaga code_action<CR>
   nnoremap <silent><buffer> ]d <Cmd>Lspsaga diagnostic_jump_next<CR>
   nnoremap <silent><buffer> [d <Cmd>Lspsaga diagnostic_jump_prev<CR>
-  nnoremap <silent><buffer> <Leader>e <Cmd>Lspsaga show_line_diagnostics<CR>
 endfunction
 
 autocmd NvimLspRc LspAttach * call <SID>map_lspsaga()

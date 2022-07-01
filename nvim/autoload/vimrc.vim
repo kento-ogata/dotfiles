@@ -82,7 +82,6 @@ function vimrc#set_nvimlsp()
     nmap <buffer><silent> <Leader><CR>  <Cmd>lua vim.lsp.buf.code_action()<CR>
     nmap <buffer><silent> ]d            <Cmd>lua vim.diagnostic.goto_next()<CR>
     nmap <buffer><silent> [d            <Cmd>lua vim.diagnostic.goto_prev()<CR>
-    nmap <buffer><silent> <Leader>e     <Cmd>lua vim.diagnostic.open_float()<CR>
   endfunction
   
   lua vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
