@@ -5,6 +5,8 @@ hook_add = '''
 nmap ;E <Cmd>execute printf('Fern %s', input('Path: '))<CR>
 nmap ;e <Cmd>Fern . -reveal=%<CR>
 nmap <Leader>e <Cmd>Fern . -drawer -reveal=%<CR>
+'''
+hook_source = '''
 let g:fern#hide_cursor = v:true
 let g:fern#keepalt_on_edit = v:true
 let g:fern#default_hidden = v:true
