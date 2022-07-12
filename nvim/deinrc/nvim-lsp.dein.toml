@@ -55,6 +55,9 @@ function s:map_lspsaga()
   nnoremap <silent><buffer> <Leader><CR> <Cmd>Lspsaga code_action<CR>
   nnoremap <silent><buffer> ]d <Cmd>Lspsaga diagnostic_jump_next<CR>
   nnoremap <silent><buffer> [d <Cmd>Lspsaga diagnostic_jump_prev<CR>
+  if &ft !=# 'vim'
+    nnoremap <silent><buffer> K <Cmd>Lspsaga hover_doc<CR>
+  endif
 endfunction
 
 autocmd NvimLspRc LspAttach * call <SID>map_lspsaga()
