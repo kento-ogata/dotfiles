@@ -47,7 +47,7 @@ lua require('rc.plugins.lsp-colors').setup()
 '''
 
 [[plugins]]
-repo = 'tami5/lspsaga.nvim'
+repo = 'glepnir/lspsaga.nvim'
 on_cmd = 'Lspsaga'
 hook_add = '''
 function s:map_lspsaga()
