@@ -65,6 +65,8 @@ function vimrc#set_options()
 endfunction
 
 function vimrc#set_nvimlsp()
+  autocmd NvimLspRc LspAttach * echo printf('LS is now attached to the buffer %s', expand('<amatch>'))
+
   function s:map_nvim_lsp_actions()
     nmap <buffer><silent> gD            <Cmd>lua vim.lsp.buf.declaration()<CR>
     nmap <buffer><silent> gd            <Cmd>lua vim.lsp.buf.definition()<CR>
