@@ -5,8 +5,8 @@ if = 'has("nvim")'
 [[plugins]]
 repo = 'cocopon/iceberg.vim'
 hook_add = '''
-call add(g:vimrc#colorschemes, {'name': 'iceberg', 'background': 'dark',  'lightline': 'iceberg'})
-call add(g:vimrc#colorschemes, {'name': 'iceberg', 'background': 'light', 'lightline': 'iceberg'})
+call add(g:vimrc#colorschemes, {'name': 'iceberg'})
+autocmd ColorSchemePre iceberg call vimrc#colorscheme#icebergPre()
 '''
 
 [[plugins]]
@@ -18,14 +18,8 @@ repo = '4513ECHO/vim-colors-hatsunemiku'
 [[plugins]]
 repo = 'sainnhe/gruvbox-material'
 hook_add = '''
-call add(g:vimrc#colorschemes, {'name': 'gruvbox-material', 'background': 'dark', 'lightline': 'gruvbox_material'})
-let g:gruvbox_material_enable_italic = 1
-let g:gruvbox_material_spell_foreground = 'colored'
-let g:gruvbox_material_diagnostic_text_highlight = 1
-let g:gruvbox_material_diagnostic_line_highlight = 1
-let g:gruvbox_material_diagnostic_virtual_text = 'colored'
-let g:gruvbox_material_better_performance = 1
-
+call add(g:vimrc#colorschemes, {'name': 'gruvbox-material'})
+autocmd ColorSchemePre gruvbox-material call vimrc#colorscheme#gruvboxMaterialPre()
 '''
 
 [[plugins]]
@@ -35,37 +29,28 @@ if = 'has("nvim")'
 [[plugins]]
 repo = 'sainnhe/edge'
 hook_add = '''
-call add(g:vimrc#colorschemes, {'name': 'edge', 'background': 'dark', 'lightline': 'edge'})
-let g:edge_better_performance = 1
+call add(g:vimrc#colorschemes, {'name': 'edge'})
+autocmd ColorSchemePre edge call vimrc#colorscheme#edgePre()
 '''
 
 [[plugins]]
 repo = 'sainnhe/everforest'
 hook_add = '''
-call add(g:vimrc#colorschemes, {'name': 'everforest', 'background': 'dark', 'lightline': 'everforest'})
-call add(g:vimrc#colorschemes, {'name': 'everforest', 'background': 'light', 'lightline': 'everforest'})
-let g:everforest_background = 'soft'
-let g:everforest_sign_column_background = 'none'
-let g:everforest_show_eob = 1
-let g:everforest_diagnostic_text_highlight = 1
-let g:everforest_diagnostic_line_highlight = 1
-let g:everforest_diagnostic_virtual_text = 'colored'
-let g:everforest_better_performance = 1
+call add(g:vimrc#colorschemes, {'name': 'everforest'})
+autocmd ColorSchemePre everforest call vimrc#colorscheme#everforestPre()
 '''
 
 [[plugins]]
 repo = 'sainnhe/sonokai'
 hook_add = '''
-call add(g:vimrc#colorschemes, {'name': 'sonokai', 'background': 'dark', 'lightline': 'sonokai'})
-let g:sonokai_style = 'espresso'
-let g:sonokai_better_performance = 1
-let g:sonokai_diagnostic_line_highlight = 1
-let g:sonokai_diagnostic_text_highlight = 1
-let g:sonokai_diagnostic_virtual_text = 'colored'
+call add(g:vimrc#colorschemes, {'name': 'sonokai'})
+autocmd ColorSchemePre sonokai call vimrc#colorscheme#sonokaiPre()
 '''
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 hook_add = '''
+execute printf('colorscheme %s', vimrc#pick_random_colorscheme(g:vimrc#colorschemes)['name'])
+
 call vimrc#lightline#setup()
 '''

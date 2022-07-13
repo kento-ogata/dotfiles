@@ -1,9 +1,7 @@
 function vimrc#lightline#setup()
-  const l:cs = vimrc#pick_random_colorscheme(g:vimrc#colorschemes)
-  execute printf('set background=%s', l:cs['background'])
-  execute printf('colorscheme %s', l:cs['name'])
-  
-  let g:lightline = {}
+  if !exists('g:lightline')
+    let g:lightline = {}
+  endif
   let g:lightline['component_function'] = {
         \ 'gitbranch': 'vimrc#lightline#gitbranch',
         \ 'gitreponame': 'vimrc#lightline#gitreponame',
@@ -41,7 +39,6 @@ function vimrc#lightline#setup()
         \ 'left': '',
         \ 'right': '',
         \ }
-  let g:lightline['colorscheme'] = l:cs['lightline']
 endfunction
 
 function vimrc#lightline#gitreponame()
