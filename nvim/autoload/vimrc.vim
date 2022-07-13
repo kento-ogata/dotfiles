@@ -202,20 +202,6 @@ function vimrc#set_shellcommand()
   endif
 endfunction
 
-" list of {'name', 'background', 'lightline'}
-let g:vimrc#colorschemes = []
-
-" cs_params: { 'name': string, 'background': string, 'lightline': string }
-function vimrc#pick_random_colorscheme(cs_params)
-    const l:count_of_colorschemes = len(a:cs_params)
-    if l:count_of_colorschemes == 0
-      return
-    endif
-  
-    const l:choosed = rand(srand()) % l:count_of_colorschemes
-    return a:cs_params[l:choosed]
-endfunction
-
 function vimrc#ddc_add_source_buffer(source_name)
   let l:current_sources = ddc#custom#get_current()['sources']
   call add(l:current_sources, a:source_name)

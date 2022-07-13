@@ -5,7 +5,7 @@ if = 'has("nvim")'
 [[plugins]]
 repo = 'cocopon/iceberg.vim'
 hook_add = '''
-call add(g:vimrc#colorschemes, {'name': 'iceberg'})
+call vimrc#colorscheme#register_colorscheme('iceberg')
 autocmd ColorSchemePre iceberg call vimrc#colorscheme#icebergPre()
 '''
 
@@ -18,7 +18,7 @@ repo = '4513ECHO/vim-colors-hatsunemiku'
 [[plugins]]
 repo = 'sainnhe/gruvbox-material'
 hook_add = '''
-call add(g:vimrc#colorschemes, {'name': 'gruvbox-material'})
+call vimrc#colorscheme#register_colorscheme('gruvbox-material')
 autocmd ColorSchemePre gruvbox-material call vimrc#colorscheme#gruvboxMaterialPre()
 '''
 
@@ -29,28 +29,27 @@ if = 'has("nvim")'
 [[plugins]]
 repo = 'sainnhe/edge'
 hook_add = '''
-call add(g:vimrc#colorschemes, {'name': 'edge'})
+call vimrc#colorscheme#register_colorscheme('edge')
 autocmd ColorSchemePre edge call vimrc#colorscheme#edgePre()
 '''
 
 [[plugins]]
 repo = 'sainnhe/everforest'
 hook_add = '''
-call add(g:vimrc#colorschemes, {'name': 'everforest'})
+call vimrc#colorscheme#register_colorscheme('everforest')
 autocmd ColorSchemePre everforest call vimrc#colorscheme#everforestPre()
 '''
 
 [[plugins]]
 repo = 'sainnhe/sonokai'
 hook_add = '''
-call add(g:vimrc#colorschemes, {'name': 'sonokai'})
+call vimrc#colorscheme#register_colorscheme('sonokai')
 autocmd ColorSchemePre sonokai call vimrc#colorscheme#sonokaiPre()
 '''
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 hook_add = '''
-execute printf('colorscheme %s', vimrc#pick_random_colorscheme(g:vimrc#colorschemes)['name'])
-
+call vimrc#colorscheme#set_atrandom()
 call vimrc#lightline#setup()
 '''
