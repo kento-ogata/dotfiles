@@ -10,6 +10,8 @@ lua require('rc.plugins.lspconfig').setup()
 
 [[plugins]]
 repo = 'williamboman/nvim-lsp-installer'
+depends = 'lspconfig'
+on_cmd = ['LspInstall', 'LspInstallInfo']
 on_source = 'lspconfig'
 hook_source = '''
 lua require('nvim-lsp-installer').setup()
