@@ -10,21 +10,11 @@ autocmd ColorSchemePre iceberg call vimrc#colorscheme#icebergPre()
 '''
 
 [[plugins]]
-repo = 'savq/melange'
-
-[[plugins]]
-repo = '4513ECHO/vim-colors-hatsunemiku'
-
-[[plugins]]
 repo = 'sainnhe/gruvbox-material'
 hook_add = '''
 call vimrc#colorscheme#register_colorscheme('gruvbox-material')
 autocmd ColorSchemePre gruvbox-material call vimrc#colorscheme#gruvboxMaterialPre()
 '''
-
-[[plugins]]
-repo = 'ishan9299/nvim-solarized-lua'
-if = 'has("nvim")'
 
 [[plugins]]
 repo = 'sainnhe/edge'
