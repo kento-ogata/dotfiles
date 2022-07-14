@@ -160,7 +160,7 @@ call skkeleton#config({
     \   'eggLikeNewline': v:true
     \ })
 call skkeleton#config({
-    \ 'globalJisyo': '~/.local/share/skk/SKK-JISYO.L',
+    \ 'globalJisyo': fnamemodify(expand($MYVIMRC), ':h') . '/dict/SKK-JISYO.L',
     \ 'userJisyo': '~/.local/share/skk/skkeleton-user',
     \ 'completionRankFile': '~/.local/share/skk/rank.json',
     \ })
