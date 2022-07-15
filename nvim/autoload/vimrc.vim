@@ -113,7 +113,7 @@ function vimrc#setup_dein()
     execute printf('set runtimepath^=%s', substitute(fnamemodify(s:dein_dir, ':p') , '[/\\]$', '', ''))
   endif
 
-  const g:vimrc#use_ddc = v:true
+  const g:vimrc#use_ddc = v:false
   const g:vimrc#use_cmp = !g:vimrc#use_ddc
 
   let g:dein#lazy_rplugins = v:true
