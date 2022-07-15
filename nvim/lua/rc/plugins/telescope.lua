@@ -118,27 +118,20 @@ M.setup = function()
       mappings = {
 
         i = {
-          ['jj'] = { '<Esc>', type = 'command' },
-
-          ['<Tab>'] = actions.move_selection_next,
-          ['<S-Tab>'] = actions.move_selection_previous,
-          ['<C-u>'] = myactions.page_up,
-          ['<C-d>'] = myactions.page_down,
+          ['<C-n>'] = actions.move_selection_next,
+          ['<C-p>'] = actions.move_selection_previous,
 
           ['<C-q>'] = myactions.smart_send_to_qflist,
           -- ['<C-l'] = actions.complete_tag,
 
           ['<Down>'] = actions.cycle_history_next,
           ['<Up>'] = actions.cycle_history_prev,
-          ['<C-n>'] = actions.cycle_history_next,
-          ['<C-p>'] = actions.cycle_history_prev,
 
           ['<C-b>'] = actions.preview_scrolling_up,
           ['<C-f>'] = actions.preview_scrolling_down,
         },
 
         n = {
-          ['q']     = actions.close,
           ['<Esc>'] = actions.close,
 
           ['<Tab>']   = actions.move_selection_next,
