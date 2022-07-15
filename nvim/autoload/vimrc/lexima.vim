@@ -17,16 +17,25 @@ let s:html_rules = [
 
 let s:razor_rules = [
       \ {'filetype': ['razor', 'cshtml'], 'char': '<CR>', 'at': '\%#</\w\+>', 'input_after': '<CR>'},
+      \ {'filetype': ['razor', 'cshtml'], 'char': '>', 'at': '<\(\w\+\)\(\s\+@\{,1}\w\+=\".\+\"\)*\%#', 'input_after': '</\1>', 'with_submatch': '1'},
+      \ {'filetype': ['razor', 'cshtml'], 'char': '<Tab>', 'at': '\%#</\w\+>', 'leave': '>'},
       \ ]
 
 let s:toml_rules = [
       \ {'filetype': 'toml', 'char': '<CR>', 'at': '\%#''''''', 'input': '<CR>', 'input_after': '<CR>'}
       \ ]
 
+const s:expand_key = '<C-l>'
+
 let s:cs_rules = [
-      \ {'filetype': 'cs', 'char': '{' , 'at': '^\s\+\(public\|private\|protected\|internal\)\s\+\(\w\+\(<\w\+>\)*\)\s\+\(\w\+\)\s\+\%#$', 'input': '{ get', 'input_after': '; set; }'},
+      \ {'filetype': 'cs', 'char': s:expand_key, 'at': 'g\%#', 'input': 'et', 'input_after': ';'},
+      \ {'filetype': 'cs', 'char': s:expand_key, 'at': 'i\%#', 'input': 'nit', 'input_after': ';'},
+      \ {'filetype': 'cs', 'char': s:expand_key, 'at': 's\%#', 'input': 'et', 'input_after': ';'},
+      \ {'filetype': 'cs', 'char': '<CR>', 'at': '\(get\|set\|init\)\%#;', 'delete': ';', 'input': '<CR>{', 'input_after': '}'},
+      \ {'filetype': 'cs', 'char': '<Space>', 'at': '\(get\|set\|init\)\%#;', 'input': ' => '},
       \ {'filetype': 'cs', 'char': '<Tab>', 'at': 'get\( => .\+\)*\%#; set', 'leave': 'set',},
       \ {'filetype': 'cs', 'char': '<Tab>', 'at': 'set\( => .\+\)*\%#; }', 'leave': '}'},
+      \ {'filetype': 'cs', 'char': '>', 'at': 'DbSet<lt>\([0-9a-zA-Z<>_]\+\)> \w\+ \%#', 'input': '=> Set<\1>();', 'with_submatch': 1},
       \ ]
 
 let s:viml_rules = [
