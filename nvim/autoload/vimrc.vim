@@ -99,18 +99,19 @@ function vimrc#setup_dein()
   let g:vimrc#dein_loaded = v:true
 
   if has('win64')
-    const s:cache_home = expand($LOCALAPPDATA) . '\nvim-data'
+    const cache_home = expand($LOCALAPPDATA) . '\nvim-data'
   else
-    const s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
+    const cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
   endif
 
+  const dein_cache_path = cache_home . '/dein'
   " Load dein
   if &runtimepath !~# '/dein.vim'
-    const s:dein_dir = s:cache_home . '/dein/repos/github.com/Shougo/dein.vim'
-    if !isdirectory(s:dein_dir)
-      execute printf('!git clone https://github.com/Shougo/dein.vim.git %s', s:dein_dir)
+    const dein_dir = dein_cache_path . '/repos/github.com/Shougo/dein.vim'
+    if !isdirectory(dein_dir)
+      execute printf('!git clone http//github.com/Shougo/dein.vim.git %s', dein_dir)
     endif
-    execute printf('set runtimepath^=%s', substitute(fnamemodify(s:dein_dir, ':p') , '[/\\]$', '', ''))
+    execute printf('set runtimepath^=%s', substitute(fnamemodify(dein_dir, ':p') , '[/\\]$', '', ''))
   endif
 
   const g:vimrc#use_ddc = v:false
@@ -121,43 +122,42 @@ function vimrc#setup_dein()
   let g:dein#install_check_diff = v:true
   let g:dein#enable_notification = v:true
 
-  const s:path = s:cache_home . '/dein'
-  if dein#load_state(s:path)
-    const s:base_dir = fnamemodify(expand($MYVIMRC), ':h') . '/deinrc/'
-    "execute printf('echomsg "%s"', s:base_dir)
+  if dein#load_state(dein_cache_path)
+    const base_dir = fnamemodify(expand($MYVIMRC), ':h') . '/deinrc/'
+    "execute printf('echomsg "%s"', base_dir)
 
     " ../deinrc
-    const s:ft_toml         = s:base_dir . 'ft.dein.toml'
-    const s:lib_toml        = s:base_dir . 'lib.dein.toml'
-    const s:nolazy_toml     = s:base_dir . 'nolazy.dein.toml'
-    const s:lazy_toml       = s:base_dir . 'lazy.dein.toml'
-    const s:nvim_lsp_toml   = s:base_dir . 'nvim-lsp.dein.toml'
-    const s:ddc_toml        = s:base_dir . 'ddc.dein.toml'
-    const s:nvim_cmp_toml   = s:base_dir . 'nvim-cmp.dein.toml'
-    const s:porn_toml       = s:base_dir . 'porn.dein.toml'
-    const s:ddu_toml        = s:base_dir . 'ddu.dein.toml'
-    const s:fern_toml       = s:base_dir . 'fern.dein.toml'
-    const s:git_toml        = s:base_dir . 'git.dein.toml'
-    const s:telescope_toml  = s:base_dir . 'telescope.dein.toml'
+    const ft_toml         = base_dir . 'ft.dein.toml'
+    const lib_toml        = base_dir . 'lib.dein.toml'
+    const nolazy_toml     = base_dir . 'nolazy.dein.toml'
+    const lazy_toml       = base_dir . 'lazy.dein.toml'
+    const nvim_lsp_toml   = base_dir . 'nvim-lsp.dein.toml'
+    const ddc_toml        = base_dir . 'ddc.dein.toml'
+    const nvim_cmp_toml   = base_dir . 'nvim-cmp.dein.toml'
+    const porn_toml       = base_dir . 'porn.dein.toml'
+    const ddu_toml        = base_dir . 'ddu.dein.toml'
+    const fern_toml       = base_dir . 'fern.dein.toml'
+    const git_toml        = base_dir . 'git.dein.toml'
+    const telescope_toml  = base_dir . 'telescope.dein.toml'
 
-    call dein#begin(s:path, [
-          \ $MYVIMRC, s:lib_toml, s:nolazy_toml, s:lazy_toml, s:nvim_lsp_toml, s:ddc_toml,
-          \ s:ddu_toml, s:porn_toml, s:fern_toml, s:git_toml, s:nvim_cmp_toml, s:ft_toml,
-          \ s:telescope_toml,
+    call dein#begin(dein_cache_path, [
+          \ $MYVIMRC, lib_toml, nolazy_toml, lazy_toml, nvim_lsp_toml, ddc_toml,
+          \ ddu_toml, porn_toml, fern_toml, git_toml, nvim_cmp_toml, ft_toml,
+          \ telescope_toml,
           \ ])
 
-    call dein#load_toml(s:ft_toml,          {'lazy': 0})
-    call dein#load_toml(s:lib_toml,         {'lazy': 1})
-    call dein#load_toml(s:nolazy_toml,      {'lazy': 0})
-    call dein#load_toml(s:lazy_toml,        {'lazy': 1})
-    call dein#load_toml(s:porn_toml,        {'lazy': 0})
-    call dein#load_toml(s:ddu_toml,         {'lazy': 1})
-    call dein#load_toml(s:nvim_lsp_toml,    {'lazy': 1, 'if': 'has("nvim")'})
-    call dein#load_toml(s:ddc_toml,         {'lazy': 1})
-    call dein#load_toml(s:nvim_cmp_toml,    {'lazy': 1, 'if': 'has("nvim")'})
-    call dein#load_toml(s:fern_toml,        {'lazy': 1})
-    call dein#load_toml(s:git_toml,         {'lazy': 1})
-    call dein#load_toml(s:telescope_toml,   {'lazy': 1})
+    call dein#load_toml(ft_toml,          {'lazy': 0})
+    call dein#load_toml(lib_toml,         {'lazy': 1})
+    call dein#load_toml(nolazy_toml,      {'lazy': 0})
+    call dein#load_toml(lazy_toml,        {'lazy': 1})
+    call dein#load_toml(porn_toml,        {'lazy': 0})
+    call dein#load_toml(ddu_toml,         {'lazy': 1})
+    call dein#load_toml(nvim_lsp_toml,    {'lazy': 1, 'if': 'has("nvim")'})
+    call dein#load_toml(ddc_toml,         {'lazy': 1})
+    call dein#load_toml(nvim_cmp_toml,    {'lazy': 1, 'if': 'has("nvim")'})
+    call dein#load_toml(fern_toml,        {'lazy': 1})
+    call dein#load_toml(git_toml,         {'lazy': 1})
+    call dein#load_toml(telescope_toml,   {'lazy': 1})
 
     call dein#end()
     call dein#save_state()
@@ -182,23 +182,23 @@ endfunction
 function vimrc#set_shellcommand()
   if has('win32')
     if executable('pwsh')
-      const s:interactive_shell = 'pwsh'
+      const interactive_shell = 'pwsh'
     elseif executable('powershell')
-      const s:interactive_shell = 'powershell'
+      const interactive_shell = 'powershell'
     endif
   elseif has('unix')
     if executable('fish')
-      const s:interactive_shell = 'fish'
+      const interactive_shell = 'fish'
     elseif executable('bash')
-      const s:interactive_shell = 'bash'
+      const interactive_shell = 'bash'
     endif
   endif
   
-  " :TermOpen to open terminal
-  if exists('s:interactive_shell')
-    execute 'command  Shell                     terminal ' . s:interactive_shell
-    execute 'command HShell  split | wincmd j | terminal ' . s:interactive_shell
-    execute 'command VShell vsplit | wincmd l | terminal ' . s:interactive_shell
+  " :Shell to open terminal
+  if exists('interactive_shell')
+    execute printf('command  Shell                     terminal %s', interactive_shell)
+    execute printf('command HShell  split | wincmd j | terminal %s', interactive_shell)
+    execute printf('command VShell vsplit | wincmd l | terminal %s', interactive_shell)
   endif
 endfunction
 
