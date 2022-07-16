@@ -109,7 +109,7 @@ function vimrc#setup_dein()
   if &runtimepath !~# '/dein.vim'
     const dein_dir = dein_cache_path . '/repos/github.com/Shougo/dein.vim'
     if !isdirectory(dein_dir)
-      execute printf('!git clone http//github.com/Shougo/dein.vim.git %s', dein_dir)
+      execute printf('!git clone https://github.com/Shougo/dein.vim.git %s', dein_dir)
     endif
     execute printf('set runtimepath^=%s', substitute(fnamemodify(dein_dir, ':p') , '[/\\]$', '', ''))
   endif
