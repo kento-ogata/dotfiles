@@ -55,6 +55,7 @@ function vimrc#set_options()
   set laststatus=2
   set showtabline=2
 
+  set mouse=
   set secure
   
   if has('nvim')
