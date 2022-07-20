@@ -1,3 +1,12 @@
+function vimrc#toggleMouseOption()
+  const currentMouseOption = &mouse
+  if currentMouseOption ==# ''
+    set mouse=nvi
+  else
+    set mouse=
+  endif
+endfunction
+
 function vimrc#set_maps()
   " use ; to a prefix of open finder action
   nnoremap ; <Nop>
@@ -22,6 +31,8 @@ function vimrc#set_maps()
   " automatically indent on empty rows
   nmap <expr> i (len(getline('.')) !=# 0) ? 'i' : '"_cc'
   nmap <expr> a (len(getline('.')) !=# 0) ? 'a' : '"_cc'
+
+  nmap <CR><CR> <Cmd>call vimrc#toggleMouseOption()<CR>
 endfunction
 
 function vimrc#set_options()
