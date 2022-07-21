@@ -298,3 +298,11 @@ xmap gz* <Plug>(asterisk-gz*)
 xmap z#  <Plug>(asterisk-z#)
 xmap gz# <Plug>(asterisk-gz#)
 '''
+
+[[plugins]]
+repo = 'yuki-yano/fuzzy-motion.vim'
+depends = 'denops.vim'
+on_cmd = 'FuzzyMotion'
+hook_add = '''
+nmap <silent> <CR> <Cmd>FuzzyMotion<CR>
+'''
