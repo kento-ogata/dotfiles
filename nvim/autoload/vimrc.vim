@@ -32,7 +32,7 @@ function vimrc#set_maps()
   nmap <expr> i (len(getline('.')) !=# 0) ? 'i' : '"_cc'
   nmap <expr> a (len(getline('.')) !=# 0) ? 'a' : '"_cc'
 
-  nmap <Leader>, <Cmd>call vimrc#toggleMouseOption()<CR>
+  nmap ,, <Cmd>call vimrc#toggleMouseOption()<CR>
 endfunction
 
 function vimrc#set_options()
