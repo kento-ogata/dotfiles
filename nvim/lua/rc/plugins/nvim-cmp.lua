@@ -3,6 +3,10 @@ local M = {}
 M.setup = function()
   local cmp = require('cmp')
 
+  if cmp == nil then
+    return
+  end
+
   cmp.setup({
     snippet = {
       expand = function(args)
