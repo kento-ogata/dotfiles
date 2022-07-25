@@ -17,6 +17,13 @@ lua require('nvim-lsp-installer').setup()
 '''
 
 [[plugins]]
+repo = 'williamboman/mason.nvim'
+on_cmd = ['Mason', 'MasonInstall']
+hook_source = '''
+lua require('mason').setup()
+'''
+
+[[plugins]]
 repo = 'folke/trouble.nvim'
 depends = ['nvim-web-devicons', 'lsp-colors.nvim']
 on_cmd = 'TroubleToggle'
