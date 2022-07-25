@@ -15,7 +15,6 @@ function s:map_telescope_actions()
 endfunction
 
 command MapTelescope call <SID>map_telescope_actions()
-nmap <Leader>;t <Cmd>MapTelescope<CR>
 '''
 hook_source = '''
 " ./../lua/rc/plugins/telescope.lua

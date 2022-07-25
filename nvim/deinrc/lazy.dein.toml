@@ -74,21 +74,26 @@ endfunction
 
 [[plugins]]
 repo = 'hrsh7th/vim-eft'
-on_map = ['<Plug>(eft-f-repeatable)', '<Plug>(eft-F-repeatable)', '<Plug>(eft-t-repeatable)', '<Plug>(eft-T-repeatable)']
+on_map = ['<Plug>(eft-f)', '<Plug>(eft-F)', '<Plug>(eft-t)', '<Plug>(eft-T)']
 hook_add = '''
-nmap f <Plug>(eft-f-repeatable)
-xmap f <Plug>(eft-f-repeatable)
-omap f <Plug>(eft-f-repeatable)
-nmap F <Plug>(eft-F-repeatable)
-xmap F <Plug>(eft-F-repeatable)
-omap F <Plug>(eft-F-repeatable)
+nmap f <Plug>(eft-f)
+xmap f <Plug>(eft-f)
+omap f <Plug>(eft-f)
+nmap F <Plug>(eft-F)
+xmap F <Plug>(eft-F)
+omap F <Plug>(eft-F)
 
-nmap t <Plug>(eft-t-repeatable)
-xmap t <Plug>(eft-t-repeatable)
-omap t <Plug>(eft-t-repeatable)
-nmap T <Plug>(eft-T-repeatable)
-xmap T <Plug>(eft-T-repeatable)
-omap T <Plug>(eft-T-repeatable)
+nmap t <Plug>(eft-t)
+xmap t <Plug>(eft-t)
+omap t <Plug>(eft-t)
+nmap T <Plug>(eft-T)
+xmap T <Plug>(eft-T)
+omap T <Plug>(eft-T)
+
+nmap ; <Plug>(eft-repeat)
+xmap ; <Plug>(eft-repeat)
+omap ; <Plug>(eft-repeat)
+
 
 let g:eft_ignorecase = v:true
 

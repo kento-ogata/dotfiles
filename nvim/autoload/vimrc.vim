@@ -8,9 +8,6 @@ function vimrc#toggleMouseOption()
 endfunction
 
 function vimrc#set_maps()
-  " use ; to a prefix of open finder action
-  nnoremap ; <Nop>
-  
   " around clipboard
   vmap <Leader>y "+y
   nmap <Leader>p "+p
