@@ -134,17 +134,17 @@ function vimrc#setup_dein()
     "execute printf('echomsg "%s"', base_dir)
 
     " ../deinrc
-    const ft_toml         = base_dir . 'ft.dein.toml'
-    const lib_toml        = base_dir . 'lib.dein.toml'
-    const nolazy_toml     = base_dir . 'nolazy.dein.toml'
-    const lazy_toml       = base_dir . 'lazy.dein.toml'
-    const nvim_lsp_toml   = base_dir . 'nvim-lsp.dein.toml'
-    const ddc_toml        = base_dir . 'ddc.dein.toml'
-    const nvim_cmp_toml   = base_dir . 'nvim-cmp.dein.toml'
-    const porn_toml       = base_dir . 'porn.dein.toml'
-    const ddu_toml        = base_dir . 'ddu.dein.toml'
-    const fern_toml       = base_dir . 'fern.dein.toml'
-    const git_toml        = base_dir . 'git.dein.toml'
+    const ft_toml         = base_dir . 'ft.toml'
+    const lib_toml        = base_dir . 'lib.toml'
+    const nolazy_toml     = base_dir . 'nolazy.toml'
+    const lazy_toml       = base_dir . 'lazy.toml'
+    const nvim_lsp_toml   = base_dir . 'nvim-lsp.toml'
+    const ddc_toml        = base_dir . 'ddc.toml'
+    const nvim_cmp_toml   = base_dir . 'nvim-cmp.toml'
+    const porn_toml       = base_dir . 'porn.toml'
+    const ddu_toml        = base_dir . 'ddu.toml'
+    const fern_toml       = base_dir . 'fern.toml'
+    const git_toml        = base_dir . 'git.toml'
 
     call dein#begin(dein_cache_path, [
           \ $MYVIMRC, lib_toml, nolazy_toml, lazy_toml, nvim_lsp_toml, ddc_toml,
