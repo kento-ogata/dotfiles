@@ -29,8 +29,8 @@ depends = ['nvim-web-devicons', 'lsp-colors.nvim']
 on_cmd = 'TroubleToggle'
 hook_add = '''
 function s:map_trouble_actions()
-  nmap <buffer><silent> ;d          <Cmd>TroubleToggle<CR>
-  nmap <buffer><silent> ;r          <Cmd>TroubleToggle lsp_references<CR>
+  nmap <buffer><silent> <Leader>d          <Cmd>TroubleToggle<CR>
+  nmap <buffer><silent> <Leader>r          <Cmd>TroubleToggle lsp_references<CR>
   nmap <buffer><silent> <Leader>xw  <Cmd>TroubleToggle workspace_diagnostics<CR>
   nmap <buffer><silent> <Leader>xd  <Cmd>TroubleToggle document_diagnostics<CR>
   nmap <buffer><silent> <Leader>xq  <Cmd>TroubleToggle loclist<CR>
