@@ -145,7 +145,6 @@ function vimrc#setup_dein()
     const ddu_toml        = base_dir . 'ddu.dein.toml'
     const fern_toml       = base_dir . 'fern.dein.toml'
     const git_toml        = base_dir . 'git.dein.toml'
-    const telescope_toml  = base_dir . 'telescope.dein.toml'
 
     call dein#begin(dein_cache_path, [
           \ $MYVIMRC, lib_toml, nolazy_toml, lazy_toml, nvim_lsp_toml, ddc_toml,
@@ -164,7 +163,6 @@ function vimrc#setup_dein()
     call dein#load_toml(nvim_cmp_toml,    {'lazy': 1, 'if': 'has("nvim")'})
     call dein#load_toml(fern_toml,        {'lazy': 1})
     call dein#load_toml(git_toml,         {'lazy': 1})
-    call dein#load_toml(telescope_toml,   {'lazy': 1})
 
     call dein#end()
     call dein#save_state()
