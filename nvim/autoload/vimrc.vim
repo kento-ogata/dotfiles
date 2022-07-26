@@ -225,4 +225,27 @@ function vimrc#get_buffer_path()
   return expand('<afile>')
 endfunction
 
+" { command: result }
+let s:executable_results = {}
 
+function s:executable(command)
+  const is_cached = has_key(s:executable_results, a:command)
+  if (!is_cached)
+    let s:executable_results[a:command] = executable(a:command)
+  endif
+  return s:executable_results[a:command]
+endfunction
+
+" a wrapper of primitive executable(command)
+" 1. It accepts list variable
+" 2. It caches results of executable(command)
+function vimrc#executable(commands) abort
+  let commands = convertTo#list(a:commands)
+
+  let result = v:true
+  for command in commands
+    let result = result && s:executable(command)
+  endfor
+
+  return result
+endfunction
