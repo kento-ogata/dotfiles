@@ -311,3 +311,12 @@ on_cmd = 'FuzzyMotion'
 hook_add = '''
 nmap <silent> <CR> <Cmd>FuzzyMotion<CR>
 '''
+
+[[plugins]]
+repo = 'jremmen/vim-ripgrep'
+if = 'vimrc#executable("rg")'
+on_cmd = 'Rg'
+hook_post_source = '''
+let &grepformat = g:rg_format
+let &grepprg = g:rg_command
+'''
