@@ -30,3 +30,8 @@ lua = '''
 setlocal shiftwidth=2
 setlocal tabstop=2
 '''
+
+qf = '''
+let b:window_created = v:false
+nmap <buffer><expr> <CR> b:window_created ? '<Enter>' : '<Cmd>let b:window_created=v:true<CR><C-w><Enter>'
+'''
