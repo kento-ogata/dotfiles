@@ -149,7 +149,6 @@ function vimrc#setup_dein()
     call dein#begin(dein_cache_path, [
           \ $MYVIMRC, lib_toml, nolazy_toml, lazy_toml, nvim_lsp_toml, ddc_toml,
           \ ddu_toml, porn_toml, fern_toml, git_toml, nvim_cmp_toml, ft_toml,
-          \ telescope_toml,
           \ ])
 
     call dein#load_toml(ft_toml,          {'lazy': 0})
