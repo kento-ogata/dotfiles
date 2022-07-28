@@ -246,3 +246,16 @@ function vimrc#executable(commands) abort
 
   return result
 endfunction
+
+function vimrc#grepcmd(command)
+  if (vimrc#executable(a:command))
+    const formats = {
+          \ 'rg': {
+          \   'grepprg': 'rg --vimgrep',
+          \   'grepformat': '%f:%l:%c:%m',
+          \ }}
+
+    let &grepprg = formats[a:command]['grepprg']
+    let &grepformat = formats[a:command]['grepformat']
+  endif
+endfunction

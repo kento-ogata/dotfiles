@@ -24,6 +24,8 @@ call vimrc#setup_netrw()
 
 call vimrc#set_shellcommand()
 
+call vimrc#grepcmd('rg')
+
 cabbrev vh vert bo h
 
 command UnixEnc e ++enc=utf-8 ++ff=unix
