@@ -66,15 +66,15 @@ call ddu#custom#patch_global(g:ddu_ff_options)
 
 [plugins.ftplugin]
 ddu-ff = '''
-nnoremap <buffer><silent> <CR>    <Cmd>call ddu#ui#ff#do_action('itemAction')<CR>
-nnoremap <buffer><silent> i       <Cmd>call ddu#ui#ff#do_action('openFilterWindow')<CR>
-nnoremap <buffer><silent> <Esc>   <Cmd>call ddu#ui#ff#do_action('quit')<CR>
+nnoremap <buffer><silent> <CR>  <Cmd>call ddu#ui#ff#do_action('itemAction')<CR>
+nnoremap <buffer><silent> i     <Cmd>call ddu#ui#ff#do_action('openFilterWindow')<CR>
+nnoremap <buffer><silent> q     <Cmd>call ddu#ui#ff#do_action('quit')<CR>
 setlocal relativenumber
 '''
 ddu-ff-filter = '''
 inoremap <buffer><silent> <CR>  <Esc><Cmd>call ddu#ui#ff#close()<CR>
 nnoremap <buffer><silent> <CR>  <Cmd>call ddu#ui#ff#close()<CR>
-nnoremap <buffer><silent> <Esc> <Cmd>call ddu#ui#ff#close()<CR>
+nnoremap <buffer><silent> q     <Cmd>call ddu#ui#ff#close()<CR>
 '''
 
 [[plugins]]
