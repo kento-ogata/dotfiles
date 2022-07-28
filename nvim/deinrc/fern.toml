@@ -2,19 +2,32 @@
 repo = 'lambdalisue/fern.vim'
 on_cmd = 'Fern'
 hook_add = '''
-nmap <Leader>e <Cmd>Fern . -reveal=%<CR>
+nmap <Leader>e <Cmd>Fern . -drawer -reveal=%<CR>
 '''
 hook_source = '''
 let g:fern#hide_cursor = v:true
-let g:fern#keepalt_on_edit = v:true
+let g:fern#keepalt_on_edit = v:false
+let g:fern#keepjumps_on_edit = v:false
 let g:fern#default_hidden = v:true
+let g:fern#disable_default_mappings = v:true
 '''
 
 [plugins.ftplugin]
 fern = '''
-setlocal signcolumn=no
-
-nmap <buffer> <Leader>e <Cmd>close<CR>
+wincmd =
+nmap <nowait><buffer> <Space> <Plug>(fern-action-mark:toggle)
+nmap <nowait><buffer> <C-l>   <Plug>(fern-action-reload:all)
+nmap <nowait><buffer> h       <Plug>(fern-action-collapse)
+nmap <nowait><buffer><expr> l fern#smart#leaf('<Plug>(fern-action-open)', '<Plug>(fern-action-expand)')
+nmap <nowait><buffer> <Enter> <Plug>(fern-action-open)
+nmap <nowait><buffer> y       <Plug>(fern-action-yank:path)
+nmap <nowait><buffer> <C-c>   <Plug>(fern-action-cancel)
+nmap <nowait><buffer> n       <Plug>(fern-action-new-file)
+nmap <nowait><buffer> N       <Plug>(fern-action-new-dir)
+nmap <nowait><buffer> d       <Plug>(fern-action-trash)
+nmap <nowait><buffer> g       <Plug>(fern-action-grep)
+nmap <nowait><buffer> r       <Plug>(fern-action-rename)
+nmap <nowait><buffer> q       <Cmd>Fern . -drawer -toggle<CR>
 '''
 
 [[plugins]]
