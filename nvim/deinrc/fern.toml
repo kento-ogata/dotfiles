@@ -52,3 +52,15 @@ call fern_git_status#init()
 [[plugins]]
 repo = 'lambdalisue/fern-mapping-git.vim'
 on_source = 'fern.vim'
+
+[[plugins]]
+repo = 'yuki-yano/fern-preview.vim'
+on_source = 'fern.vim'
+
+[plugins.ftplugin]
+fern = '''
+nmap <buffer> p     <Plug>(fern-action-preview:toggle)
+nmap <buffer> <C-p> <Plug>(fern-action-preview:auto:toggle)
+nmap <buffer> <C-d> <Plug>(fern-action-preview:scroll:down:half)
+nmap <buffer> <C-u> <Plug>(fern-action-preview:scroll:up:half)
+'''
