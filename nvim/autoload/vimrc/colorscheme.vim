@@ -14,7 +14,7 @@ endfunction
 
 let s:theme_names = []
 
-function vimrc#colorscheme#register_colorscheme(theme_name)
+function vimrc#colorscheme#register(theme_name)
   call add(s:theme_names, a:theme_name)
 endfunction
 

@@ -5,35 +5,35 @@ if = 'has("nvim")'
 [[plugins]]
 repo = 'cocopon/iceberg.vim'
 hook_add = '''
-call vimrc#colorscheme#register_colorscheme('iceberg')
+call vimrc#colorscheme#register('iceberg')
 autocmd ColorSchemePre iceberg call vimrc#colorscheme#icebergPre()
 '''
 
 [[plugins]]
 repo = 'sainnhe/gruvbox-material'
 hook_add = '''
-call vimrc#colorscheme#register_colorscheme('gruvbox-material')
+call vimrc#colorscheme#register('gruvbox-material')
 autocmd ColorSchemePre gruvbox-material call vimrc#colorscheme#gruvboxMaterialPre()
 '''
 
 [[plugins]]
 repo = 'sainnhe/edge'
 hook_add = '''
-call vimrc#colorscheme#register_colorscheme('edge')
+call vimrc#colorscheme#register('edge')
 autocmd ColorSchemePre edge call vimrc#colorscheme#edgePre()
 '''
 
 [[plugins]]
 repo = 'sainnhe/everforest'
 hook_add = '''
-call vimrc#colorscheme#register_colorscheme('everforest')
+call vimrc#colorscheme#register('everforest')
 autocmd ColorSchemePre everforest call vimrc#colorscheme#everforestPre()
 '''
 
 [[plugins]]
 repo = 'sainnhe/sonokai'
 hook_add = '''
-call vimrc#colorscheme#register_colorscheme('sonokai')
+call vimrc#colorscheme#register('sonokai')
 autocmd ColorSchemePre sonokai call vimrc#colorscheme#sonokaiPre()
 '''
 
