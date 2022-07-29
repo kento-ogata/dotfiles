@@ -10,13 +10,13 @@ let g:ddu_ff_options = {
       \ 'uiParams': {},
       \ }
 function s:map_ddu_actions()
-  nmap <Leader><Leader>n <Plug>(ddu-ff-resume)
-  nmap <Leader><Leader>s <Plug>(ddu-ff-line)
-  nmap <Leader><Leader>g <Plug>(ddu-ff-rg)
-  nmap <Leader><Leader>b <Plug>(ddu-ff-buffer)
-  nmap <Leader><Leader>h <Plug>(ddu-ff-help)
-  nmap <Leader><Leader>1 <Plug>(ddu-ff-dein)
-  nmap <Leader><Leader>f <Plug>(ddu-ff-file)
+  nmap <Leader>n <Plug>(ddu-ff-resume)
+  nmap <Leader>s <Plug>(ddu-ff-line)
+  nmap <Leader>g <Plug>(ddu-ff-rg)
+  nmap <Leader>b <Plug>(ddu-ff-buffer)
+  nmap <Leader>h <Plug>(ddu-ff-help)
+  nmap <Leader>1 <Plug>(ddu-ff-dein)
+  nmap <Leader>f <Plug>(ddu-ff-file)
   nmap <Leader><C-\> <Plug>(ddu-ff-vimrc)
 endfunction
 
