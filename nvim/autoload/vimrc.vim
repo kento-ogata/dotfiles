@@ -86,6 +86,10 @@ function vimrc#nvimlsp()
     return
   endif
 
+  if !has('nvim')
+    throw 'This function expects called by only neovim.'
+  endif
+
   autocmd NvimLspRc LspAttach * echo printf('LS is now attached to the buffer %s', expand('<amatch>'))
 
   function s:map_nvim_lsp_actions()
