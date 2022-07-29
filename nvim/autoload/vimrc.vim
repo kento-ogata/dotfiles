@@ -7,7 +7,11 @@ function vimrc#toggleMouseOption()
   endif
 endfunction
 
-function vimrc#set_maps()
+function vimrc#keymaps()
+  if exists('s:keymap_initialized')
+    return
+  endif
+
   " around clipboard
   vmap <Leader>y "+y
   nmap <Leader>p "+p
@@ -29,10 +33,14 @@ function vimrc#set_maps()
   nmap <expr> i (len(getline('.')) !=# 0) ? 'i' : '"_cc'
   nmap <expr> a (len(getline('.')) !=# 0) ? 'a' : '"_cc'
 
-  nmap ,, <Cmd>call vimrc#toggleMouseOption()<CR>
+  const s:keymap_initialized = v:true
 endfunction
 
-function vimrc#set_options()
+function vimrc#options()
+  if exists('s:options_initialized')
+    return
+  endif
+
   set nocompatible
   " search settings
   set ignorecase
@@ -69,9 +77,15 @@ function vimrc#set_options()
   if has('nvim')
     set inccommand=split
   endif
+
+  const s:options_initialized = v:true
 endfunction
 
-function vimrc#set_nvimlsp()
+function vimrc#nvimlsp()
+  if exists('s:nvimlsp_initialized')
+    return
+  endif
+
   autocmd NvimLspRc LspAttach * echo printf('LS is now attached to the buffer %s', expand('<amatch>'))
 
   function s:map_nvim_lsp_actions()
@@ -97,6 +111,8 @@ function vimrc#set_nvimlsp()
   lua vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single" })
   
   autocmd NvimLspRc LspAttach * call <SID>map_nvim_lsp_actions()
+
+  const s:nvimlsp_initialized = v:true
 endfunction
 
 function vimrc#setup_dein()
@@ -175,15 +191,25 @@ function vimrc#setup_dein()
   syntax enable
 endfunction
 
-function vimrc#setup_netrw()
+function vimrc#netrw()
+  if exists('s:netrw_initialized')
+    return
+  endif
+
   let g:netrw_liststyle=3
   let g:netrw_banner=0
   let g:netrw_sizestyle="H"
   let g:netrw_timefmt="%Y/%m/%d(%a) %H:%M:%S"
   let g:netrw_preview=1
+
+  const s:netrw_initialized = v:true
 endfunction
 
-function vimrc#set_shellcommand()
+function vimrc#shellcommand()
+  if exists('s:shellcommand_initialized')
+    return
+  endif
+
   if has('win32')
     if executable('pwsh')
       const interactive_shell = 'pwsh'
@@ -204,6 +230,8 @@ function vimrc#set_shellcommand()
     execute printf('command HShell  split | wincmd j | terminal %s', interactive_shell)
     execute printf('command VShell vsplit | wincmd l | terminal %s', interactive_shell)
   endif
+
+  const s:shellcommand_initialized = v:true
 endfunction
 
 function vimrc#ddc_add_source_buffer(source_name)

@@ -14,15 +14,15 @@ let mapleader="\<Space>"
 nnoremap <Leader> <Nop>
 
 " ./autoload/vimrc.vim
-call vimrc#set_maps()
-call vimrc#set_options()
+call vimrc#keymaps()
+call vimrc#options()
 if has('nvim')
-  call vimrc#set_nvimlsp()
+  call vimrc#nvimlsp()
 endif
 
-call vimrc#setup_netrw()
+call vimrc#netrw()
 
-call vimrc#set_shellcommand()
+call vimrc#shellcommand()
 
 call vimrc#grepcmd('rg')
 
