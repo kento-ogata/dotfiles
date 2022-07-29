@@ -10,14 +10,15 @@ let g:ddu_ff_options = {
       \ 'uiParams': {},
       \ }
 function s:map_ddu_actions()
-  nmap <Leader>n <Plug>(ddu-ff-resume)
-  nmap <Leader>s <Plug>(ddu-ff-line)
-  nmap <Leader>g <Plug>(ddu-ff-rg)
-  nmap <Leader>b <Plug>(ddu-ff-buffer)
-  nmap <Leader>h <Plug>(ddu-ff-help)
-  nmap <Leader>1 <Plug>(ddu-ff-dein)
-  nmap <Leader>f <Plug>(ddu-ff-file)
-  nmap <Leader><C-\> <Plug>(ddu-ff-vimrc)
+  nmap <C-j>      <Nop>
+  nmap <C-j>n     <Plug>(ddu-ff-resume)
+  nmap <C-j>s     <Plug>(ddu-ff-line)
+  nmap <C-j>g     <Plug>(ddu-ff-rg)
+  nmap <C-j>b     <Plug>(ddu-ff-buffer)
+  nmap <C-j>h     <Plug>(ddu-ff-help)
+  nmap <C-j>1     <Plug>(ddu-ff-dein)
+  nmap <C-j>f     <Plug>(ddu-ff-file)
+  nmap <C-j><C-\> <Plug>(ddu-ff-vimrc)
 endfunction
 
 command MapDdu call <SID>map_ddu_actions()
