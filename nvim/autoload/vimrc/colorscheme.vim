@@ -1,8 +1,13 @@
-function s:set_lightline_theme(theme_name)
+function s:apply_lightline(theme_name)
   if (!exists('g:lightline'))
     let g:lightline = {}
   endif
   let g:lightline.colorscheme = a:theme_name
+  if (dein#tap('lightline.vim'))
+    call lightline#init()
+    call lightline#colorscheme()
+    call lightline#update()
+  endif
 endfunction
 
 function s:choice(options)
@@ -14,8 +19,14 @@ endfunction
 
 let s:theme_names = []
 
+" a:theme_name is must configured in this script.
 function vimrc#colorscheme#register(theme_name)
-  call add(s:theme_names, a:theme_name)
+  if (has_key(s:colorscheme_setups, a:theme_name))
+    call add(s:theme_names, a:theme_name)
+    execute printf('autocmd ColorSchemePre %s call s:colorscheme_setups["%s"]()', a:theme_name, a:theme_name)
+  else
+    throw 'colorsheme ' .. a:theme_name .. expand(' is not configured in <sfile>.')
+  endif
 endfunction
 
 function vimrc#colorscheme#set_atrandom()
@@ -23,14 +34,17 @@ function vimrc#colorscheme#set_atrandom()
   execute printf('colorscheme %s', theme_name)
 endfunction
 
-function vimrc#colorscheme#icebergPre()
-  execute printf('set bg=%s', s:choice(['dark', 'light']))
-  call s:set_lightline_theme('iceberg')
-endfunction
+let s:colorscheme_setups = {}
 
-function vimrc#colorscheme#gruvboxMaterialPre()
+function s:iceberg() dict
+  execute printf('set bg=%s', s:choice(['dark', 'light']))
+  call s:apply_lightline('iceberg')
+endfunction
+let s:colorscheme_setups['iceberg'] = function('s:iceberg')
+
+function s:gruvbox_material() dict
   set background=dark
-  call s:set_lightline_theme('gruvbox_material')
+  call s:apply_lightline('gruvbox_material')
 
   let g:gruvbox_material_background = s:choice(['hard', 'medium', 'soft'])
   let g:gruvbox_material_foreground = s:choice(['material', 'mix', 'original'])
@@ -55,10 +69,11 @@ function vimrc#colorscheme#gruvboxMaterialPre()
   let g:gruvbox_material_better_performance = 1
   let g:gruvbox_material_colors_override = {}
 endfunction
+let s:colorscheme_setups['gruvbox-material'] = function('s:gruvbox_material')
 
-function vimrc#colorscheme#edgePre()
+function s:edge() dict
   set background=dark
-  call s:set_lightline_theme('edge')
+  call s:apply_lightline('edge')
 
   let g:edge_style = s:choice(['default', 'aura', 'neon'])
   let g:edge_dim_foreground = 0
@@ -78,10 +93,11 @@ function vimrc#colorscheme#edgePre()
   let g:edge_better_performance = 1
   let g:edge_colors_override = {}
 endfunction
+let s:colorscheme_setups['edge'] = function('s:edge')
 
-function vimrc#colorscheme#everforestPre()
+function s:everforest() dict
   execute printf('set bg=%s', s:choice(['dark', 'light']))
-  call s:set_lightline_theme('everforest')
+  call s:apply_lightline('everforest')
 
   let g:everforest_background = s:choice(['hard', 'medium', 'soft'])
   let g:everforest_enable_italic = 0
@@ -101,10 +117,11 @@ function vimrc#colorscheme#everforestPre()
   let g:everforest_better_performance = 1
   let g:everforest_colors_override = {}
 endfunction
+let s:colorscheme_setups['everforest'] = function('s:everforest')
 
-function vimrc#colorscheme#sonokaiPre()
+function s:sonokai() dict
   set background=dark
-  call s:set_lightline_theme('sonokai')
+  call s:apply_lightline('sonokai')
 
   let g:sonokai_style = s:choice(['default', 'atlantis', 'andromeda', 'shusia', 'maia', 'espresso'])
   let g:sonokai_disable_italic_comment = 0
@@ -123,3 +140,4 @@ function vimrc#colorscheme#sonokaiPre()
   let g:sonokai_better_performance = 1
   let g:sonokai_colors_override = {}
 endfunction
+let s:colorscheme_setups['sonokai'] = function('s:sonokai')
