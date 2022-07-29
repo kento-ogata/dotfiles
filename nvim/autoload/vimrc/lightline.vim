@@ -39,6 +39,7 @@ function vimrc#lightline#setup()
         \ 'left': '',
         \ 'right': '',
         \ }
+  call lightline#init()
 endfunction
 
 function vimrc#lightline#gitreponame()
