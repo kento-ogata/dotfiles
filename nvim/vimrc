@@ -1,3 +1,0 @@
-" source init.vim
-const s:here = fnamemodify(expand('<sfile>'), ':h')
-execute printf('source %s', s:here . '/init.vim')
